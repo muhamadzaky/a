@@ -6,7 +6,8 @@
       "@utils/*": ["src/utils/*"],
       "@contexts/*": ["src/contexts/*"],
       "@pages/*": ["pages/*"],
-      "@styles/*": ["styles/*"]
+      "@styles/*": ["styles/*"],
+      "@assets/*": ["public/assets/*"]
     }
   }
 }
