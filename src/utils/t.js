@@ -29,7 +29,11 @@ export const t = {
       otherApp: 'Other App'
     },
     follow: 'Follow',
-    seeAll: 'See All'
+    seeAll: 'See All',
+    search: 'Search',
+    link: 'Link',
+    stack: 'Stack',
+    whatIdo: 'What I Do'
   },
   ja: {
     banner: {
@@ -61,7 +65,11 @@ export const t = {
       otherApp: '他のアプリ'
     },
     follow: 'フォロー',
-    seeAll: 'すべてを見る'
+    seeAll: 'すべてを見る',
+    search: '探索',
+    link: 'リンク',
+    stack: 'スタック',
+    whatIdo: '私がやること'
   },
   id: {
     banner: {
@@ -93,6 +101,10 @@ export const t = {
       otherApp: 'Aplikasi Lain'
     },
     follow: 'Ikuti',
-    seeAll: 'Lihat Semua'
+    seeAll: 'Lihat Semua',
+    search: 'Cari',
+    link: 'Tautan',
+    stack: 'Teknologi',
+    whatIdo: 'Apa yang saya lakukan'
   }
 };

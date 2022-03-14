@@ -54,6 +54,7 @@ li.nav-item {
 
 .container {
   margin: px2rem(50) auto;
+  max-width: 65rem;;
 }
 
 h1.title {
@@ -104,6 +105,10 @@ h1.title {
 
 .about {
   text-align: center;
+}
+
+.container.educations {
+  margin: 0 auto;
 }
 
 .education-card {

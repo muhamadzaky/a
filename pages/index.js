@@ -8,9 +8,7 @@ const Index = (props) => {
   const router = useRouter();
   const { locale } = router;
   const { about, banner, menu, meta, seeAll } = t[locale];
-  const { educations, skills, experiences, projects, otherApp, sns } = props;
-
-  console.log(props);
+  const { educations, skills, experiences, projects } = props;
 
   return (
     <>
@@ -61,6 +59,9 @@ const Index = (props) => {
           <div className="row">
             {skills
               ?.filter((x) => x.show === true)
+              .sort((a, b) => {
+                return a.type < b.type;
+              })
               .map((item) => (
                 <div
                   className="col-sm-12 col-md-4 col-lg-4 d-flex justify-content-center align-items-center my-3"
@@ -94,7 +95,6 @@ const Index = (props) => {
                     justifyContent: 'center',
                     alignItems: 'center'
                   }}
-                  // onClick={() => window.open(item?.link, '_blank')}
                   onClick={() => router.push(`/work/${item?.id}`)}>
                   <img
                     src={`/assets/images/company/${item?.file}`}

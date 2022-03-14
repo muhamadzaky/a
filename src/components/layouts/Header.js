@@ -1,4 +1,5 @@
 import { menuList } from '@utils/constant';
+import Helper from '@utils/Helper';
 import { t } from '@utils/t';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -7,15 +8,20 @@ import { Collapse, Nav, Navbar, NavbarBrand, NavbarText, NavbarToggler, NavItem 
 
 const Header = () => {
   const router = useRouter();
-  const { locale } = router;
+  const { locale, pathname } = router;
   const { menu } = t[locale];
 
   const [toggle, setToggle] = useState(false);
 
   const handleToggle = () => setToggle(!toggle);
 
-  const onClickMenu = () => {
-    console.log('clicked');
+  const onClickMenu = async (menu) => {
+    if (pathname === '/') {
+      Helper.scrollTo(menu?.name, menu?.offset);
+    } else {
+      await router.push('/');
+      Helper.scrollTo(menu?.name, menu?.offset);
+    }
   };
 
   return (

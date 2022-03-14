@@ -1,30 +1,68 @@
 import PrivateLayout from '@components/layouts/PrivateLayouts';
-import { API } from '@utils/constant';
+import Helper from '@utils/Helper';
+import { find } from 'lodash';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { Container } from 'reactstrap';
+import { Col, Container, Row } from 'reactstrap';
 
-const WorkDetail = () => {
+const WorkDetail = (props) => {
+  const { experiences } = props;
   const router = useRouter();
   const { id } = router.query;
 
   const [data, setData] = useState();
 
   useEffect(() => {
-    const res = find(API.experience, { id: Number(id) });
+    if (experiences) {
+      const res = find(experiences, { id: Number(id) });
 
-    setData(res);
-  }, []);
+      setData(res);
+    }
+  }, [experiences]);
 
   console.log(id, data);
 
   return (
     <PrivateLayout>
       <Container>
-        <h1>Hello</h1>
+        <div className="d-flex">
+          <img src={`/assets/images/company/${data?.file}`} alt="" width={52} className="me-3" />
+          <h1>{data?.name}</h1>
+        </div>
+
+        <hr />
+
+        <Row>
+          <Col xs={12} md={6} lg={6}>
+            <div className="d-flex flex-column">
+              {data?.position.map((item) => (
+                <span className="fw-bold" key={item}>
+                  &gt; {item}
+                </span>
+              ))}
+            </div>
+          </Col>
+          <Col xs={12} md={6} lg={6} className="mt-3">
+            <span>{`${data?.start} - ${data?.end} (${Helper.countDateDiff(
+              data?.start,
+              data?.end
+            )})`}</span>
+          </Col>
+        </Row>
       </Container>
     </PrivateLayout>
   );
 };
 
 export default WorkDetail;
+
+export async function getServerSideProps() {
+  const expRes = await fetch(`${process.env.API_URL}experiences`);
+  const experiences = await expRes.json();
+
+  return {
+    props: {
+      experiences
+    }
+  };
+}
