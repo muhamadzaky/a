@@ -54,13 +54,13 @@ const ProjectPage = (props) => {
 
         <hr />
 
-        <div className="row">
+        <Row>
           {dataProject().map((item) => (
-            <div className="col-sm-12 col-md-4 col-lg-4" key={item?.id}>
+            <Col xs={12} sm={12} md={4} lg={4} key={item?.id} style={{ cursor: 'pointer' }}>
               <ProjectCard data={item} onClick={() => router.push(`/project/${item?.id}`)} />
-            </div>
+            </Col>
           ))}
-        </div>
+        </Row>
       </Container>
     </PrivateLayout>
   );
