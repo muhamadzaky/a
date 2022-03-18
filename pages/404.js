@@ -8,8 +8,8 @@ const NotFoundPage = () => {
   return (
     <PrivateLayout hasNavbar={false} hasFooter={false}>
       <Div100vh className="d-flex justify-content-center align-items-center m-auto">
-        <Card>
-          <CardBody className="d-flex flex-column justify-content-center align-items-center p-5 shadow">
+        <Card className="mx-3">
+          <CardBody className="d-flex flex-column justify-content-center align-items-center p-5 shadow text-center">
             <span className="fs-1 fw-bold">404</span>
             <span>Sorry the page you&apos;re looking for is not found.</span>
             <Button

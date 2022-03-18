@@ -2,7 +2,7 @@ import { EducationCard, ProjectCard } from '@components/index';
 import PrivateLayout from '@components/layouts/PrivateLayouts';
 import { t } from '@utils/t';
 import { useRouter } from 'next/router';
-import { Button, Container } from 'reactstrap';
+import { Button, Col, Container, Row } from 'reactstrap';
 
 const Index = (props) => {
   const router = useRouter();
@@ -32,22 +32,22 @@ const Index = (props) => {
           </div>
         </div>
 
-        <Container className="about">
+        <Container className="about my-5">
           <div dangerouslySetInnerHTML={{ __html: about }}></div>
         </Container>
 
         <Container className="educations row">
-          <div className="col-sm-12 col-md-6 col-lg-6 p-0">
+          <Col xs={12} sm={12} md={6} lg={6} className="p-0">
             <h1 className="title">
               {menu?.educations}
               <hr />
             </h1>
-          </div>
-          <div className="col-sm-12 col-md-6 col-lg-6 p-0">
+          </Col>
+          <Col xs={12} sm={12} md={6} lg={6} className="p-0">
             {educations?.map((item) => (
               <EducationCard key={item?.id} data={item} />
             ))}
-          </div>
+          </Col>
         </Container>
 
         <Container className="skills">
@@ -56,15 +56,19 @@ const Index = (props) => {
             {menu?.skills}
           </h1>
 
-          <div className="row">
+          <Row className="justify-content-center row-cols-3 g-4">
             {skills
               ?.filter((x) => x.show === true)
               .sort((a, b) => {
                 return a.type < b.type;
               })
               .map((item) => (
-                <div
-                  className="col-sm-12 col-md-4 col-lg-4 d-flex justify-content-center align-items-center my-3"
+                <Col
+                  xs={12}
+                  sm={12}
+                  md={4}
+                  lg={4}
+                  className="frame d-flex justify-content-center align-items-center mx-3"
                   key={item?.id}
                   onClick={() => (item?.link ? window.open(item?.link, '_blank') : false)}
                   style={{ cursor: 'pointer' }}>
@@ -74,9 +78,9 @@ const Index = (props) => {
                     width={100}
                     style={{ height: 'fit-content' }}
                   />
-                </div>
+                </Col>
               ))}
-          </div>
+          </Row>
         </Container>
 
         <Container className="experiences">
@@ -85,26 +89,27 @@ const Index = (props) => {
             {menu?.experiences}
           </h1>
 
-          <div className="d-flex justify-content-center row">
+          <Row className="justify-content-center row-cols-3 g-4">
             {experiences
               ?.filter((x) => x.show === true)
               .map((item) => (
-                <div
-                  className="col-sm-12 col-md-4 col-lg-4 my-3 d-flex justify-content-center align-items-center"
+                <Col
+                  xs={12}
+                  sm={12}
+                  md={4}
+                  lg={4}
+                  className="frame d-flex justify-content-center align-items-center mx-3"
                   key={item?.id}
                   onClick={() => router.push(`/work/${item?.id}`)}
                   style={{ cursor: 'pointer' }}>
                   <img
                     src={`/assets/images/company/${item?.file}`}
                     alt={item?.name}
-                    style={{
-                      width: 100,
-                      height: 'auto'
-                    }}
+                    className="w-100"
                   />
-                </div>
+                </Col>
               ))}
-          </div>
+          </Row>
         </Container>
 
         <Container className="projects">
@@ -113,7 +118,7 @@ const Index = (props) => {
             <hr />
           </h1>
 
-          <div className="row">
+          <Row>
             <a href="/project" className="text-end">
               {seeAll}
             </a>
@@ -123,11 +128,11 @@ const Index = (props) => {
               })
               .slice(0, 6)
               .map((item) => (
-                <div className="col-sm-12 col-md-4 col-lg-4" key={item?.id}>
+                <Col xs={12} sm={12} md={4} lg={4} key={item?.id}>
                   <ProjectCard data={item} onClick={() => router.push(`/project/${item?.id}`)} />
-                </div>
+                </Col>
               ))}
-          </div>
+          </Row>
         </Container>
       </PrivateLayout>
     </>

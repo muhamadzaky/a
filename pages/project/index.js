@@ -4,7 +4,7 @@ import { t } from '@utils/t';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
-import { Container, Input, InputGroup, InputGroupText } from 'reactstrap';
+import { Col, Container, Input, InputGroup, InputGroupText, Row } from 'reactstrap';
 
 const ProjectPage = (props) => {
   const router = useRouter();
@@ -33,16 +33,24 @@ const ProjectPage = (props) => {
   return (
     <PrivateLayout title="Project">
       <Container className="projects">
-        <div className="d-flex justify-content-between">
-          <h1>{menu?.projects}</h1>
+        <Row className="justify-content-between align-items-center">
+          <Col xs={12} sm={12} md={9} lg={9}>
+            <h1>{menu?.projects}</h1>
+          </Col>
 
-          <InputGroup className="w-25">
-            <Input placeholder={search} value={query} onChange={(e) => setQuery(e.target.value)} />
-            <InputGroupText>
-              <AiOutlineSearch />
-            </InputGroupText>
-          </InputGroup>
-        </div>
+          <Col xs={12} sm={12} md={3} lg={3}>
+            <InputGroup className="mt-2">
+              <Input
+                placeholder={search}
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
+              <InputGroupText>
+                <AiOutlineSearch />
+              </InputGroupText>
+            </InputGroup>
+          </Col>
+        </Row>
 
         <hr />
 
