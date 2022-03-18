@@ -28,4 +28,8 @@ export default class Helper {
       ? name.split(/\s/).reduce((response, word) => (response += word.slice(0, 1)), '')
       : '';
   }
+
+  static truncateByLength(text, length = 50) {
+    return text.length > length ? `${text.substring(0, length)}...` : text;
+  }
 }

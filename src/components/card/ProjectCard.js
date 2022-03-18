@@ -20,8 +20,11 @@ const ProjectCard = ({ data, onClick }) => {
 
           <div className="d-flex flex-column ms-2">
             <span className="fw-bold">{data?.name}</span>
-            <span>{data?.company}</span>
           </div>
+        </div>
+
+        <div className="mt-2">
+          <span>{Helper.truncateByLength(data?.company, 28)}</span>
         </div>
       </CardBody>
     </Card>
