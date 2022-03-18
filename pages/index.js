@@ -1,6 +1,7 @@
 import { EducationCard, ProjectCard } from '@components/index';
 import PrivateLayout from '@components/layouts/PrivateLayouts';
 import { t } from '@utils/t';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Button, Col, Container, Row } from 'reactstrap';
 
@@ -119,9 +120,9 @@ const Index = (props) => {
           </h1>
 
           <Row>
-            <a href="/project" className="text-end">
-              {seeAll}
-            </a>
+            <div className="text-end">
+              <Link href="/project">{seeAll}</Link>
+            </div>
             {projects
               ?.sort((a, b) => {
                 return b.id - a.id;
