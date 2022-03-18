@@ -48,11 +48,13 @@ const DetailProject = (props) => {
             </ul>
 
             <span>{`${stack}:`}</span>
-            <div className="d-flex mt-2">
+            <Row className="mt-2">
               {data?.tech.map((item, key) => (
-                <Tag item={item} key={key} />
+                <Col key={key}>
+                  <Tag item={item} />
+                </Col>
               ))}
-            </div>
+            </Row>
           </Col>
 
           <Col sm={12} md={2} lg={2} className="pt-4">
