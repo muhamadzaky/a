@@ -51,7 +51,7 @@ const DetailProject = (props) => {
               <span>{`${stack}:`}</span>
               <Row className="row-cols-3 g-2">
                 {data?.tech.map((item, key) => (
-                  <Col key={key}>
+                  <Col key={key} className="w-auto">
                     <Tag item={item} />
                   </Col>
                 ))}
