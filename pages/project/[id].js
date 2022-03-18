@@ -4,7 +4,7 @@ import { t } from '@utils/t';
 import { find } from 'lodash';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { Button, Container } from 'reactstrap';
+import { Button, Col, Container, Row } from 'reactstrap';
 
 const DetailProject = (props) => {
   const { projects } = props;
@@ -33,8 +33,8 @@ const DetailProject = (props) => {
 
         <hr />
 
-        <div className="d-flex">
-          <div className="col-sm-12 col-md-10 col-xl-10">
+        <Row>
+          <Col sm={12} md={10} lg={10}>
             <span className="fw-bold">&gt; {data?.jobdesk}</span>
             <br />
             <br />
@@ -53,9 +53,9 @@ const DetailProject = (props) => {
                 <Tag item={item} key={key} />
               ))}
             </div>
-          </div>
+          </Col>
 
-          <div className="col-sm-12 col-md-2 col-xl-2 pt-4">
+          <Col sm={12} md={2} lg={2} className="pt-4">
             {data?.link && (
               <Button
                 color="primary rounded-pill"
@@ -64,8 +64,8 @@ const DetailProject = (props) => {
                 {link}
               </Button>
             )}
-          </div>
-        </div>
+          </Col>
+        </Row>
       </Container>
     </PrivateLayout>
   );
