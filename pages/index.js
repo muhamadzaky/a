@@ -23,10 +23,10 @@ const Index = (props) => {
           <span>{banner?.jobDesk}</span>
 
           <div className="mt-2">
-            <Button color="primary" className="rounded-pill me-1">
+            <Button color="primary" className="rounded-pill me-1 px-3">
               {banner?.mailMe}
             </Button>
-            <Button color="success" className="rounded-pill ms-1" outline>
+            <Button color="success" className="rounded-pill ms-1 px-3" outline>
               {banner?.downloadCV}
             </Button>
           </div>
@@ -65,7 +65,9 @@ const Index = (props) => {
               .map((item) => (
                 <div
                   className="col-sm-12 col-md-4 col-lg-4 d-flex justify-content-center align-items-center my-3"
-                  key={item?.id}>
+                  key={item?.id}
+                  onClick={() => (item?.link ? window.open(item?.link, '_blank') : false)}
+                  style={{ cursor: 'pointer' }}>
                   <img
                     src={item?.logo}
                     alt={item?.title}
@@ -88,14 +90,10 @@ const Index = (props) => {
               ?.filter((x) => x.show === true)
               .map((item) => (
                 <div
-                  className="col-sm-12 col-md-4 col-lg-4 my-3"
+                  className="col-sm-12 col-md-4 col-lg-4 my-3 d-flex justify-content-center align-items-center"
                   key={item?.id}
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                  }}
-                  onClick={() => router.push(`/work/${item?.id}`)}>
+                  onClick={() => router.push(`/work/${item?.id}`)}
+                  style={{ cursor: 'pointer' }}>
                   <img
                     src={`/assets/images/company/${item?.file}`}
                     alt={item?.name}
@@ -139,23 +137,18 @@ const Index = (props) => {
 export default Index;
 
 export async function getServerSideProps() {
-  const [educationRes, skillsRes, experiencesRes, projectsRes, otherAppRes, snsRes] =
-    await Promise.all([
-      fetch(`${process.env.API_URL}educations`),
-      fetch(`${process.env.API_URL}skills`),
-      fetch(`${process.env.API_URL}experiences`),
-      fetch(`${process.env.API_URL}projects`),
-      fetch(`${process.env.API_URL}other-apps`),
-      fetch(`${process.env.API_URL}sns`)
-    ]);
+  const [educationRes, skillsRes, experiencesRes, projectsRes] = await Promise.all([
+    fetch(`${process.env.API_URL}educations`),
+    fetch(`${process.env.API_URL}skills`),
+    fetch(`${process.env.API_URL}experiences`),
+    fetch(`${process.env.API_URL}projects`)
+  ]);
 
-  const [educations, skills, experiences, projects, otherApp, sns] = await Promise.all([
+  const [educations, skills, experiences, projects] = await Promise.all([
     educationRes.json(),
     skillsRes.json(),
     experiencesRes.json(),
-    projectsRes.json(),
-    otherAppRes.json(),
-    snsRes.json()
+    projectsRes.json()
   ]);
 
   return {
@@ -163,9 +156,7 @@ export async function getServerSideProps() {
       educations,
       skills,
       experiences,
-      projects,
-      otherApp,
-      sns
+      projects
     }
   };
 }

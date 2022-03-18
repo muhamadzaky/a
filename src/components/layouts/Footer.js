@@ -1,4 +1,5 @@
-import { API, langList } from '@utils/constant';
+import { api } from '@utils/API';
+import { langList } from '@utils/constant';
 import { t } from '@utils/t';
 import dayjs from 'dayjs';
 import { find } from 'lodash';
@@ -17,6 +18,7 @@ const Footer = () => {
   const router = useRouter();
   const { pathname, locale } = router;
 
+  const [sns, setSNS] = useState([]);
   const [currentLang, setCurrentLang] = useState(find(langList, { value: locale }));
 
   const { lang, follow } = t[currentLang.value];
@@ -67,6 +69,12 @@ const Footer = () => {
     }
   };
 
+  const fetchSNS = async () => {
+    const res = await api('sns');
+
+    setSNS(res.data);
+  };
+
   useEffect(() => {
     if (locale) {
       handleChangeLocale({ value: locale });
@@ -75,10 +83,14 @@ const Footer = () => {
     }
   }, [locale]);
 
+  useEffect(() => {
+    fetchSNS();
+  }, []);
+
   return (
     <footer className="footer contacts shadow mt-5">
       <div className="sns-wrapper my-2">
-        <span>{follow}:</span> {API?.sns.map((item) => renderSNSIcon(item))}
+        <span>{follow}:</span> {sns?.map((item) => renderSNSIcon(item))}
       </div>
       <hr />
       <div className="d-flex justify-content-between align-items-center">

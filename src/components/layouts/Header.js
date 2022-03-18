@@ -20,7 +20,9 @@ const Header = () => {
       Helper.scrollTo(menu?.name, menu?.offset);
     } else {
       await router.push('/');
-      Helper.scrollTo(menu?.name, menu?.offset);
+      setTimeout(() => {
+        Helper.scrollTo(menu?.name, menu?.offset);
+      }, 500);
     }
   };
 

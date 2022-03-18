@@ -5,7 +5,13 @@ import { useRouter } from 'next/router';
 import Footer from './Footer';
 import Header from './Header';
 
-const PrivateLayout = ({ children, hasNavbar = true, title = 'Muhamad Zaky', isMobile }) => {
+const PrivateLayout = ({
+  children,
+  hasNavbar = true,
+  hasFooter = true,
+  title = 'Muhamad Zaky',
+  isMobile
+}) => {
   const router = useRouter();
   const { meta } = t[router.locale];
 
@@ -43,7 +49,7 @@ const PrivateLayout = ({ children, hasNavbar = true, title = 'Muhamad Zaky', isM
         {children}
       </main>
 
-      <Footer isMobile={isMobile} />
+      {hasFooter && <Footer isMobile={isMobile} />}
     </>
   );
 };
