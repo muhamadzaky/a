@@ -47,14 +47,16 @@ const DetailProject = (props) => {
               ))}
             </ul>
 
-            <span>{`${stack}:`}</span>
-            <Row className="mt-2">
-              {data?.tech.map((item, key) => (
-                <Col key={key}>
-                  <Tag item={item} />
-                </Col>
-              ))}
-            </Row>
+            <Col xs={12} sm={12} md={6} lg={6}>
+              <span>{`${stack}:`}</span>
+              <Row className="row-cols-3 g-2">
+                {data?.tech.map((item, key) => (
+                  <Col key={key}>
+                    <Tag item={item} />
+                  </Col>
+                ))}
+              </Row>
+            </Col>
           </Col>
 
           <Col sm={12} md={2} lg={2} className="pt-4">
