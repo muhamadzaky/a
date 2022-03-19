@@ -1,9 +1,19 @@
 import Helper from '@utils/Helper';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import { Card, CardBody, CardImg } from 'reactstrap';
 
 const ProjectCard = ({ data, onClick }) => {
+  const [maxWidth, setMaxWidth] = useState(0);
+
+  useEffect(() => {
+    const elm = document.getElementById(`card-project__${data?.id}`);
+
+    setMaxWidth(elm.offsetWidth - 30);
+  }, []);
+
   return (
-    <Card className="my-2 card-project" onClick={onClick}>
+    <Card id={`card-project__${data?.id}`} className="my-2 card-project" onClick={onClick}>
       <CardBody>
         <div className="d-flex">
           <div className="image-wrapper" style={data?.file ? {} : { background: '#f7f7f7' }}>
@@ -24,7 +34,9 @@ const ProjectCard = ({ data, onClick }) => {
         </div>
 
         <div className="mt-2">
-          <span>{Helper.truncateByLength(data?.company, 28)}</span>
+          <span className="d-inline-block text-truncate" style={{ maxWidth }}>
+            {data?.company}
+          </span>
         </div>
       </CardBody>
     </Card>
