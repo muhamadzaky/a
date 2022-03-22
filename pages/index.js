@@ -11,6 +11,18 @@ const Index = (props) => {
   const { about, banner, menu, meta, seeAll } = t[locale];
   const { educations, skills, experiences, projects } = props;
 
+  const handleClickMailMe = () => {
+    window.open(
+      "mailto:muhamadzaky1023@gmail.com?cc=zakysteinfeld@outlook.com&amp;subject=Hi! I'm interested with you.&amp;body="
+    );
+  };
+
+  const handleClickDownloadCV = () => {
+    window.open(
+      'https://drive.google.com/drive/folders/1IQ0Vc28mkXClsFYPOrKhhfCP6rPn7o2-?usp=sharing'
+    );
+  };
+
   return (
     <>
       <PrivateLayout title={meta?.name}>
@@ -24,10 +36,14 @@ const Index = (props) => {
           <span>{banner?.jobDesk}</span>
 
           <div className="mt-2">
-            <Button color="primary" className="rounded-pill me-1 px-3">
+            <Button color="primary" className="rounded-pill me-1 px-3" onClick={handleClickMailMe}>
               {banner?.mailMe}
             </Button>
-            <Button color="success" className="rounded-pill ms-1 px-3" outline>
+            <Button
+              color="success"
+              className="rounded-pill ms-1 px-3"
+              outline
+              onClick={handleClickDownloadCV}>
               {banner?.downloadCV}
             </Button>
           </div>
