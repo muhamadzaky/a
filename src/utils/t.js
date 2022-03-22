@@ -46,7 +46,7 @@ export const t = {
     about:
       '<span>こんにちは！私の名前は<b>Muhamad Zaky</b>です。現在<b>ReactJS</b>を使用している<b>フロントエンド デベロッパー</b>です。</ span>',
     meta: {
-      name: 'ハンマド・ザキー',
+      name: 'ムハンマド・ザキー',
       content: 'これがムハンマド・ザキーのポートフォリオです！ -ご覧になってお電話ください！'
     },
     lang: {
