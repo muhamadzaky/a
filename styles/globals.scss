@@ -81,6 +81,16 @@ h1.title {
 
 // home
 
+.landing {
+  .educations, .skills, .experiences {
+    margin: 10rem auto;
+  }
+
+  .projects {
+    margin: 10rem auto 0;
+  }
+}
+
 .banner-wrapper {
   height: 93vh;
   
@@ -105,10 +115,6 @@ h1.title {
 
 .about {
   text-align: center;
-}
-
-.container.educations {
-  margin: 0 auto;
 }
 
 .education-card {

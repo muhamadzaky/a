@@ -25,7 +25,7 @@ const Index = (props) => {
 
   return (
     <>
-      <PrivateLayout title={meta?.name}>
+      <PrivateLayout title={meta?.name} className="landing">
         <div className="banner banner-wrapper d-flex flex-column align-items-center justify-content-center">
           <img className="banner-image" src="/assets/images/banner-1.png" alt="banner" />
           <div>
@@ -50,7 +50,7 @@ const Index = (props) => {
         </div>
 
         <Container className="about my-5">
-          <div dangerouslySetInnerHTML={{ __html: about }}></div>
+          <span dangerouslySetInnerHTML={{ __html: about }}></span>
         </Container>
 
         <Container className="educations row">

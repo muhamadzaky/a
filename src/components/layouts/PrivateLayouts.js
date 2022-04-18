@@ -10,7 +10,8 @@ const PrivateLayout = ({
   hasNavbar = true,
   hasFooter = true,
   title = 'Muhamad Zaky',
-  isMobile
+  isMobile,
+  className
 }) => {
   const router = useRouter();
   const { meta } = t[router.locale];
@@ -44,7 +45,7 @@ const PrivateLayout = ({
         <meta name="description" content={metaDescription} />
       </Head>
 
-      <main>
+      <main className={className ? className : ''}>
         {hasNavbar && <Header isMobile={isMobile} />}
         {children}
       </main>
