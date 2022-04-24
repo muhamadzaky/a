@@ -30,7 +30,7 @@ const PrivateLayout = ({
         <meta name={metaTitle} content={metaDescription} />
 
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:url" content="https://apps-muhamadzaky.vercel.app/" />
+        <meta name="twitter:url" content="https://m-zaky.site/" />
         <meta name="twitter:title" content={metaTitle} />
         <meta name="twitter:description" content={metaDescription} />
         <meta name="twitter:creator" content="@zakysteinfeld" />
@@ -39,7 +39,8 @@ const PrivateLayout = ({
         <meta property="og:title" content={metaTitle} />
         <meta property="og:description" content={metaDescription} />
         <meta property="og:site_name" content="Muhamad Zaky" />
-        <meta property="og:url" content="https://apps-muhamadzaky.vercel.app/" />
+        <meta property="og:url" content="https://m-zaky.site/" />
+        <meta property="og:image" content="/assets/images/logo.png" />
 
         <meta name="application-name" content="Muhamad Zaky" />
         <meta name="description" content={metaDescription} />
