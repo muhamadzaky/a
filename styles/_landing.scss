@@ -1,0 +1,161 @@
+.banner {
+  margin: px2rem(100) 0;
+  
+  &__image {
+    width: 100%;
+  }
+
+  &__text {
+    margin-top: px2rem(16);
+
+    span:nth-of-type(3) {
+      font-size: px2rem(24);
+    }
+  }
+}
+
+.educations {
+  .cards-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.skills {
+  margin: px2rem(250) auto;
+  
+  .image-skills {
+    width: px2rem(64);
+    height: px2rem(64);
+    object-fit: contain;
+    margin: 0 px2rem(16);
+  }
+}
+
+.experiences {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: px2rem(250) auto;
+  position: relative;
+
+  h1 {
+    color: #fff;
+  }
+
+  .bg-decor {
+    position: absolute;
+    background: #00c691;
+    width: 100vw;
+    height: px2rem(500);
+    z-index: -1;
+    top: px2rem(-35);
+  }
+
+  &__cards-wrapper {
+    max-width: 1200px;
+    margin: px2rem(24) auto 0;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, .5fr);
+  }
+}
+
+.projects {
+  margin: px2rem(250) auto;
+
+  &__cards-wrapper {
+    max-width: 1200px;
+    margin: px2rem(24) auto 0;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(1, .5fr);
+  }
+}
+
+@media (min-width: 480px) {
+  .banner {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+
+    &__image {
+      max-width: px2rem(400);
+    }
+  }
+
+  .educations {
+    .cards-wrapper {
+      display: flex;
+      flex-direction: row;
+
+      .card-education:not(:first-child) {
+        margin-left: px2rem(12);
+      }
+    }
+
+    .line {
+      width: 50%;
+      height: 5px;
+      background: $primary;
+      border-radius: 10px;
+      position: absolute;
+      top: 55%;
+      left: 23%;
+      z-index: -1;
+    }
+
+    .line2 {
+      width: 48%;
+      height: 5px;
+      background: $primary;
+      border-radius: 10px;
+      position: absolute;
+      top: 60%;
+      left: 23%;
+      z-index: -1;
+    }
+
+    .line3 {
+      width: 46%;
+      height: 5px;
+      background: $primary;
+      border-radius: 10px;
+      position: absolute;
+      top: 65%;
+      left: 23%;
+      z-index: -1;
+    }
+  }
+
+  .skills {
+    .image-skills {
+      width: px2rem(100);
+      height: px2rem(100);
+      object-fit: contain;
+      margin: 0 px2rem(48);
+    }
+  }
+
+  .experiences {
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    .bg-decor {
+      top: px2rem(-90);
+      height: px2rem(400);
+    }
+
+    &__cards-wrapper {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .projects {
+    &__cards-wrapper {
+      grid-template-columns: repeat(3, .5fr);
+    }
+  }
+}
