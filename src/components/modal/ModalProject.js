@@ -5,7 +5,7 @@ import useResponsive from '@utils/useResponsive';
 import { useRouter } from 'next/router';
 import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap';
 
-const ModalProject = ({ isOpen, toggle, data, loading }) => {
+const ModalProject = ({ isOpen, toggle, data }) => {
   const router = useRouter();
   const { isMobile } = useResponsive();
   const { locale } = router;
