@@ -11,6 +11,7 @@ import {
   AiFillGithub,
   AiFillHeart,
   AiFillInstagram,
+  AiFillLinkedin,
   AiFillTwitterSquare
 } from 'react-icons/ai';
 import Select from 'react-select';
@@ -66,6 +67,8 @@ const Footer = () => {
         return <AiFillInstagram size={40} onClick={() => window.open(data?.link, '_blank')} />;
       case 'github':
         return <AiFillGithub size={40} onClick={() => window.open(data?.link, '_blank')} />;
+      case 'linkedin':
+        return <AiFillLinkedin size={40} onClick={() => window.open(data?.link, '_blank')} />;
       default:
         break;
     }
