@@ -3,7 +3,7 @@ export const t = {
     banner: {
       hello: 'Hi!',
       imZaky: "I'm Zaky.",
-      jobDesk: 'Frontend Developer',
+      jobDesk: 'Frontend Engineer',
       mailMe: 'Mail Me!',
       downloadCV: 'Download CV'
     },
@@ -32,17 +32,24 @@ export const t = {
     search: 'Search',
     link: 'Link',
     stack: 'Stack',
-    whatIdo: 'What I Do'
+    whatIdo: 'What I Do',
+    date: {
+      days: 'day',
+      week: 'week',
+      month: 'month',
+      year: 'year'
+    },
+    sortedByLastProject: '*sorted by new project'
   },
   ja: {
     banner: {
       hello: 'こんにちは！',
       imZaky: 'ザキです。',
-      jobDesk: 'フロントエンド デベロッパー',
+      jobDesk: 'フロントエンドエンジニア',
       mailMe: 'メールをください！',
       downloadCV: 'CVをダウンロード'
     },
-    about: '<span>ー 3年以上にわたってReactJSWebアプリケーションを構築しています。</ span>',
+    about: '<span>ー 3年以上にわたってReactJS Webアプリを構築しています。</ span>',
     meta: {
       name: 'ムハンマド・ザキー',
       content: 'これがムハンマド・ザキーのポートフォリオです！ -ご覧になってお電話ください！'
@@ -67,13 +74,20 @@ export const t = {
     search: '探索',
     link: 'リンク',
     stack: 'スタック',
-    whatIdo: '私がやること'
+    whatIdo: '私がやること',
+    date: {
+      days: '日',
+      week: '週間',
+      month: 'ヶ月',
+      year: '年'
+    },
+    sortedByLastProject: '*新しいのプロジェクトでソート'
   },
   id: {
     banner: {
       hello: 'Halo!',
       imZaky: 'Saya Zaky.',
-      jobDesk: 'Frontend Developer',
+      jobDesk: 'Frontend Engineer',
       mailMe: 'Email saya!',
       downloadCV: 'Unduh CV'
     },
@@ -102,6 +116,13 @@ export const t = {
     search: 'Cari',
     link: 'Tautan',
     stack: 'Teknologi',
-    whatIdo: 'Apa yang saya lakukan'
+    whatIdo: 'Apa yang saya lakukan',
+    date: {
+      days: 'hari',
+      week: 'minggu',
+      month: 'bulan',
+      year: 'tahun'
+    },
+    sortedByLastProject: '*diurutkan berdasarkan proyek baru'
   }
 };

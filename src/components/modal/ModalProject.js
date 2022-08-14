@@ -1,15 +1,97 @@
-import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+import Tags from '@components/tag/Tags';
+import Helper from '@utils/Helper';
+import { t } from '@utils/t';
+import useResponsive from '@utils/useResponsive';
+import { useRouter } from 'next/router';
+import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap';
 
-const ModalProject = ({ isOpen, toggle }) => {
+const ModalProject = ({ isOpen, toggle, data, loading }) => {
+  const router = useRouter();
+  const { isMobile } = useResponsive();
+  const { locale } = router;
+  const { banner, whatIdo, stack, link } = t[locale];
+
+  const externalCloseButtonClass = {
+    position: 'absolute',
+    top: 25,
+    right: 25
+  };
+
+  const externalCloseButton = (
+    <Button style={externalCloseButtonClass} close onClick={toggle}></Button>
+  );
+
   return (
-    <Modal centered fullscreen scrollable toggle={toggle} isOpen={isOpen}>
-      <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+    <Modal
+      className="modal-project-detail"
+      centered
+      fullscreen={isMobile}
+      scrollable
+      toggle={toggle}
+      isOpen={isOpen}
+      external={externalCloseButton}
+      size="lg">
+      <ModalHeader toggle={toggle}>
+        <div className="d-flex align-items-center">
+          <div className="image-wrapper">
+            {data?.file ? (
+              <img
+                className="company-image"
+                src={`/assets/images/projects/${data?.file}`}
+                alt={data?.name}
+              />
+            ) : (
+              <div className="company-text rounded">{Helper.getInitial(data?.company)}</div>
+            )}
+          </div>
+
+          <span>{data?.name}</span>
+        </div>
+      </ModalHeader>
       <ModalBody>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <span>{data?.description}</span>
+        <div className="my-3">
+          <span>
+            <b>&gt;</b>
+            &nbsp;{banner?.jobDesk}
+          </span>
+        </div>
+
+        <div>
+          <span>{`${whatIdo}:`}</span>
+          <ul>
+            {data?.task.map((item) => (
+              <li key={item} style={{ listStyleType: 'number' }}>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <span>{`${stack}:`}</span>
+          <div className="tags-wrapper">
+            {data?.tech.map((item, key) => (
+              <div key={key} className="w-auto mx-2">
+                <Tags item={item} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="text-end">
+          <span>{Helper.countDateDiff(data?.start, data?.end, true)}</span>
+        </div>
+
+        <div className="mt-3 mb-2">
+          <Button
+            color="primary rounded-pill"
+            block
+            style={{ height: 'fit-content' }}
+            onClick={() => window.open(data?.link, '_blank')}>
+            {link}
+          </Button>
+        </div>
       </ModalBody>
     </Modal>
   );

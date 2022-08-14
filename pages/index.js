@@ -3,6 +3,7 @@ import CardExperiences from '@components/card/CardExperiences';
 import CardProjects from '@components/card/CardProjects';
 import PrivateLayout from '@components/layouts/PrivateLayouts';
 import ModalProject from '@components/modal/ModalProject';
+import Helper from '@utils/Helper';
 import { t } from '@utils/t';
 import useResponsive from '@utils/useResponsive';
 import { useRouter } from 'next/router';
@@ -13,11 +14,13 @@ import { Button, Container, Tooltip } from 'reactstrap';
 const Index = (props) => {
   const router = useRouter();
   const { locale } = router;
-  const { about, banner, menu, meta, seeAll } = t[locale];
+  const { about, banner, menu, meta, seeAll, sortedByLastProject } = t[locale];
   const { isMobile } = useResponsive();
   const { educations, skills, experiences, projects } = props;
 
   const [hasDetailProject, setHasDetailProject] = useState(false);
+  const [detailProjectData, setDetailProjectData] = useState();
+  const [detailProjectLoading, setDetailProjectLoading] = useState(false);
 
   const handleClickMailMe = () => {
     window.open(
@@ -35,8 +38,19 @@ const Index = (props) => {
     router.push('/project');
   };
 
-  console.log(props);
-  console.log('responsive => ', isMobile);
+  const handleClickToggleDetailModal = async (toggle, data) => {
+    setDetailProjectLoading(true);
+
+    if (toggle === 'open') {
+      await setDetailProjectData(data);
+      await setHasDetailProject(true);
+
+      setDetailProjectLoading(false);
+    } else {
+      await setHasDetailProject(false);
+      setDetailProjectData();
+    }
+  };
 
   return (
     <PrivateLayout title={meta?.name}>
@@ -69,7 +83,7 @@ const Index = (props) => {
       </Container>
 
       <Container className="d-flex justify-content-center my-5">
-        <AiOutlineArrowDown />
+        <AiOutlineArrowDown onClick={() => Helper.scrollTo('educations', -100)} />
       </Container>
 
       <Container className="educations position-relative">
@@ -126,7 +140,10 @@ const Index = (props) => {
 
       <Container className="projects">
         <div className="d-flex justify-content-between align-items-center">
-          <h1>{menu?.projects}</h1>
+          <h1>
+            {menu?.projects}
+            <h6>{sortedByLastProject}</h6>
+          </h1>
           <span role="button" onClick={handleClickSeAll}>
             {seeAll}
           </span>
@@ -141,15 +158,17 @@ const Index = (props) => {
               <CardProjects
                 key={item?.id}
                 data={item}
-                onClickDetail={() => setHasDetailProject(true)}
+                onClickDetail={() => handleClickToggleDetailModal('open', item)}
               />
             ))}
         </div>
       </Container>
 
       <ModalProject
+        data={detailProjectData}
+        loading={detailProjectLoading}
         isOpen={hasDetailProject}
-        toggle={() => setHasDetailProject(!hasDetailProject)}
+        toggle={() => handleClickToggleDetailModal('close')}
       />
     </PrivateLayout>
   );

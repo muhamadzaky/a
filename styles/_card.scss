@@ -1,10 +1,6 @@
 .card-education {
   min-height: px2rem(110);
 
-  .card-body {
-    min-width: px2rem(386);
-  }
-
   span:nth-of-type(1) {
     font-size: px2rem(20);
   }
@@ -25,6 +21,7 @@
 .card-project {
   width: 94vw;
   height: px2rem(170);
+  cursor: pointer;
 
   .image-wrapper {
     width: px2rem(135);
@@ -65,23 +62,29 @@
 }
 
 @media (min-width: 420px) {
+  .card-education {
+    .card-body {
+      min-width: px2rem(386);
+    }
+  }
+
   .card-project {
     width: px2rem(380);
     height: px2rem(170);
-  
+
     .image-wrapper {
       width: px2rem(135);
       height: px2rem(135);
       margin-right: px2rem(8);
     }
-  
+
     .company-image {
       width: inherit;
       height: 100%;
       object-fit: contain;
       padding: px2rem(8);
     }
-  
+
     .company-text {
       width: 100%;
       height: 100%;
@@ -94,7 +97,7 @@
       font-size: px2rem(12);
       font-weight: 600;
     }
-  
+
     .info-wrapper {
       span {
         &:nth-of-type(1) {

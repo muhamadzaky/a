@@ -76,7 +76,7 @@ const Header = () => {
         {menuList
           .filter((x) => x.show === true)
           .map((item, index) => (
-            <div className="ms-2" role="button" onClick={() => onClickMenu(item)} key={index}>
+            <div className="ms-4" role="button" onClick={() => onClickMenu(item)} key={index}>
               {menu[item.name]}
             </div>
           ))}
