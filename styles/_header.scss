@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  margin: auto;
+}
+
+.modal-menu {
+  .close-menu {
+    background: transparent;
+    border: none;
+  }
+
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .close-wrapper {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 12px;
+    }
+  }
+
+  .menu-item {
+    font-size: px2rem(32);
+    padding: 4px 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .header {
+    max-width: px2rem(1200);
+  }
+}

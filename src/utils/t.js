@@ -3,12 +3,11 @@ export const t = {
     banner: {
       hello: 'Hi!',
       imZaky: "I'm Zaky.",
-      jobDesk: 'Frontend Developer',
+      jobDesk: 'Frontend Engineer',
       mailMe: 'Mail Me!',
       downloadCV: 'Download CV'
     },
-    about:
-      "<span>Hello! My name is <b>Muhamad Zaky</b>. I'm currently <b>Frontend Developer</b> using <b>ReactJS</b>.</span>",
+    about: '<span>ー Building ReactJS web application for over 3 years.</span>',
     meta: {
       name: 'Muhamad Zaky',
       content: "This is Muhammad Zaky's portfolio! - Please have a look and call!"
@@ -33,18 +32,24 @@ export const t = {
     search: 'Search',
     link: 'Link',
     stack: 'Stack',
-    whatIdo: 'What I Do'
+    whatIdo: 'What I Do',
+    date: {
+      days: 'day',
+      week: 'week',
+      month: 'month',
+      year: 'year'
+    },
+    sortedByLastProject: '*sorted by new project'
   },
   ja: {
     banner: {
       hello: 'こんにちは！',
       imZaky: 'ザキです。',
-      jobDesk: 'フロントエンド デベロッパー',
+      jobDesk: 'フロントエンドエンジニア',
       mailMe: 'メールをください！',
       downloadCV: 'CVをダウンロード'
     },
-    about:
-      '<span>こんにちは！私の名前は<b>Muhamad Zaky</b>です。現在<b>ReactJS</b>を使用している<b>フロントエンド デベロッパー</b>です。</ span>',
+    about: '<span>ー 3年以上にわたってReactJS Webアプリを構築しています。</ span>',
     meta: {
       name: 'ムハンマド・ザキー',
       content: 'これがムハンマド・ザキーのポートフォリオです！ -ご覧になってお電話ください！'
@@ -69,18 +74,24 @@ export const t = {
     search: '探索',
     link: 'リンク',
     stack: 'スタック',
-    whatIdo: '私がやること'
+    whatIdo: '私がやること',
+    date: {
+      days: '日',
+      week: '週間',
+      month: 'ヶ月',
+      year: '年'
+    },
+    sortedByLastProject: '*新しいのプロジェクトでソート'
   },
   id: {
     banner: {
       hello: 'Halo!',
       imZaky: 'Saya Zaky.',
-      jobDesk: 'Frontend Developer',
+      jobDesk: 'Frontend Engineer',
       mailMe: 'Email saya!',
       downloadCV: 'Unduh CV'
     },
-    about:
-      '<span>Halo! Nama saya <b>Muhamad Zaky</b>. Saat ini saya adalah <b>Frontend Developer</b> menggunakan <b>ReactJS</b>.</span>',
+    about: '<span>ー Membangun aplikasi web ReactJS selama lebih dari 3 tahun.</span>',
     meta: {
       name: 'Muhamad Zaky',
       content: 'Ini adalah portofolio Muhamad Zaky! - Silahkan lihat dan hubungi!'
@@ -105,6 +116,13 @@ export const t = {
     search: 'Cari',
     link: 'Tautan',
     stack: 'Teknologi',
-    whatIdo: 'Apa yang saya lakukan'
+    whatIdo: 'Apa yang saya lakukan',
+    date: {
+      days: 'hari',
+      week: 'minggu',
+      month: 'bulan',
+      year: 'tahun'
+    },
+    sortedByLastProject: '*diurutkan berdasarkan proyek baru'
   }
 };

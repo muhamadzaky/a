@@ -1,0 +1,34 @@
+.modal-project-detail {
+  .tags-wrapper {
+    flex-wrap: wrap;
+    display: flex;
+  }
+
+  .image-wrapper {
+    width: px2rem(80);
+    max-width: px2rem(80);
+    height: px2rem(80);
+    margin-right: px2rem(8);
+  }
+
+  .company-image {
+    width: inherit;
+    height: 100%;
+    object-fit: contain;
+    padding: px2rem(8);
+  }
+
+  .company-text {
+    width: inherit;
+    height: 100%;
+    background-color: #fcfcfc;
+    padding: px2rem(8);
+    margin: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: px2rem(4);
+    font-size: px2rem(12);
+    font-weight: 600;
+  }
+}

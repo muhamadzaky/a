@@ -1,5 +1,9 @@
 import dayjs from 'dayjs';
+import _, { set } from 'lodash';
+import { useRouter } from 'next/router';
 import { scroller } from 'react-scroll';
+
+import { t } from './t';
 
 export default class Helper {
   static scrollTo(to, offset) {
@@ -12,14 +16,30 @@ export default class Helper {
     });
   }
 
-  static countDateDiff(start, end) {
-    const year = dayjs(end || new Date()).diff(start, 'years');
+  static countDateDiff(start, end, forceMonth = false) {
+    const router = useRouter();
+    const hl = router.locale;
+    const { date } = t[hl];
+
+    const getStartDate = dayjs(start).startOf('M');
+    const getEndDate = dayjs(end || new Date()).endOf('M');
+
+    const startDate = !forceMonth ? start : getStartDate;
+    const endDate = !forceMonth ? end : getEndDate;
+
+    const year = dayjs(endDate).diff(startDate, 'years');
+    const yLocale = date?.year;
+    const mLocale = date?.month;
 
     if (year > 0) {
-      return `${year} ${year > 1 ? 'years' : 'year'}`;
+      return `${year} ${yLocale}${
+        (year > 1 && hl.toLowerCase() === 'en-us') || hl === '' ? 's' : ''
+      }`;
     } else {
-      const month = dayjs(end || new Date()).diff(start, 'months');
-      return `${month} ${month > 1 ? 'months' : 'month'}`;
+      const month = dayjs(endDate).diff(startDate, 'months');
+      return `${month} ${mLocale}${
+        (month > 1 && hl.toLowerCase() === 'en-us') || hl === '' ? 's' : ''
+      }`;
     }
   }
 

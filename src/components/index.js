@@ -1,5 +1,4 @@
-import EducationCard from './card/EducationCard';
-import ProjectCard from './card/ProjectCard';
+import Divider from './divider/Divider';
 import Tag from './tag/Tags';
 
-export { EducationCard, ProjectCard, Tag };
+export { Tag, Divider };

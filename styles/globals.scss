@@ -1,31 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
-@import "./variables";
-@import "./tags";
-@import "../node_modules/bootstrap/scss/bootstrap";
-
-// function
-@function px2rem($px) {
-  @if unitless($px) {
-    @return 1rem * ($px/16);
-  } @else {
-    @return 1rem * ($px/16px);
-  }
-}
-
-@function rem2px($rem) {
-  @if unitless($rem) {
-    @return 16px * ($rem);
-  } @else {
-    @return 16px * ($rem/1rem);
-  }
-}
+@import './variables';
+@import './tags';
+@import './header';
+@import './footer';
+@import './landing';
+@import './projects';
+@import './card';
+@import './modal';
+@import './divider';
+@import './skeleton';
+@import '../node_modules/bootstrap/scss/bootstrap';
 
 // custom style goes down here
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Poppins', 'Inter', 'Noto Sans JP', 'Ubuntu', sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Poppins', 'Inter', 'Noto Sans JP', 'Ubuntu', sans-serif, -apple-system,
+    BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
 }
 
 a {
@@ -38,166 +31,8 @@ a {
   box-sizing: border-box;
 }
 
-footer {
-  padding: px2rem(20);
-  background-color: #f7f7f7;
-
-  a {
-    color: black;
-    text-decoration: none;
+@media (min-width: 992px) {
+  .container {
+    max-width: px2rem(1200) !important;
   }
-}
-
-li.nav-item {
-  padding: 0 8px;
-}
-
-.container {
-  margin: px2rem(50) auto;
-  max-width: 65rem;;
-}
-
-h1.title {
-  margin-bottom: px2rem(24);
-  text-align: center;
-
-  hr {
-    margin: 0.5rem auto;
-    color: inherit;
-    background-color: $primary;
-    border: 0;
-    opacity: .25;
-    width: 8rem;
-  }
-
-  hr:not([size]) {
-    height: px2rem(5);
-  }
-}
-
-.container.row {
-  margin: 0;
-}
-
-// home
-
-.landing {
-  .educations, .skills, .experiences {
-    margin: 10rem auto;
-  }
-
-  .projects {
-    margin: 10rem auto 0;
-  }
-}
-
-.banner-wrapper {
-  height: 93vh;
-  
-  .banner-image {
-    width: 100%;
-    margin-bottom: 50px;
-    max-width: px2rem(400);
-  }
-
-  span {
-    font-family: 'Ubuntu', 'Noto Sans JP';
-  }
-
-  div {
-    span {
-      font-size: px2rem(32);
-      font-weight: 800;
-      color: $primary;
-    }
-  }
-}
-
-.about {
-  text-align: center;
-}
-
-.education-card {
-  margin: 10px auto;
-
-  .card-body {
-    min-height: px2rem(104);
-
-    span:nth-of-type(1) {
-      font-weight: 700;
-    }
-
-    span:nth-of-type(2), span:nth-of-type(3) {
-      font-weight: 400;
-      font-size: px2rem(14);
-    }
-  }
-}
-
-.skills {
-  .frame {
-    width: px2rem(100);
-    height: px2rem(100);
-  }
-}
-
-.experiences {
-  .frame {
-    width: px2rem(100);
-    height: px2rem(100);
-  }
-}
-
-.projects {
-  .image-wrapper {
-    width: px2rem(100);
-    min-width: px2rem(100);
-    height: px2rem(100);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: px2rem(10);
-  }
-
-  .card-project {
-    min-height: px2rem(150);
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
-  }
-
-  .card-project:hover {
-    box-shadow: 0 .5rem 2rem rgba(0,0,0,.15);
-    transition: linear 1s;
-  }
-}
-
-.sns-wrapper {
-  font-size: px2rem(32);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  span {
-    font-size: px2rem(16);
-  }
-  
-  svg, svg:hover {
-    cursor: pointer;
-    margin: 0 px2rem(8);
-  }
-}
-
-span.confidential {
-  border: 5px solid red;
-  color: red;
-  padding: 6px 12px;
-  transform: rotate(-35deg);
-  position: absolute;
-  font-size: 2rem;
-  font-weight: 600;
-  opacity: 25%;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  top: px2rem(5);
-  right: px2rem(5);
 }

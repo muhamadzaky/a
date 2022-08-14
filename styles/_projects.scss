@@ -1,0 +1,16 @@
+.project-header {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 992px) {
+  .project-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .input-group {
+      max-width: px2rem(500);
+    }
+  }
+}
