@@ -7,7 +7,7 @@ import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap';
 
 const ModalProject = ({ isOpen, toggle, data }) => {
   const router = useRouter();
-  const { isMobile } = useResponsive();
+  const { isDesktop } = useResponsive();
   const { locale } = router;
   const { banner, whatIdo, stack, link } = t[locale];
 
@@ -25,7 +25,7 @@ const ModalProject = ({ isOpen, toggle, data }) => {
     <Modal
       className="modal-project-detail"
       centered
-      fullscreen={isMobile}
+      fullscreen={!isDesktop}
       scrollable
       toggle={toggle}
       isOpen={isOpen}

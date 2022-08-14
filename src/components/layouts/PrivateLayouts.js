@@ -10,7 +10,7 @@ const PrivateLayout = ({
   hasNavbar = true,
   hasFooter = true,
   title = 'Muhamad Zaky',
-  isMobile,
+  isDesktop,
   className
 }) => {
   const router = useRouter();
@@ -47,11 +47,11 @@ const PrivateLayout = ({
       </Head>
 
       <main className={className ? className : ''}>
-        {hasNavbar && <Header isMobile={isMobile} />}
+        {hasNavbar && <Header isDesktop={isDesktop} />}
         {children}
       </main>
 
-      {hasFooter && <Footer isMobile={isMobile} />}
+      {hasFooter && <Footer isDesktop={isDesktop} />}
     </>
   );
 };

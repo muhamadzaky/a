@@ -2,11 +2,11 @@ import useResponsive from '@utils/useResponsive';
 import { Card, CardBody } from 'reactstrap';
 
 const CardEducation = ({ data }) => {
-  const { isMobile } = useResponsive();
+  const { isDesktop } = useResponsive();
 
   return (
     <Card
-      className={`card-education shadow my-${isMobile ? '2' : '3'}`}
+      className={`card-education shadow my-${!isDesktop ? '2' : '3'}`}
       onClick={() => window.open(data?.link)}>
       <CardBody className="d-flex flex-column">
         <span>{data?.name}</span>

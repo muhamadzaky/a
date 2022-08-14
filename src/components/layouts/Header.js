@@ -12,7 +12,7 @@ import { Button, Modal, ModalBody } from 'reactstrap';
 const Header = () => {
   const router = useRouter();
   const { locale, pathname } = router;
-  const { isMobile } = useResponsive();
+  const { isDesktop } = useResponsive();
   const { menu } = t[locale];
 
   const [toggle, setToggle] = useState(false);
@@ -33,7 +33,7 @@ const Header = () => {
   };
 
   const renderMenu = () => {
-    if (isMobile) {
+    if (!isDesktop) {
       return (
         <>
           <Button

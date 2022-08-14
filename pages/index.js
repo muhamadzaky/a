@@ -15,7 +15,7 @@ const Index = (props) => {
   const router = useRouter();
   const { locale } = router;
   const { about, banner, menu, meta, seeAll, sortedByLastProject } = t[locale];
-  const { isMobile } = useResponsive();
+  const { isDesktop } = useResponsive();
   const { educations, skills, experiences, projects } = props;
 
   const [hasDetailProject, setHasDetailProject] = useState(false);
@@ -93,7 +93,7 @@ const Index = (props) => {
             <CardEducation key={item?.id} data={item} />
           ))}
         </div>
-        {!isMobile && (
+        {isDesktop && (
           <>
             <div className="line" />
             <div className="line2" />

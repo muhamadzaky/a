@@ -1,9 +1,20 @@
+import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-const useResponsive = () => {
-  const isMobile = useMediaQuery({ query: '(max-width: 480px)' });
+import { isBrowser } from './isBrowser';
 
-  return { isMobile };
+const useResponsive = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  const isDesktop = useMediaQuery({ query: '(min-width: 992px)' });
+
+  useEffect(() => {
+    if (isBrowser()) setIsClient(true);
+  }, []);
+
+  return {
+    isDesktop: isClient ? isDesktop : false
+  };
 };
 
 export default useResponsive;

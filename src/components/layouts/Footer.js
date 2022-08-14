@@ -18,7 +18,7 @@ import Select from 'react-select';
 const Footer = () => {
   const router = useRouter();
   const { pathname, locale } = router;
-  const { isMobile } = useResponsive();
+  const { isDesktop } = useResponsive();
 
   const [sns, setSNS] = useState([]);
   const [currentLang, setCurrentLang] = useState(find(langList, { value: locale }));
@@ -77,9 +77,11 @@ const Footer = () => {
     setSNS(res.data);
   };
 
-  const copyrightStyle = isMobile
+  const copyrightStyle = !isDesktop
     ? 'd-flex flex-column align-items-center'
     : 'd-flex justify-content-between align-items-center';
+
+  console.log('copyrightStyle', isDesktop, copyrightStyle);
 
   useEffect(() => {
     if (locale) {
@@ -101,7 +103,7 @@ const Footer = () => {
         </div>
         <hr />
         <div className={copyrightStyle}>
-          <span className={`d-flex align-items-center${isMobile ? ' mb-2' : ''}`}>
+          <span className={`d-flex align-items-center${!isDesktop ? ' mb-2' : ''}`}>
             &copy; {dayjs().format('YYYY')} • Made with &nbsp;
             <AiFillHeart style={{ color: '#f397ae' }} />
             &nbsp; by Muhamad Zaky
