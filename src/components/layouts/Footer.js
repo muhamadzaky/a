@@ -81,8 +81,6 @@ const Footer = () => {
     ? 'd-flex flex-column align-items-center'
     : 'd-flex justify-content-between align-items-center';
 
-  console.log('copyrightStyle', isDesktop, copyrightStyle);
-
   useEffect(() => {
     if (locale) {
       handleChangeLocale({ value: locale });
