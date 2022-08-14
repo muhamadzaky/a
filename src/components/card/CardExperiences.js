@@ -5,8 +5,9 @@ const CardEcperiences = ({ data }) => {
     <Card
       className="card-experience shadow rounded"
       onClick={() => window.open(data?.link)}
-      onMouseOver={() => console.log('hover in')}
-      onMouseOut={() => console.log('hover out')}>
+      // onMouseOver={() => console.log('hover in')}
+      // onMouseOut={() => console.log('hover out')}
+    >
       <CardBody>
         <img
           className="company-image"
