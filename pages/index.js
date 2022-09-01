@@ -93,13 +93,6 @@ const Index = (props) => {
             <CardEducation key={item?.id} data={item} />
           ))}
         </div>
-        {isDesktop && (
-          <>
-            <div className="line" />
-            <div className="line2" />
-            <div className="line3" />
-          </>
-        )}
       </Container>
 
       <Container className="skills text-center">

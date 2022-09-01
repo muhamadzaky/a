@@ -3,7 +3,7 @@ import { Card, CardBody } from 'reactstrap';
 
 const CardProjects = ({ data, onClickDetail }) => {
   return (
-    <Card className="card-project shadow rounded" onClick={onClickDetail}>
+    <Card className="card-project rounded" onClick={onClickDetail}>
       <CardBody className="d-flex">
         <div className="image-wrapper">
           {data?.file ? (

@@ -6,7 +6,7 @@ const CardEducation = ({ data }) => {
 
   return (
     <Card
-      className={`card-education shadow my-${!isDesktop ? '2' : '3'}`}
+      className={`card-education my-${!isDesktop ? '2' : '3'}`}
       onClick={() => window.open(data?.link)}>
       <CardBody className="d-flex flex-column">
         <span>{data?.name}</span>
