@@ -11,4 +11,13 @@ const client = axios.create({
   }
 });
 
+client.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
 export const api = client;

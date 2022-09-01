@@ -82,8 +82,6 @@ const ProjectPage = (props) => {
   );
 };
 
-export default ProjectPage;
-
 export async function getServerSideProps() {
   const projectsRes = await fetch(`${process.env.API_URL}projects`);
   let projects = await projectsRes.json();
@@ -94,3 +92,5 @@ export async function getServerSideProps() {
     }
   };
 }
+
+export default ProjectPage;

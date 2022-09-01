@@ -1,5 +1,4 @@
 import dayjs from 'dayjs';
-import _, { set } from 'lodash';
 import { useRouter } from 'next/router';
 import { scroller } from 'react-scroll';
 

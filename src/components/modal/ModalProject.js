@@ -9,7 +9,7 @@ const ModalProject = ({ isOpen, toggle, data }) => {
   const router = useRouter();
   const { isDesktop } = useResponsive();
   const { locale } = router;
-  const { banner, whatIdo, stack, link } = t[locale];
+  const { whatIdo, stack, link } = t[locale];
 
   const externalCloseButtonClass = {
     position: 'absolute',
@@ -53,7 +53,7 @@ const ModalProject = ({ isOpen, toggle, data }) => {
         <div className="my-3">
           <span>
             <b>&gt;</b>
-            &nbsp;{banner?.jobDesk}
+            &nbsp;{data?.jobdesk}
           </span>
         </div>
 
@@ -83,10 +83,11 @@ const ModalProject = ({ isOpen, toggle, data }) => {
           <span>{Helper.countDateDiff(data?.start, data?.end, true)}</span>
         </div>
 
-        <div className="mt-3 mb-2">
+        <div className="mt-3 mb-2 text-center">
           <Button
             color="primary rounded-pill"
-            block
+            className={isDesktop && 'px-5'}
+            block={!isDesktop}
             style={{ height: 'fit-content' }}
             onClick={() => window.open(data?.link, '_blank')}>
             {link}

@@ -174,8 +174,6 @@ const Index = (props) => {
   );
 };
 
-export default Index;
-
 export async function getServerSideProps() {
   const [educationRes, skillsRes, experiencesRes, projectsRes] = await Promise.all([
     fetch(`${process.env.API_URL}educations`),
@@ -200,3 +198,5 @@ export async function getServerSideProps() {
     }
   };
 }
+
+export default Index;

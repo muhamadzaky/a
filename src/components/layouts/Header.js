@@ -92,6 +92,7 @@ const Header = () => {
         width={50}
         height={35.69}
         onClick={() => router.push('/')}
+        role="button"
       />
 
       {renderMenu()}

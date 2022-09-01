@@ -25,7 +25,8 @@ export const t = {
       experiences: 'Experiences',
       projects: 'Projects',
       contacts: 'Contacts',
-      otherApp: 'Other App'
+      otherApp: 'Other App',
+      favorite: 'ー Favorite'
     },
     follow: 'Follow',
     seeAll: 'See All',
@@ -39,7 +40,13 @@ export const t = {
       month: 'month',
       year: 'year'
     },
-    sortedByLastProject: '*sorted by new project'
+    sortedByLastProject: '*sorted by latest project',
+    playground: 'Playground',
+    playgroundDescription: 'Playground for developer.',
+    access: 'Access',
+    error: {
+      authentication: 'Error 401'
+    }
   },
   ja: {
     banner: {
@@ -67,7 +74,8 @@ export const t = {
       experiences: '経験',
       projects: 'プロジェクト',
       contacts: '連絡先',
-      otherApp: '他のアプリ'
+      otherApp: '他のアプリ',
+      favorite: 'ー お気に入り'
     },
     follow: 'フォロー',
     seeAll: 'すべてを見る',
@@ -81,7 +89,13 @@ export const t = {
       month: 'ヶ月',
       year: '年'
     },
-    sortedByLastProject: '*新しいのプロジェクトでソート'
+    sortedByLastProject: '*新しいのプロジェクトでソート',
+    playground: 'プレイグラウンド',
+    playgroundDescription: '開発者のプレイグラウンド。',
+    access: 'アクセス',
+    error: {
+      authentication: '401エラー'
+    }
   },
   id: {
     banner: {
@@ -109,7 +123,8 @@ export const t = {
       experiences: 'Pengalaman',
       projects: 'Proyek',
       contacts: 'Kontak',
-      otherApp: 'Aplikasi Lain'
+      otherApp: 'Aplikasi Lain',
+      favorite: 'ー Favorit'
     },
     follow: 'Ikuti',
     seeAll: 'Lihat Semua',
@@ -123,6 +138,12 @@ export const t = {
       month: 'bulan',
       year: 'tahun'
     },
-    sortedByLastProject: '*diurutkan berdasarkan proyek baru'
+    sortedByLastProject: '*diurutkan berdasarkan proyek terbaru',
+    playground: 'Playground',
+    playgroundDescription: 'Playground untuk developer.',
+    access: 'Akses',
+    error: {
+      authentication: 'Error 401'
+    }
   }
 };
