@@ -29,6 +29,7 @@ export const t = {
       favorite: 'ー Favorite'
     },
     follow: 'Follow',
+    followMe: 'Follow Me',
     seeAll: 'See All',
     search: 'Search',
     link: 'Link',
@@ -78,6 +79,7 @@ export const t = {
       favorite: 'ー お気に入り'
     },
     follow: 'フォロー',
+    followMe: 'フォローする',
     seeAll: 'すべてを見る',
     search: '探索',
     link: 'リンク',
@@ -127,6 +129,7 @@ export const t = {
       favorite: 'ー Favorit'
     },
     follow: 'Ikuti',
+    followMe: 'Ikuti Saya',
     seeAll: 'Lihat Semua',
     search: 'Cari',
     link: 'Tautan',

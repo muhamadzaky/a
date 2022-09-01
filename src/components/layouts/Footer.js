@@ -24,7 +24,7 @@ const Footer = () => {
   const [sns, setSNS] = useState([]);
   const [currentLang, setCurrentLang] = useState(find(langList, { value: locale }));
 
-  const { lang, follow } = t[currentLang.value];
+  const { lang, followMe } = t[currentLang.value];
 
   const selectStyles = {
     input: () => ({
@@ -60,15 +60,45 @@ const Footer = () => {
   const renderSNSIcon = (data) => {
     switch (data?.name) {
       case 'facebook':
-        return <AiFillFacebook size={40} onClick={() => window.open(data?.link, '_blank')} />;
+        return (
+          <AiFillFacebook
+            className="mx-1"
+            size={32}
+            onClick={() => window.open(data?.link, '_blank')}
+          />
+        );
       case 'twitter':
-        return <AiFillTwitterSquare size={40} onClick={() => window.open(data?.link, '_blank')} />;
+        return (
+          <AiFillTwitterSquare
+            className="mx-1"
+            size={32}
+            onClick={() => window.open(data?.link, '_blank')}
+          />
+        );
       case 'instagram':
-        return <AiFillInstagram size={40} onClick={() => window.open(data?.link, '_blank')} />;
+        return (
+          <AiFillInstagram
+            className="mx-1"
+            size={32}
+            onClick={() => window.open(data?.link, '_blank')}
+          />
+        );
       case 'github':
-        return <AiFillGithub size={40} onClick={() => window.open(data?.link, '_blank')} />;
+        return (
+          <AiFillGithub
+            className="mx-1"
+            size={32}
+            onClick={() => window.open(data?.link, '_blank')}
+          />
+        );
       case 'linkedin':
-        return <AiFillLinkedin size={40} onClick={() => window.open(data?.link, '_blank')} />;
+        return (
+          <AiFillLinkedin
+            className="mx-1"
+            size={32}
+            onClick={() => window.open(data?.link, '_blank')}
+          />
+        );
       default:
         break;
     }
@@ -100,7 +130,8 @@ const Footer = () => {
     <footer className="footer contacts shadow mt-5">
       <div className="footer__wrapper">
         <div className="sns-wrapper my-2">
-          <span>{follow}:</span> {sns?.map((item) => renderSNSIcon(item))}
+          {isDesktop && <span className="me-2">{followMe}</span>}
+          {sns?.map((item) => renderSNSIcon(item))}
         </div>
         <hr />
         <div className={copyrightStyle}>

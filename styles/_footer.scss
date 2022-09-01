@@ -8,6 +8,12 @@
     hr {
       margin: 2rem 0;
     }
+
+    .sns-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 
@@ -15,6 +21,12 @@
   .footer {
     &__wrapper {
       max-width: px2rem(1200);
+
+      .sns-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
     }
   }
 }
