@@ -5,7 +5,6 @@ import PrivateLayout from '@components/layouts/PrivateLayouts';
 import ModalProject from '@components/modal/ModalProject';
 import Helper from '@utils/Helper';
 import { t } from '@utils/t';
-import useResponsive from '@utils/useResponsive';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { AiOutlineArrowDown } from 'react-icons/ai';
@@ -15,7 +14,6 @@ const Index = (props) => {
   const router = useRouter();
   const { locale } = router;
   const { about, banner, menu, meta, seeAll, sortedByLastProject } = t[locale];
-  const { isDesktop } = useResponsive();
   const { educations, skills, experiences, projects } = props;
 
   const [hasDetailProject, setHasDetailProject] = useState(false);
