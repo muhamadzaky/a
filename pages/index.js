@@ -1,3 +1,4 @@
+import BottomSheetProjectDetail from '@components/bottomsheet/BottomSheetProjectDetali';
 import CardEducation from '@components/card/CardEducation';
 import CardExperiences from '@components/card/CardExperiences';
 import CardProjects from '@components/card/CardProjects';
@@ -5,15 +6,18 @@ import PrivateLayout from '@components/layouts/PrivateLayouts';
 import ModalProject from '@components/modal/ModalProject';
 import Helper from '@utils/Helper';
 import { t } from '@utils/t';
+import useResponsive from '@utils/useResponsive';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { AiOutlineArrowDown } from 'react-icons/ai';
+import { BottomSheet } from 'react-spring-bottom-sheet';
 import { Button, Container, Tooltip } from 'reactstrap';
 
 const Index = (props) => {
   const router = useRouter();
   const { locale } = router;
   const { about, banner, menu, meta, seeAll, sortedByLastProject } = t[locale];
+  const { isDesktop } = useResponsive();
   const { educations, skills, experiences, projects } = props;
 
   const [hasDetailProject, setHasDetailProject] = useState(false);
@@ -155,12 +159,20 @@ const Index = (props) => {
         </div>
       </Container>
 
-      <ModalProject
-        data={detailProjectData}
-        loading={detailProjectLoading}
-        isOpen={hasDetailProject}
-        toggle={() => handleClickToggleDetailModal('close')}
-      />
+      {isDesktop ? (
+        <ModalProject
+          data={detailProjectData}
+          loading={detailProjectLoading}
+          isOpen={hasDetailProject}
+          toggle={() => handleClickToggleDetailModal('close')}
+        />
+      ) : (
+        <BottomSheetProjectDetail
+          isOpen={hasDetailProject}
+          onDismiss={() => handleClickToggleDetailModal('close')}
+          data={detailProjectData}
+        />
+      )}
     </PrivateLayout>
   );
 };

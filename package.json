@@ -1,6 +1,6 @@
 {
   "name": "muhamad-zaky",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "private": true,
   "author": "Muhamad Zaky",
   "scripts": {
@@ -27,6 +27,7 @@
     "react-responsive": "^9.0.0-beta.10",
     "react-scroll": "^1.8.4",
     "react-select": "^5.2.2",
+    "react-spring-bottom-sheet": "^3.4.1",
     "reactstrap": "^9.0.1",
     "sass": "^1.48.0"
   },

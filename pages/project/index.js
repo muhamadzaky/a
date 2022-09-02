@@ -1,7 +1,9 @@
+import BottomSheetProjectDetail from '@components/bottomsheet/BottomSheetProjectDetali';
 import CardProjects from '@components/card/CardProjects';
 import PrivateLayout from '@components/layouts/PrivateLayouts';
 import ModalProject from '@components/modal/ModalProject';
 import { t } from '@utils/t';
+import useResponsive from '@utils/useResponsive';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -12,6 +14,7 @@ const ProjectPage = (props) => {
   const { locale } = router;
   const { menu, search } = t[locale];
   const { projects } = props;
+  const { isDesktop } = useResponsive();
 
   const [query, setQuery] = useState('');
   const [hasDetailProject, setHasDetailProject] = useState(false);
@@ -72,12 +75,20 @@ const ProjectPage = (props) => {
         </div>
       </Container>
 
-      <ModalProject
-        data={detailProjectData}
-        loading={detailProjectLoading}
-        isOpen={hasDetailProject}
-        toggle={() => handleClickToggleDetailModal('close')}
-      />
+      {isDesktop ? (
+        <ModalProject
+          data={detailProjectData}
+          loading={detailProjectLoading}
+          isOpen={hasDetailProject}
+          toggle={() => handleClickToggleDetailModal('close')}
+        />
+      ) : (
+        <BottomSheetProjectDetail
+          isOpen={hasDetailProject}
+          onDismiss={() => handleClickToggleDetailModal('close')}
+          data={detailProjectData}
+        />
+      )}
     </PrivateLayout>
   );
 };

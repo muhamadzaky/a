@@ -51,4 +51,10 @@ export default class Helper {
   static truncateByLength(text, length = 50) {
     return text.length > length ? `${text.substring(0, length)}...` : text;
   }
+
+  static arrayToString(array) {
+    const joinString = array?.join();
+
+    return array?.length > 1 ? joinString?.replace(',', ', ') : array;
+  }
 }

@@ -10,7 +10,9 @@
 @import './divider';
 @import './skeleton';
 @import './form';
+@import './bottom_sheet';
 @import '../node_modules/bootstrap/scss/bootstrap';
+@import 'react-spring-bottom-sheet/dist/style.css';
 
 // custom style goes down here
 html,
