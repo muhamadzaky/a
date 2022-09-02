@@ -10,7 +10,6 @@ import useResponsive from '@utils/useResponsive';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { AiOutlineArrowDown } from 'react-icons/ai';
-import { BottomSheet } from 'react-spring-bottom-sheet';
 import { Button, Container, Tooltip } from 'reactstrap';
 
 const Index = (props) => {
