@@ -3,7 +3,7 @@ import Helper from '@utils/Helper';
 import { t } from '@utils/t';
 import useResponsive from '@utils/useResponsive';
 import { useRouter } from 'next/router';
-import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap';
+import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 const ModalProject = ({ isOpen, toggle, data }) => {
   const router = useRouter();
@@ -45,7 +45,10 @@ const ModalProject = ({ isOpen, toggle, data }) => {
             )}
           </div>
 
-          <span>{data?.name}</span>
+          <div className="d-flex flex-column">
+            <span>{data?.name}</span>
+            <span>{Helper.countDateDiff(data?.start, data?.end, true)}</span>
+          </div>
         </div>
       </ModalHeader>
       <ModalBody>
@@ -78,22 +81,17 @@ const ModalProject = ({ isOpen, toggle, data }) => {
             ))}
           </div>
         </div>
-
-        <div className="text-end">
-          <span>{Helper.countDateDiff(data?.start, data?.end, true)}</span>
-        </div>
-
-        <div className="mt-3 mb-2 text-center">
-          <Button
-            color="primary rounded-pill"
-            className={isDesktop && 'px-5'}
-            block={!isDesktop}
-            style={{ height: 'fit-content' }}
-            onClick={() => window.open(data?.link, '_blank')}>
-            {link}
-          </Button>
-        </div>
       </ModalBody>
+      <ModalFooter>
+        <Button
+          color="primary rounded-pill"
+          className={isDesktop && 'px-5'}
+          block={!isDesktop}
+          style={{ height: 'fit-content' }}
+          onClick={() => window.open(data?.link, '_blank')}>
+          {link}
+        </Button>
+      </ModalFooter>
     </Modal>
   );
 };

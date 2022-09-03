@@ -84,7 +84,10 @@ const Index = (props) => {
       </Container>
 
       <Container className="d-flex justify-content-center my-5">
-        <AiOutlineArrowDown onClick={() => Helper.scrollTo('educations', -100)} />
+        <AiOutlineArrowDown
+          onClick={() => Helper.scrollTo('educations', -100)}
+          style={{ cursor: 'pointer' }}
+        />
       </Container>
 
       <Container className="educations position-relative">

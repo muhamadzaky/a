@@ -7,7 +7,8 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { AiOutlineBars, AiOutlineClose } from 'react-icons/ai';
-import { Button, Modal, ModalBody } from 'reactstrap';
+import { BottomSheet } from 'react-spring-bottom-sheet';
+import { Button, Container, Modal, ModalBody } from 'reactstrap';
 
 const Header = () => {
   const router = useRouter();
@@ -44,29 +45,30 @@ const Header = () => {
             <AiOutlineBars />
           </Button>
 
-          <Modal toggle={handleToggle} isOpen={toggle} fullscreen centered className="modal-menu">
-            <ModalBody className="position-relative">
-              <div className="close-wrapper">
-                <Button onClick={handleToggle} className="close-menu">
-                  <AiOutlineClose color="#000" size={18} />
-                </Button>
+          <BottomSheet
+            open={toggle}
+            onDismiss={handleToggle}
+            snapPoints={({ maxHeight }) => maxHeight}
+            className="bottom-sheet"
+            header={<h2 className="my-2">{menu?.title}</h2>}>
+            <Container
+              className="d-flex justify-content-center align-items-center"
+              style={{ height: '80vh' }}>
+              <div className="text-center">
+                {menuList
+                  .filter((x) => x.show === true)
+                  .map((item, index) => (
+                    <div
+                      className="menu-item"
+                      role="button"
+                      onClick={() => onClickMenu(item)}
+                      key={index}>
+                      {menu[item.name]}
+                    </div>
+                  ))}
               </div>
-
-              <Divider />
-              {menuList
-                .filter((x) => x.show === true)
-                .map((item, index) => (
-                  <div
-                    className="menu-item"
-                    role="button"
-                    onClick={() => onClickMenu(item)}
-                    key={index}>
-                    {menu[item.name]}
-                  </div>
-                ))}
-              <Divider />
-            </ModalBody>
-          </Modal>
+            </Container>
+          </BottomSheet>
         </>
       );
     }

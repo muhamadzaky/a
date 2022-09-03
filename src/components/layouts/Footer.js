@@ -64,6 +64,7 @@ const Footer = () => {
           <AiFillFacebook
             className="mx-1"
             size={32}
+            style={{ cursor: 'pointer' }}
             onClick={() => window.open(data?.link, '_blank')}
           />
         );
@@ -72,6 +73,7 @@ const Footer = () => {
           <AiFillTwitterSquare
             className="mx-1"
             size={32}
+            style={{ cursor: 'pointer' }}
             onClick={() => window.open(data?.link, '_blank')}
           />
         );
@@ -80,6 +82,7 @@ const Footer = () => {
           <AiFillInstagram
             className="mx-1"
             size={32}
+            style={{ cursor: 'pointer' }}
             onClick={() => window.open(data?.link, '_blank')}
           />
         );
@@ -96,6 +99,7 @@ const Footer = () => {
           <AiFillLinkedin
             className="mx-1"
             size={32}
+            style={{ cursor: 'pointer' }}
             onClick={() => window.open(data?.link, '_blank')}
           />
         );
@@ -130,7 +134,7 @@ const Footer = () => {
     <footer className="footer contacts shadow mt-5">
       <div className="footer__wrapper">
         <div className="sns-wrapper my-2">
-          {isDesktop && <span className="me-2">{followMe}</span>}
+          {isDesktop && <span className="me-3">{followMe}</span>}
           {sns?.map((item) => renderSNSIcon(item))}
         </div>
         <hr />

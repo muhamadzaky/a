@@ -18,10 +18,14 @@
 // variables
 $primary:     #1ea5fc !default;
 $secondary:   #f397ae !default;
-$success:     #00e676 !default;
+$success:     #00c691 !default;
+$info:        #6ec6ff !default;
+$danger:      #f44336 !default;
 
 $theme-colors: (
   "primary":    $primary,
   "secondary":  $secondary,
-  "success":    $success
+  "success":    $success,
+  "info":       $info,
+  "danger":     $danger
 ) !default;

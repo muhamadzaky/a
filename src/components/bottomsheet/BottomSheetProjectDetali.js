@@ -32,26 +32,23 @@ const BottomSheetProjectDetail = ({ isOpen, onDismiss, data }) => {
             )}
           </div>
 
-          <span className="text-start fw-bold">{data?.name}</span>
+          <div className="d-flex flex-column">
+            <span className="text-start fw-bold">{data?.name}</span>
+            <span className="text-start">{Helper.countDateDiff(data?.start, data?.end, true)}</span>
+          </div>
         </Container>
       }
       footer={
-        <>
-          <div className="text-end">
-            <span>{Helper.countDateDiff(data?.start, data?.end, true)}</span>
-          </div>
-
-          <div className="mt-3 mb-2 text-center">
-            <Button
-              color="primary rounded-pill"
-              className={isDesktop && 'px-5'}
-              block={!isDesktop}
-              style={{ height: 'fit-content' }}
-              onClick={() => window.open(data?.link, '_blank')}>
-              {link}
-            </Button>
-          </div>
-        </>
+        <div className="mt-3 mb-2 text-center">
+          <Button
+            color="primary rounded-pill"
+            className={isDesktop && 'px-5'}
+            block={!isDesktop}
+            style={{ height: 'fit-content' }}
+            onClick={() => window.open(data?.link, '_blank')}>
+            {link}
+          </Button>
+        </div>
       }>
       <Container className="bottom-sheet__project pt-3">
         <span>{data?.description}</span>

@@ -18,6 +18,7 @@ export const t = {
       ja: 'Japanese'
     },
     menu: {
+      title: 'Menu',
       home: 'Home',
       about: 'About',
       educations: 'Educations',
@@ -68,6 +69,7 @@ export const t = {
       ja: '日本語'
     },
     menu: {
+      title: 'メニュー',
       home: 'ホーム',
       about: '約',
       educations: '教育',
@@ -118,6 +120,7 @@ export const t = {
       ja: 'Jepang'
     },
     menu: {
+      title: 'Menu',
       home: 'Beranda',
       about: 'Tentang',
       educations: 'Pendidikan',

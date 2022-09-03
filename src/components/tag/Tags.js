@@ -1,6 +1,8 @@
-const Tags = ({ item }) => {
+const Tags = ({ item, shadow }) => {
+  const hasShadow = shadow ? ' shadow' : '';
+
   return (
-    <div key={item} className="rounded-pill shadow tags">
+    <div key={item} className={`rounded-pill tags${hasShadow}`}>
       {item}
     </div>
   );

@@ -6,9 +6,9 @@ export const langList = [
 
 export const menuList = [
   { name: 'about', offset: -350, show: true },
-  { name: 'educations', offset: 0, show: true },
-  { name: 'skills', offset: 0, show: true },
-  { name: 'experiences', offset: 0, show: true },
-  { name: 'projects', offset: 0, show: true },
-  { name: 'contacts', offset: 0, show: false }
+  { name: 'educations', offset: -90, show: true },
+  { name: 'skills', offset: -90, show: true },
+  { name: 'experiences', offset: -90, show: true },
+  { name: 'projects', offset: -90, show: true },
+  { name: 'contacts', offset: -90, show: false }
 ];
