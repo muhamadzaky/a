@@ -1,4 +1,3 @@
-import { Divider } from '@components/index';
 import { menuList } from '@utils/constant';
 import Helper from '@utils/Helper';
 import { t } from '@utils/t';
@@ -6,9 +5,9 @@ import useResponsive from '@utils/useResponsive';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { AiOutlineBars, AiOutlineClose } from 'react-icons/ai';
+import { AiOutlineBars } from 'react-icons/ai';
 import { BottomSheet } from 'react-spring-bottom-sheet';
-import { Button, Container, Modal, ModalBody } from 'reactstrap';
+import { Button, Container } from 'reactstrap';
 
 const Header = () => {
   const router = useRouter();
