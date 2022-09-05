@@ -54,7 +54,7 @@ const ProjectPage = (props) => {
   return (
     <PrivateLayout title="Projects">
       <Container className="my-3">
-        <div className="project-header border-bottom">
+        <div className="project-header">
           <h1>{menu?.projects}</h1>
           <InputGroup className="my-3">
             <Input placeholder={search} value={query} onChange={(e) => setQuery(e.target.value)} />
