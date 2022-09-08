@@ -147,7 +147,7 @@ const Index = (props) => {
         <div className="d-flex justify-content-between align-items-center">
           <h1>
             {menu?.projects}
-            <h6 className="pe-2">{sortedByLastProject}</h6>
+            <h6 className="pt-2 pe-2">{sortedByLastProject}</h6>
           </h1>
           <span role="button" onClick={handleClickSeAll}>
             {seeAll}
