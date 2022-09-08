@@ -61,6 +61,7 @@ const Index = (props) => {
           className="banner__image"
           src="/assets/images/banner_background.jpg"
           alt="Muhamad Zaky - Otoklix"
+          loading="lazy"
         />
         <div className="banner__text">
           <span className="fw-bold">{banner?.hello}</span>
