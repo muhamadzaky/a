@@ -4,7 +4,7 @@ export const t = {
       hello: 'Hi!',
       imZaky: "I'm Zaky.",
       jobDesk: 'Frontend Engineer',
-      mailMe: 'Mail Me!',
+      mailMe: 'Send Mail!',
       downloadCV: 'Download CV'
     },
     about: '<span>ー Building ReactJS web application for over 3 years.</span>',
@@ -55,7 +55,7 @@ export const t = {
       hello: 'こんにちは！',
       imZaky: 'ザキです。',
       jobDesk: 'フロントエンドエンジニア',
-      mailMe: 'メールをください！',
+      mailMe: 'メールを送ってください！',
       downloadCV: 'CVをダウンロード'
     },
     about: '<span>ー 3年以上にわたってReactJS Webアプリを構築しています。</ span>',
@@ -106,10 +106,11 @@ export const t = {
       hello: 'Halo!',
       imZaky: 'Saya Zaky.',
       jobDesk: 'Frontend Engineer',
-      mailMe: 'Email saya!',
+      mailMe: 'Kirim Email!',
       downloadCV: 'Unduh CV'
     },
-    about: '<span>ー Membangun aplikasi web ReactJS selama lebih dari 3 tahun.</span>',
+    about:
+      '<span>ー Membuat aplikasi berbasis web menggunakan ReactJS selama lebih dari 3 tahun.</span>',
     meta: {
       name: 'Muhamad Zaky',
       content: 'Ini adalah portofolio Muhamad Zaky! - Silahkan lihat dan hubungi!'

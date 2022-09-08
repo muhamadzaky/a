@@ -1,15 +1,70 @@
 .banner {
-  margin: px2rem(100) 0;
-  
-  &__image {
-    width: 100%;
-  }
+  margin: auto 0 px2rem(50);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
 
   &__text {
-    margin-top: px2rem(16);
+    color: #fff;
+    padding: 0 px2rem(20);
+    z-index: 2;
 
     span:nth-of-type(3) {
       font-size: px2rem(24);
+    }
+
+    &__btn-group {
+      display: flex;
+      flex-direction: column;
+      white-space: nowrap;
+
+      button {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    bottom: px2rem(50);
+    font-size: px2rem(36);
+    left: 50% !important;
+    transform: translate(-50%,0);
+    z-index: 1;
+  }
+
+  &__layer {
+    background-color: rgb(26, 26, 143);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    opacity: 80%;
+  }
+
+  &__image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &:after {
+      background-color: rgb(22, 22, 137);
+      width: 100%;
+      height: 100%;
+      opacity: 50%;
     }
   }
 }
@@ -45,7 +100,7 @@
 
   .bg-decor {
     position: absolute;
-    background: #00c691;
+    background: $success;
     width: 100vw;
     height: px2rem(500);
     z-index: -1;
@@ -64,6 +119,16 @@
 .projects {
   margin: px2rem(250) auto px2rem(60);
 
+  span[role=button] {
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+  span[role=button]:hover, span[role=button]:active {
+    color: $primary;
+    transition: color 0.2s ease;
+  }
+
   &__cards-wrapper {
     max-width: 1200px;
     margin: px2rem(24) auto 0;
@@ -75,13 +140,19 @@
 
 @media (min-width: 992px) {
   .banner {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
+    background-size: 100%;
 
-    &__image {
-      max-width: px2rem(400);
+    &__text {
+      padding: 0 px2rem(360);
+
+      &__btn-group {
+        display: flex;
+        flex-direction: row;
+
+        button {
+          margin-right: 8px;
+        }
+      }
     }
   }
 
@@ -93,39 +164,6 @@
       .card-education:not(:first-child) {
         margin-left: px2rem(12);
       }
-    }
-
-    .line {
-      width: 50%;
-      height: 5px;
-      background: $primary;
-      border-radius: 10px;
-      position: absolute;
-      top: 55%;
-      left: 23%;
-      z-index: -1;
-    }
-
-    .line2 {
-      width: 48%;
-      height: 5px;
-      background: $primary;
-      border-radius: 10px;
-      position: absolute;
-      top: 60%;
-      left: 23%;
-      z-index: -1;
-    }
-
-    .line3 {
-      width: 46%;
-      height: 5px;
-      background: $primary;
-      border-radius: 10px;
-      position: absolute;
-      top: 65%;
-      left: 23%;
-      z-index: -1;
     }
   }
 

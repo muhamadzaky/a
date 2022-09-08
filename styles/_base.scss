@@ -1,5 +1,9 @@
+.btn {
+  letter-spacing: 2px;
+}
+
 .btn-primary {
-  color: #fff;
+  color: $light;
   border-color: $primary !important;
   background-color: $primary !important;
 }
@@ -7,7 +11,9 @@
 .btn-primary:hover {
   color: $primary !important;
   border-color: $primary !important;
-  background-color: #fff !important;
+  background-color: $light !important;
+  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .btn-outline-primary {
@@ -16,13 +22,15 @@
 }
 
 .btn-outline-primary:hover {
-  color: #fff !important;
+  color: $light !important;
   border-color: $primary !important;
   background-color: $primary !important;
+  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .btn-secondary {
-  color: #fff;
+  color: $light;
   border-color: $secondary !important;
   background-color: $secondary !important;
 }
@@ -30,7 +38,9 @@
 .btn-secondary:hover {
   color: $secondary !important;
   border-color: $secondary !important;
-  background-color: #fff !important;
+  background-color: $light !important;
+  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .btn-outline-secondary {
@@ -39,13 +49,15 @@
 }
 
 .btn-outline-secondary:hover {
-  color: #fff !important;
+  color: $light !important;
   border-color: $secondary !important;
   background-color: $secondary !important;
+  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .btn-success {
-  color: #fff;
+  color: $light;
   border-color: $success !important;
   background-color: $success !important;
 }
@@ -56,13 +68,15 @@
 }
 
 .btn-outline-success:hover {
-  color: #fff !important;
+  color: $light !important;
   background-color: $success !important;
   border-color: $success !important;
+  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .btn-info {
-  color: #fff;
+  color: $light;
   border-color: $info !important;
   background-color: $info !important;
 }
@@ -70,7 +84,9 @@
 .btn-info:hover {
   color: $info !important;
   border-color: $info !important;
-  background-color: #fff !important;
+  background-color: $light !important;
+  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .btn-outline-info {
@@ -79,13 +95,15 @@
 }
 
 .btn-outline-info:hover {
-  color: #fff !important;
+  color: $light !important;
   border-color: $info !important;
   background-color: $info !important;
+  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .btn-danger {
-  color: #fff;
+  color: $light;
   border-color: $danger !important;
   background-color: $danger !important;
 }
@@ -93,7 +111,9 @@
 .btn-danger:hover {
   color: $danger !important;
   border-color: $danger !important;
-  background-color: #fff !important;
+  background-color: $light !important;
+  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .btn-outline-danger {
@@ -102,7 +122,67 @@
 }
 
 .btn-outline-danger:hover {
-  color: #fff !important;
+  color: $light !important;
   border-color: $danger !important;
   background-color: $danger !important;
+  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+.btn-light {
+  color: $dark;
+  border-color: $light !important;
+  background-color: $light !important;
+}
+
+.btn-light:hover {
+  color: $primary !important;
+  border-color: $darker-light !important;
+  background-color: $darker-light !important;
+  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+.btn-outline-light {
+  color: $light !important;
+  border-color: $light !important;  
+}
+
+.btn-outline-light:hover {
+  color: $dark !important;
+  border-color: $darker-light !important;
+  background-color: $darker-light !important;
+  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+.btn-dark {
+  color: $light;
+  border-color: $dark !important;
+  background-color: $dark !important;
+}
+
+.btn-dark:hover {
+  color: $light !important;
+  border-color: $lighter-dark !important;
+  background-color: $lighter-dark !important;
+  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+.btn-outline-dark {
+  color: $dark !important;
+  border-color: $dark !important;  
+}
+
+.btn-outline-dark:hover {
+  color: $light !important;
+  border-color: $lighter-dark !important;
+  background-color: $lighter-dark !important;
+  transition: background-color 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+.btn-shadow:hover {
+  box-shadow: 0 1px 6px 0 rgb(49 53 59 / 12%);
 }

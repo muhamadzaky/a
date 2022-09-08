@@ -5,7 +5,7 @@ export const langList = [
 ];
 
 export const menuList = [
-  { name: 'about', offset: -350, show: true },
+  { name: 'home', offset: -350, show: true },
   { name: 'educations', offset: -90, show: true },
   { name: 'skills', offset: -90, show: true },
   { name: 'experiences', offset: -90, show: true },

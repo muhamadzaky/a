@@ -5,9 +5,9 @@ import { scroller } from 'react-scroll';
 import { t } from './t';
 
 export default class Helper {
-  static scrollTo(to, offset) {
+  static scrollTo(to, offset, duration = 100) {
     scroller.scrollTo(to, {
-      duration: 500,
+      duration,
       smooth: 'easeInOutQuart',
       offset: offset,
       scrollSpy: true,

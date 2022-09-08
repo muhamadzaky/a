@@ -4,18 +4,21 @@ import { t } from '@utils/t';
 import useResponsive from '@utils/useResponsive';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { AiOutlineBars } from 'react-icons/ai';
 import { BottomSheet } from 'react-spring-bottom-sheet';
 import { Button, Container } from 'reactstrap';
 
-const Header = () => {
+const Header = (props) => {
   const router = useRouter();
   const { locale, pathname } = router;
   const { isDesktop } = useResponsive();
   const { menu } = t[locale];
+  const { scrolledNav = false } = props;
 
   const [toggle, setToggle] = useState(false);
+  const [hasWhiteNav, setHasWhiteNav] = useState(false);
 
   const handleToggle = () => setToggle(!toggle);
 
@@ -31,6 +34,23 @@ const Header = () => {
       }, 500);
     }
   };
+
+  const changeBackground = () => {
+    const scrollPosition = 800;
+    if (window.scrollY < scrollPosition) {
+      setHasWhiteNav(false);
+    } else {
+      setHasWhiteNav(true);
+    }
+  };
+
+  useEffect(() => {
+    if (scrolledNav) window.addEventListener('scroll', changeBackground);
+
+    return () => {
+      if (scrolledNav) window.removeEventListener('scroll', changeBackground);
+    };
+  });
 
   const renderMenu = () => {
     if (!isDesktop) {
@@ -77,7 +97,11 @@ const Header = () => {
         {menuList
           .filter((x) => x.show === true)
           .map((item, index) => (
-            <div className="ms-4" role="button" onClick={() => onClickMenu(item)} key={index}>
+            <div
+              className={`menu-item${index > 0 ? ' ms-5' : ''}`}
+              role="button"
+              onClick={() => onClickMenu(item)}
+              key={index}>
               {menu[item.name]}
             </div>
           ))}
@@ -86,7 +110,7 @@ const Header = () => {
   };
 
   return (
-    <div className="header">
+    <div className={`header${scrolledNav ? ' header-fix' : ''}${hasWhiteNav ? ' scrolled' : ''}`}>
       <Image
         src="/assets/images/logo.png"
         alt="logo"

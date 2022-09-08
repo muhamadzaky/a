@@ -32,3 +32,13 @@
     font-weight: 600;
   }
 }
+
+.modal-header {
+  .btn-close {
+    margin-right: px2rem(8) !important;
+  }
+}
+
+.modal-content {
+  border-radius: px2rem(24) !important;
+}

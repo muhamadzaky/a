@@ -3,7 +3,7 @@ import { Card, CardBody } from 'reactstrap';
 const CardEcperiences = ({ data }) => {
   return (
     <Card
-      className="card-experience rounded border-0"
+      className="card-experience border-0"
       onClick={() => window.open(data?.link)}
       // onMouseOver={() => console.log('hover in')}
       // onMouseOut={() => console.log('hover out')}

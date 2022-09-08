@@ -9,7 +9,7 @@ import { t } from '@utils/t';
 import useResponsive from '@utils/useResponsive';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { AiOutlineArrowDown } from 'react-icons/ai';
+import { AiOutlineArrowDown, AiOutlineDownload, AiOutlineMail } from 'react-icons/ai';
 import { Button, Container, Tooltip } from 'reactstrap';
 
 const Index = (props) => {
@@ -54,41 +54,48 @@ const Index = (props) => {
   };
 
   return (
-    <PrivateLayout title={meta?.name}>
-      <Container className="banner">
-        <img className="banner__image" src="/assets/images/banner-1.png" alt="banner" />
+    <PrivateLayout className="landing" title={meta?.name} scrolledNav>
+      <div className="banner home mx-0">
+        <div className="banner__layer"></div>
+        <img
+          className="banner__image"
+          src="/assets/images/banner_background.jpg"
+          alt="Muhamad Zaky - Otoklix"
+        />
         <div className="banner__text">
-          <span>{banner?.hello}</span>
+          <span className="fw-bold">{banner?.hello}</span>
           &nbsp;
-          <span>{banner?.imZaky}</span>
+          <span className="fw-bold">{banner?.imZaky}🙇🏻‍♂️</span>
           <br />
-          <span>{banner?.jobDesk}</span>
+          <span className="fw-bold">{banner?.jobDesk}</span>
           <br />
           <div className="mt-3" dangerouslySetInnerHTML={{ __html: about }}></div>
-          <div className="mt-3">
+          <div className="banner__text__btn-group">
             <Button
-              color="primary"
-              className="rounded-pill mt-1 me-2 px-3"
+              color="light"
+              className="rounded-pill mt-4 px-4 py-1 btn-shadow d-flex align-items-center"
               onClick={handleClickMailMe}>
+              <AiOutlineMail />
+              &nbsp;
               {banner?.mailMe}
             </Button>
             <Button
-              color="success"
-              className="rounded-pill mt-1 px-3"
-              outline
+              color="dark"
+              className="rounded-pill mt-4 px-4 py-1 btn-shadow d-flex align-items-center"
               onClick={handleClickDownloadCV}>
+              <AiOutlineDownload />
+              &nbsp;
               {banner?.downloadCV}
             </Button>
           </div>
         </div>
-      </Container>
-
-      <Container className="d-flex justify-content-center my-5">
-        <AiOutlineArrowDown
-          onClick={() => Helper.scrollTo('educations', -100)}
-          style={{ cursor: 'pointer' }}
-        />
-      </Container>
+        <div className="banner__arrow">
+          <AiOutlineArrowDown
+            onClick={() => Helper.scrollTo('educations', -100)}
+            style={{ cursor: 'pointer', color: '#fff' }}
+          />
+        </div>
+      </div>
 
       <Container className="educations position-relative">
         <h1>{menu?.educations}</h1>
@@ -139,7 +146,7 @@ const Index = (props) => {
         <div className="d-flex justify-content-between align-items-center">
           <h1>
             {menu?.projects}
-            <h6>{sortedByLastProject}</h6>
+            <h6 className="pe-2">{sortedByLastProject}</h6>
           </h1>
           <span role="button" onClick={handleClickSeAll}>
             {seeAll}

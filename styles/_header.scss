@@ -4,17 +4,42 @@
   align-items: center;
   padding: 16px;
   margin: auto;
+
+  .menu-item {
+    font-weight: 600;
+  }
+
+  .menu-item:hover {
+    color: $primary;
+    transition: background-color 0.2s ease;
+    transition: color 0.2s ease;
+  }
+}
+
+.header.header-fix {
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  transition: background-color 0.2s ease;
+  color: #fff;
+}
+
+.header.scrolled {
+  background-color: #fff;
+  color: #000;
+  transition: background-color 0.2s ease;
 }
 
 .bottom-sheet {
   .menu-item {
     font-size: px2rem(32);
     padding: 4px 0;
+    font-weight: 600;
   }
 }
 
 @media (min-width: 992px) {
   .header {
-    max-width: px2rem(1200);
+    padding: px2rem(16) px2rem(360);
   }
 }
