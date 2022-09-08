@@ -6,6 +6,10 @@
     padding: px2rem(24) px2rem(16);
     letter-spacing: 1px;
 
+    .copyright {
+      font-size: px2rem(12);
+    }
+
     hr {
       margin: 2rem 0;
     }
@@ -22,6 +26,10 @@
   .footer {
     &__wrapper {
       max-width: px2rem(1200);
+
+      .copyright {
+        font-size: px2rem(16);
+      }
 
       .sns-wrapper {
         display: flex;

@@ -144,7 +144,7 @@ const Footer = () => {
         </div>
         <hr />
         <div className={copyrightStyle}>
-          <span className={`d-flex align-items-center${!isDesktop ? ' mb-2' : ''}`}>
+          <span className={`copyright d-flex align-items-center${!isDesktop ? ' mb-2' : ''}`}>
             &copy; {dayjs().format('YYYY')} • Made with &nbsp;
             <AiFillHeart style={{ color: '#f397ae', fontSize: 18 }} />
             &nbsp; by Muhamad Zaky
