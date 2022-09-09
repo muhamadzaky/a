@@ -46,14 +46,14 @@ const ModalProject = ({ isOpen, toggle, data }) => {
           </div>
 
           <div className="d-flex flex-column">
-            <span>{data?.name}</span>
+            <span className="text-start fw-bold fs-5">{data?.name}</span>
             <span className="fw-normal fs-6">
               {Helper.countDateDiff(data?.start, data?.end, true)}
             </span>
           </div>
         </div>
       </ModalHeader>
-      <ModalBody>
+      <ModalBody className="mb-2">
         <span>{data?.description}</span>
         <div className="my-3">
           <span>

@@ -1,6 +1,10 @@
+.card {
+  border-radius: px2rem(16) !important;
+  letter-spacing: .5px;
+}
+
 .card-education {
   min-height: px2rem(110);
-  border-radius: px2rem(16) !important;
 
   span:nth-of-type(1) {
     font-size: px2rem(20);
@@ -10,7 +14,6 @@
 .card-experience {
   width: px2rem(150);
   height: px2rem(150);
-  border-radius: px2rem(16) !important;
 
   .company-image {
     width: 100%;
@@ -24,7 +27,6 @@
   width: 94vw;
   height: px2rem(170);
   cursor: pointer;
-  border-radius: px2rem(16) !important;
 
   .image-wrapper {
     width: px2rem(135);

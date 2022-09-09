@@ -33,8 +33,10 @@ const BottomSheetProjectDetail = ({ isOpen, onDismiss, data }) => {
           </div>
 
           <div className="d-flex flex-column">
-            <span className="text-start fw-bold">{data?.name}</span>
-            <span className="text-start">{Helper.countDateDiff(data?.start, data?.end, true)}</span>
+            <span className="text-start fw-bold fs-5">{data?.name}</span>
+            <span className="text-start fs-6">
+              {Helper.countDateDiff(data?.start, data?.end, true)}
+            </span>
           </div>
         </Container>
       }
@@ -50,7 +52,7 @@ const BottomSheetProjectDetail = ({ isOpen, onDismiss, data }) => {
           </Button>
         </div>
       }>
-      <Container className="bottom-sheet__project pt-3">
+      <Container className="bottom-sheet__project pt-3 mb-2">
         <span>{data?.description}</span>
         <div className="my-3">
           <span>
