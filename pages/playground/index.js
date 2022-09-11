@@ -72,7 +72,7 @@ const Playground = (props) => {
 
         <div
           className={`${!isDesktop ? 'mb-3' : ''}`}
-          style={{ height: '60vh', width: isDesktop ? '28vw' : '95vw' }}>
+          style={{ height: '100vh', width: isDesktop ? '28vw' : '100%' }}>
           <h1>{menu?.favorite}</h1>
 
           <div className="position-relative">
@@ -228,7 +228,7 @@ const Playground = (props) => {
         <ModalBody>
           <Container
             className="d-flex justify-content-center align-items-center"
-            style={{ width: 480, height: '60vh' }}>
+            style={{ width: isDesktop ? 480 : '100%', height: '98vh' }}>
             <Form
               className="d-flex justify-content-center flex-column align-items-center w-100"
               onSubmit={handleSubmitAccess}>

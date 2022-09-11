@@ -46,3 +46,9 @@
 .modal {
   letter-spacing: .5px;
 }
+
+.modal-fullscreen {
+  .modal-content {
+    border-radius: 0 !important;
+  }
+}
