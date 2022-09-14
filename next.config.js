@@ -13,6 +13,12 @@ module.exports = (phase) => {
   const env = {
     API_URL: 'https://private-898d79-api925.apiary-mock.com/',
     COV_API_URL: 'https://covid19.kuningankab.go.id/api/',
+    APP_MODE: (() => {
+      if (isLocal) return 'local';
+      if (isDev) return 'development';
+      if (isStaging) return 'staging';
+      if (isProd) return 'production';
+    })(),
     AMPLITUDE_KEY: (() => {
       if (isLocal) return '34a9ce3db2e62b9e52728a8696e8eb69';
       if (isDev) return '34a9ce3db2e62b9e52728a8696e8eb69';
