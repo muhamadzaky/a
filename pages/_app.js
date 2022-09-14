@@ -6,8 +6,8 @@ import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
-    console.log(process.env.AMPLITUDE_KEY, process.env.APP_MODE);
-    amplitude.getInstance().init(process.env.AMPLITUDE_KEY);
+    console.log(process.env.NEXT_PUBLIC_AMPLITUDE_KEY, process.env.NEXT_PUBLIC_APP_MODE);
+    amplitude.getInstance().init(process.env.NEXT_PUBLIC_AMPLITUDE_KEY);
   }, []);
 
   return <Component {...pageProps} />;
