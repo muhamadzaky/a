@@ -124,6 +124,7 @@
     white-space: nowrap;
     font-weight: 600;
     letter-spacing: 1px;
+    transition: color 0.2s ease;
   }
 
   span[role=button]:hover, span[role=button]:active {

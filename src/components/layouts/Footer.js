@@ -1,3 +1,4 @@
+import { Amplitude } from '@utils/Amplitude';
 import { api } from '@utils/API';
 import { langList } from '@utils/constant';
 import { t } from '@utils/t';
@@ -52,11 +53,19 @@ const Footer = () => {
     );
   };
 
-  const handleChangeLocale = (options) => {
+  const handleChangeLocale = (options, action) => {
     const updateOptions = {
       value: options.value,
       label: lang[options.value]
     };
+
+    if (action !== 'init') {
+      Amplitude('change language initiated', {
+        page: window.location.pathname ?? '',
+        url: window.location.href ?? '',
+        item: updateOptions
+      });
+    }
 
     setCurrentLang(updateOptions);
     router.replace(pathname, pathname, { locale: options.value });
@@ -96,6 +105,7 @@ const Footer = () => {
           <AiFillGithub
             className="mx-1"
             size={32}
+            style={{ cursor: 'pointer' }}
             onClick={() => window.open(data?.link, '_blank')}
           />
         );
@@ -125,9 +135,9 @@ const Footer = () => {
 
   useEffect(() => {
     if (locale) {
-      handleChangeLocale({ value: locale });
+      handleChangeLocale({ value: locale }, 'init');
     } else {
-      handleChangeLocale({ value: 'en-US' });
+      handleChangeLocale({ value: 'en-US' }, 'init');
     }
   }, [locale]);
 

@@ -1,6 +1,6 @@
 {
   "name": "muhamad-zaky",
-  "version": "2.2.8",
+  "version": "2.2.9",
   "private": true,
   "author": "Muhamad Zaky",
   "scripts": {
@@ -11,6 +11,7 @@
     "fixlint": "eslint --fix ./pages ./src"
   },
   "dependencies": {
+    "amplitude-js": "^8.21.0",
     "axios": "^0.25.0",
     "bootstrap": "^5.1.3",
     "dayjs": "^1.10.7",

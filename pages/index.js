@@ -4,10 +4,12 @@ import CardExperiences from '@components/card/CardExperiences';
 import CardProjects from '@components/card/CardProjects';
 import PrivateLayout from '@components/layouts/PrivateLayouts';
 import ModalProject from '@components/modal/ModalProject';
+import { Amplitude } from '@utils/Amplitude';
 import Helper from '@utils/Helper';
 import { t } from '@utils/t';
 import useResponsive from '@utils/useResponsive';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { AiOutlineArrowDown, AiOutlineDownload, AiOutlineMail } from 'react-icons/ai';
 import { Button, Container, Tooltip } from 'reactstrap';
@@ -24,23 +26,47 @@ const Index = (props) => {
   const [detailProjectLoading, setDetailProjectLoading] = useState(false);
 
   const handleClickMailMe = () => {
+    Amplitude('click send email', {
+      page: 'landing page',
+      url: window.location.href ?? ''
+    });
+
     window.open(
       "mailto:muhamadzaky1023@gmail.com?cc=zakysteinfeld@outlook.com&amp;subject=Hi! I'm interested with you.&amp;body="
     );
   };
 
   const handleClickDownloadCV = () => {
+    Amplitude('click download cv', {
+      page: 'landing page',
+      url: window.location.href ?? ''
+    });
+
     window.open(
       'https://drive.google.com/drive/folders/1IQ0Vc28mkXClsFYPOrKhhfCP6rPn7o2-?usp=sharing'
     );
   };
 
   const handleClickSeAll = () => {
+    Amplitude('click see all project', {
+      page: 'landing page',
+      url: window.location.href ?? ''
+    });
+
     router.push('/project');
   };
 
   const handleClickToggleDetailModal = async (toggle, data) => {
     setDetailProjectLoading(true);
+    Amplitude('click project card', {
+      page: 'landing page',
+      url: window.location.href ?? '',
+      item: {
+        company_name: data?.company,
+        project_name: data?.name
+      },
+      action: toggle === 'open' ? 'open detail' : 'close detail'
+    });
 
     if (toggle === 'open') {
       await setDetailProjectData(data);
@@ -52,6 +78,13 @@ const Index = (props) => {
       setDetailProjectData();
     }
   };
+
+  useEffect(() => {
+    Amplitude('landing page viewed', {
+      page: 'landing page',
+      url: window.location.href ?? ''
+    });
+  }, []);
 
   return (
     <PrivateLayout className="landing" title={meta?.name} scrolledNav>

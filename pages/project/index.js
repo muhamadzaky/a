@@ -2,9 +2,11 @@ import BottomSheetProjectDetail from '@components/bottomsheet/BottomSheetProject
 import CardProjects from '@components/card/CardProjects';
 import PrivateLayout from '@components/layouts/PrivateLayouts';
 import ModalProject from '@components/modal/ModalProject';
+import { Amplitude } from '@utils/Amplitude';
 import { t } from '@utils/t';
 import useResponsive from '@utils/useResponsive';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { Container, Input, InputGroup, InputGroupText } from 'reactstrap';
@@ -39,6 +41,15 @@ const ProjectPage = (props) => {
 
   const handleClickToggleDetailModal = async (toggle, data) => {
     setDetailProjectLoading(true);
+    Amplitude('click project card', {
+      page: 'project page',
+      url: window.location.href ?? '',
+      item: {
+        company_name: data?.company,
+        project_name: data?.name
+      },
+      action: toggle === 'open' ? 'open detail' : 'close detail'
+    });
 
     if (toggle === 'open') {
       await setDetailProjectData(data);
@@ -51,13 +62,32 @@ const ProjectPage = (props) => {
     }
   };
 
+  const handleSearchFocus = () => {
+    Amplitude('search focused', {
+      page: 'project page',
+      url: window.location.href ?? ''
+    });
+  };
+
+  useEffect(() => {
+    Amplitude('project page viewed', {
+      page: 'project page',
+      url: window.location.href ?? ''
+    });
+  }, []);
+
   return (
     <PrivateLayout title="Projects">
       <Container className="my-3">
         <div className="project-header">
           <h1>{menu?.projects}</h1>
           <InputGroup className="my-3">
-            <Input placeholder={search} value={query} onChange={(e) => setQuery(e.target.value)} />
+            <Input
+              placeholder={search}
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onFocus={handleSearchFocus}
+            />
             <InputGroupText>
               <AiOutlineSearch />
             </InputGroupText>

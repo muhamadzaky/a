@@ -4,10 +4,13 @@
   align-items: center;
   padding: 16px;
   margin: auto;
+  background-color: transparent;
+  border-color: none;
 
   .menu-item {
     font-weight: 600;
     letter-spacing: 2.2px;
+    transition: color 0.2s ease;
   }
 
   .menu-item:hover {

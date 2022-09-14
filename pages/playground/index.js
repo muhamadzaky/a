@@ -1,8 +1,9 @@
 import PrivateLayout from '@components/layouts/PrivateLayouts';
+import { Amplitude } from '@utils/Amplitude';
 import { t } from '@utils/t';
 import useResponsive from '@utils/useResponsive';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import {
   Button,
@@ -39,13 +40,29 @@ const Playground = (props) => {
       if (res) {
         setHasKey(true);
         if (hasError) setHasError(false);
+        Amplitude('success login', {
+          page: 'playground page',
+          url: window.location.href ?? ''
+        });
         setLoading(false);
       } else {
         setHasError(true);
+        Amplitude('failed login', {
+          page: 'playground page',
+          url: window.location.href ?? ''
+        });
         setLoading(false);
       }
     }, 1500);
   };
+
+  useEffect(() => {
+    Amplitude('playground page viewed', {
+      page: 'playground page',
+      url: window.location.href ?? '',
+      isAuthenticated: hasKey
+    });
+  }, []);
 
   return (
     <PrivateLayout title={playground}>
