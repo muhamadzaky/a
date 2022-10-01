@@ -5,6 +5,7 @@ import CardProjects from '@components/card/CardProjects';
 import PrivateLayout from '@components/layouts/PrivateLayouts';
 import ModalProject from '@components/modal/ModalProject';
 import { Amplitude } from '@utils/Amplitude';
+import { bannerList } from '@utils/constant';
 import Helper from '@utils/Helper';
 import { t } from '@utils/t';
 import useResponsive from '@utils/useResponsive';
@@ -24,6 +25,7 @@ const Index = (props) => {
   const [hasDetailProject, setHasDetailProject] = useState(false);
   const [detailProjectData, setDetailProjectData] = useState();
   const [detailProjectLoading, setDetailProjectLoading] = useState(false);
+  const [bannerIndex, setBannerIndex] = useState(0);
 
   const handleClickMailMe = () => {
     Amplitude('click send email', {
@@ -86,13 +88,21 @@ const Index = (props) => {
     });
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBannerIndex(bannerIndex + 1 < bannerList?.length ? bannerIndex + 1 : 0);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [bannerIndex]);
+
   return (
     <PrivateLayout className="landing" title={meta?.name} scrolledNav>
       <div className="banner home mx-0">
         <div className="banner__layer"></div>
         <img
           className="banner__image"
-          src="/assets/images/banner_background.jpg"
+          src={`/assets/images/banner/${bannerList[bannerIndex]}.JPG`}
           alt="Muhamad Zaky - Otoklix"
           loading="lazy"
         />
