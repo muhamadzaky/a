@@ -1,3 +1,4 @@
+import { useAuth } from '@context/auth';
 import { menuList } from '@utils/constant';
 import Helper from '@utils/Helper';
 import { t } from '@utils/t';
@@ -14,8 +15,9 @@ const Header = (props) => {
   const router = useRouter();
   const { locale, pathname } = router;
   const { isDesktop } = useResponsive();
-  const { menu } = t[locale];
+  const { menu, banner } = t[locale];
   const { scrolledNav = false } = props;
+  const { isAuthenticated, user, logout } = useAuth();
 
   const [toggle, setToggle] = useState(false);
   const [hasWhiteNav, setHasWhiteNav] = useState(false);
@@ -44,6 +46,10 @@ const Header = (props) => {
     }
   };
 
+  const handleClickUsername = () => {
+    logout();
+  };
+
   useEffect(() => {
     if (scrolledNav) window.addEventListener('scroll', changeBackground);
 
@@ -51,6 +57,8 @@ const Header = (props) => {
       if (scrolledNav) window.removeEventListener('scroll', changeBackground);
     };
   });
+
+  console.log(isAuthenticated, user);
 
   const renderMenu = () => {
     if (!isDesktop) {
@@ -74,6 +82,15 @@ const Header = (props) => {
               className="d-flex justify-content-center align-items-center"
               style={{ height: '80vh' }}>
               <div className="text-center">
+                {isAuthenticated ? (
+                  <div
+                    className="menu-item"
+                    style={{ marginRight: 48 }}
+                    onClick={handleClickUsername}
+                    role="button">
+                    {banner?.hello} {user?.name}
+                  </div>
+                ) : null}
                 {menuList
                   .filter((x) => x.show === true)
                   .map((item, index) => (
@@ -94,6 +111,15 @@ const Header = (props) => {
 
     return (
       <div className="d-flex">
+        {isAuthenticated ? (
+          <div
+            className="menu-item"
+            style={{ marginRight: 48 }}
+            onClick={handleClickUsername}
+            role="button">
+            {banner?.hello} {user?.name}
+          </div>
+        ) : null}
         {menuList
           .filter((x) => x.show === true)
           .map((item, index) => (

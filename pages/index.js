@@ -4,6 +4,7 @@ import CardExperiences from '@components/card/CardExperiences';
 import CardProjects from '@components/card/CardProjects';
 import PrivateLayout from '@components/layouts/PrivateLayouts';
 import ModalProject from '@components/modal/ModalProject';
+import { useAuth } from '@context/auth';
 import { Amplitude } from '@utils/Amplitude';
 import { bannerList } from '@utils/constant';
 import Helper from '@utils/Helper';
@@ -21,6 +22,7 @@ const Index = (props) => {
   const { about, banner, menu, meta, seeAll, sortedByLastProject } = t[locale];
   const { isDesktop } = useResponsive();
   const { educations, skills, experiences, projects } = props;
+  const { isAuthenticated } = useAuth();
 
   const [hasDetailProject, setHasDetailProject] = useState(false);
   const [detailProjectData, setDetailProjectData] = useState();
@@ -99,13 +101,15 @@ const Index = (props) => {
   return (
     <PrivateLayout className="landing" title={meta?.name} scrolledNav>
       <div className="banner home mx-0">
-        <div className="banner__layer"></div>
-        <img
-          className="banner__image"
-          src={`/assets/images/banner/${bannerList[bannerIndex]}.JPG`}
-          alt="Muhamad Zaky - Otoklix"
-          loading="lazy"
-        />
+        <div className={`banner__${isAuthenticated ? 'layer' : 'gradient'}`}></div>
+        {isAuthenticated ? (
+          <img
+            className="banner__image"
+            src={`/assets/images/banner/${bannerList[bannerIndex]}.JPG`}
+            alt="Muhamad Zaky - Otoklix"
+            loading="lazy"
+          />
+        ) : null}
         <div className="banner__text">
           <span className="fw-bold">{banner?.hello}</span>
           &nbsp;
@@ -187,6 +191,7 @@ const Index = (props) => {
       </Container>
 
       <Container className="projects">
+        {isDesktop ? <div className="projects__layers"></div> : null}
         <div className="d-flex justify-content-between align-items-center">
           <h1>
             {menu?.projects}

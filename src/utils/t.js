@@ -48,7 +48,8 @@ export const t = {
     access: 'Access',
     error: {
       authentication: 'Error 401'
-    }
+    },
+    enterSecretKey: 'Enter Secret Key'
   },
   ja: {
     banner: {
@@ -99,7 +100,8 @@ export const t = {
     access: 'アクセス',
     error: {
       authentication: '401エラー'
-    }
+    },
+    enterSecretKey: '秘密鍵を入力してください'
   },
   id: {
     banner: {
@@ -151,6 +153,7 @@ export const t = {
     access: 'Akses',
     error: {
       authentication: 'Error 401'
-    }
+    },
+    enterSecretKey: 'Masukkan Kata Kunci'
   }
 };

@@ -57,4 +57,13 @@ export default class Helper {
 
     return array?.length > 1 ? joinString?.replace(',', ', ') : array;
   }
+
+  static generate30m() {
+    const now = new Date();
+    const minutes = 30;
+    now.setTime(now.getTime() + minutes * 60 * 1000);
+    now.toUTCString();
+
+    return now;
+  }
 }

@@ -1,3 +1,4 @@
+import ModalSecretKey from '@components/modal/ModalSecretKey';
 import { Amplitude } from '@utils/Amplitude';
 import { api } from '@utils/API';
 import { langList } from '@utils/constant';
@@ -16,16 +17,20 @@ import {
   AiFillTwitterSquare
 } from 'react-icons/ai';
 import Select from 'react-select';
+import { Button } from 'reactstrap';
+import { useAuth } from 'src/context/auth';
 
 const Footer = () => {
   const router = useRouter();
   const { pathname, locale } = router;
   const { isDesktop } = useResponsive();
+  const { authenticate, isAuthenticated } = useAuth();
 
   const [sns, setSNS] = useState([]);
   const [currentLang, setCurrentLang] = useState(find(langList, { value: locale }));
+  const [hasSecretKeyModal, setHasSecretKeyModal] = useState(false);
 
-  const { lang, followMe } = t[currentLang.value];
+  const { lang, followMe, enterSecretKey } = t[currentLang.value];
 
   const selectStyles = {
     valueContainer: () => ({
@@ -69,6 +74,16 @@ const Footer = () => {
 
     setCurrentLang(updateOptions);
     router.replace(pathname, pathname, { locale: options.value });
+  };
+
+  const toggleSecretKeyModal = () => setHasSecretKeyModal(!hasSecretKeyModal);
+
+  const onSubmitModalSecretKey = async (action, data) => {
+    if (action === 'ok') {
+      await authenticate(data);
+    }
+
+    toggleSecretKeyModal();
   };
 
   const renderSNSIcon = (data) => {
@@ -148,9 +163,20 @@ const Footer = () => {
   return (
     <footer className="footer contacts shadow mt-5">
       <div className="footer__wrapper">
-        <div className="sns-wrapper my-2">
-          {isDesktop && <span className="me-3">{followMe}</span>}
-          {sns?.map((item) => renderSNSIcon(item))}
+        <div className="d-flex justify-content-between align-items-center">
+          <div className="sns-wrapper my-2">
+            {isDesktop && <span className="me-3">{followMe}</span>}
+            {sns?.map((item) => renderSNSIcon(item))}
+          </div>
+          {isAuthenticated ? null : (
+            <Button
+              className="identity"
+              color="link"
+              size="sm"
+              onClick={() => setHasSecretKeyModal(true)}>
+              {enterSecretKey}
+            </Button>
+          )}
         </div>
         <hr />
         <div className={copyrightStyle}>
@@ -173,6 +199,12 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      {/* <ModalSecretKey
+        isOpen={hasSecretKeyModal}
+        toggle={toggleSecretKeyModal}
+        onSubmit={onSubmitModalSecretKey}
+      /> */}
     </footer>
   );
 };

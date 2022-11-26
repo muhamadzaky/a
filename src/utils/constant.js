@@ -22,3 +22,5 @@ export const bannerList = [
   'IMG_4933',
   'IMG_4934'
 ];
+
+export const CR_U = 'temennyazaky';
