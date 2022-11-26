@@ -200,11 +200,11 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* <ModalSecretKey
+      <ModalSecretKey
         isOpen={hasSecretKeyModal}
         toggle={toggleSecretKeyModal}
         onSubmit={onSubmitModalSecretKey}
-      /> */}
+      />
     </footer>
   );
 };
