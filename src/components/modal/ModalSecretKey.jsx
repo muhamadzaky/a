@@ -45,10 +45,10 @@ const ModalSecretKey = ({ isOpen, toggle, onSubmit }) => {
         </FormGroup>
       </ModalBody>
       <ModalFooter>
-        <Button color="danger" outline onClick={() => onSubmit('cancel')}>
-          Go Back
+        <Button color="danger rounded-pill" outline onClick={() => onSubmit('cancel')}>
+          {credential?.username || credential?.password ? 'Cancel' : 'Close'}
         </Button>
-        <Button color="success" onClick={() => onSubmit('ok', credential)}>
+        <Button color="success rounded-pill" onClick={() => onSubmit('ok', credential)}>
           Let&#39;s Go!
         </Button>
       </ModalFooter>

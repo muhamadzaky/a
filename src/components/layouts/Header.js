@@ -58,7 +58,7 @@ const Header = (props) => {
     };
   });
 
-  console.log(isAuthenticated, user);
+  const menuItemClass = `menu-item${isAuthenticated ? 's' : ''}`;
 
   const renderMenu = () => {
     if (!isDesktop) {
@@ -84,7 +84,7 @@ const Header = (props) => {
               <div className="text-center">
                 {isAuthenticated ? (
                   <div
-                    className="menu-item"
+                    className={menuItemClass}
                     style={{ marginRight: 48 }}
                     onClick={handleClickUsername}
                     role="button">
@@ -95,7 +95,7 @@ const Header = (props) => {
                   .filter((x) => x.show === true)
                   .map((item, index) => (
                     <div
-                      className="menu-item"
+                      className={menuItemClass}
                       role="button"
                       onClick={() => onClickMenu(item)}
                       key={index}>
@@ -113,7 +113,7 @@ const Header = (props) => {
       <div className="d-flex">
         {isAuthenticated ? (
           <div
-            className="menu-item"
+            className={menuItemClass}
             style={{ marginRight: 48 }}
             onClick={handleClickUsername}
             role="button">
@@ -124,7 +124,7 @@ const Header = (props) => {
           .filter((x) => x.show === true)
           .map((item, index) => (
             <div
-              className={`menu-item${index > 0 ? ' ms-5' : ''}`}
+              className={`${menuItemClass}${index > 0 ? ' ms-5' : ''}`}
               role="button"
               onClick={() => onClickMenu(item)}
               key={index}>

@@ -14,6 +14,18 @@
   }
 
   .menu-item:hover {
+    color: $darker-light;
+    transition: background-color 0.2s ease;
+    transition: color 0.2s ease;
+  }
+
+  .menu-items {
+    font-weight: 600;
+    letter-spacing: 2.2px;
+    transition: color 0.2s ease;
+  }
+
+  .menu-items:hover {
     color: $primary;
     transition: background-color 0.2s ease;
     transition: color 0.2s ease;
@@ -33,9 +45,27 @@
 }
 
 .header.scrolled {
-  background-color: #fff;
   color: #000;
+  background: rgba(255, 255, 255, 0.23);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(13.2px);
   transition: background-color 0.2s ease;
+
+  .menu-item {
+    color: $dark;
+    transition: background-color 0.2s ease;
+    transition: color 0.2s ease;
+    text-shadow: 1px 1px 2px $lighter-dark;
+  }
+
+  .menu-item:hover {
+    color: $primary-dark;
+    transition: background-color 0.2s ease;
+    transition: color 0.2s ease;
+    text-shadow: 1px 1px 2px $secondary;
+  }
 }
 
 .bottom-sheet {
