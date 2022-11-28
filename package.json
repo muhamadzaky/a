@@ -1,6 +1,6 @@
 {
   "name": "muhamad-zaky",
-  "version": "2.2.13",
+  "version": "2.2.14",
   "private": true,
   "author": "Muhamad Zaky",
   "scripts": {
@@ -11,6 +11,7 @@
     "fixlint": "eslint --fix ./pages ./src"
   },
   "dependencies": {
+    "@vercel/analytics": "^0.1.5",
     "amplitude-js": "^8.21.0",
     "axios": "^0.25.0",
     "bootstrap": "^5.1.3",
