@@ -14,7 +14,7 @@
   }
 
   .menu-item:hover {
-    color: $darker-light;
+    color: $lighter-dark;
     transition: background-color 0.2s ease;
     transition: color 0.2s ease;
   }
@@ -46,8 +46,7 @@
 
 .header.scrolled {
   color: #000;
-  background: rgba(255, 255, 255, 0.23);
-  border-radius: 16px;
+  background: #ffffff3b;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(32px);
   -webkit-backdrop-filter: blur(13.2px);
@@ -57,14 +56,25 @@
     color: $dark;
     transition: background-color 0.2s ease;
     transition: color 0.2s ease;
-    text-shadow: 1px 1px 0px $darker-light;
   }
 
   .menu-item:hover {
-    color: $primary-dark;
+    color: $primary;
     transition: background-color 0.2s ease;
     transition: color 0.2s ease;
-    text-shadow: 1px 1px 2px $secondary;
+  }
+
+  .menu-items {
+    color: $dark;
+    font-weight: 600;
+    letter-spacing: 2.2px;
+    transition: color 0.2s ease;
+  }
+
+  .menu-items:hover {
+    color: $primary;
+    transition: background-color 0.2s ease;
+    transition: color 0.2s ease;
   }
 }
 
