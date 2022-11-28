@@ -57,7 +57,7 @@
     color: $dark;
     transition: background-color 0.2s ease;
     transition: color 0.2s ease;
-    text-shadow: 1px 1px 2px $lighter-dark;
+    text-shadow: 1px 1px 0px $darker-light;
   }
 
   .menu-item:hover {
