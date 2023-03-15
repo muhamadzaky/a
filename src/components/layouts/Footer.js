@@ -14,7 +14,8 @@ import {
   AiFillHeart,
   AiFillInstagram,
   AiFillLinkedin,
-  AiFillTwitterSquare
+  AiFillTwitterSquare,
+  AiFillYoutube
 } from 'react-icons/ai';
 import Select from 'react-select';
 import { Button } from 'reactstrap';
@@ -88,6 +89,15 @@ const Footer = () => {
 
   const renderSNSIcon = (data) => {
     switch (data?.name) {
+      case 'youtube':
+        return (
+          <AiFillYoutube
+            className="mx-1"
+            size={32}
+            style={{ cursor: 'pointer' }}
+            onClick={() => window.open(data?.link, '_blank')}
+          />
+        );
       case 'facebook':
         return (
           <AiFillFacebook

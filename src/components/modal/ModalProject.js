@@ -48,7 +48,7 @@ const ModalProject = ({ isOpen, toggle, data }) => {
           <div className="d-flex flex-column">
             <span className="text-start fw-bold fs-5">{data?.name}</span>
             <span className="fw-normal fs-6">
-              {Helper.countDateDiff(data?.start, data?.end, true)}
+              {Helper.dayJSDateDiff(data?.start, data?.end, true)}
             </span>
           </div>
         </div>
@@ -84,16 +84,18 @@ const ModalProject = ({ isOpen, toggle, data }) => {
           </div>
         </div>
       </ModalBody>
-      <ModalFooter>
-        <Button
-          color="primary rounded-pill"
-          className={isDesktop && 'px-5'}
-          block={!isDesktop}
-          style={{ height: 'fit-content' }}
-          onClick={() => window.open(data?.link, '_blank')}>
-          {link}
-        </Button>
-      </ModalFooter>
+      {data?.link && (
+        <ModalFooter>
+          <Button
+            color="primary rounded-pill"
+            className={isDesktop && 'px-5'}
+            block={!isDesktop}
+            style={{ height: 'fit-content' }}
+            onClick={() => window.open(data?.link, '_blank')}>
+            {link}
+          </Button>
+        </ModalFooter>
+      )}
     </Modal>
   );
 };

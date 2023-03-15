@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import RelativeTime from 'dayjs/plugin/relativeTime';
 import { useRouter } from 'next/router';
 import { scroller } from 'react-scroll';
 
@@ -40,6 +41,11 @@ export default class Helper {
         (month > 1 && hl.toLowerCase() === 'en-us') || hl === '' ? 's' : ''
       }`;
     }
+  }
+
+  static dayJSDateDiff(start, end) {
+    dayjs.extend(RelativeTime);
+    return end ? dayjs(end).from(dayjs(start), true) : dayjs().from(dayjs(start), true);
   }
 
   static getInitial(name) {

@@ -35,22 +35,26 @@ const BottomSheetProjectDetail = ({ isOpen, onDismiss, data }) => {
           <div className="d-flex flex-column">
             <span className="text-start fw-bold fs-5">{data?.name}</span>
             <span className="text-start fs-6">
-              {Helper.countDateDiff(data?.start, data?.end, true)}
+              {Helper.dayJSDateDiff(data?.start, data?.end, true)}
             </span>
           </div>
         </Container>
       }
       footer={
-        <div className="mt-3 mb-2 text-center">
-          <Button
-            color="primary rounded-pill"
-            className={isDesktop && 'px-5'}
-            block={!isDesktop}
-            style={{ height: 'fit-content' }}
-            onClick={() => window.open(data?.link, '_blank')}>
-            {link}
-          </Button>
-        </div>
+        <>
+          {data?.link && (
+            <div className="mt-3 mb-2 text-center">
+              <Button
+                color="primary rounded-pill"
+                className={isDesktop && 'px-5'}
+                block={!isDesktop}
+                style={{ height: 'fit-content' }}
+                onClick={() => window.open(data?.link, '_blank')}>
+                {link}
+              </Button>
+            </div>
+          )}
+        </>
       }>
       <Container className="bottom-sheet__project pt-3 mb-2">
         <span>{data?.description}</span>
