@@ -18,6 +18,7 @@ import {
   AiFillYoutube
 } from 'react-icons/ai';
 import Select from 'react-select';
+import { Tooltip } from 'react-tooltip';
 import { Button } from 'reactstrap';
 import { useAuth } from 'src/context/auth';
 
@@ -91,57 +92,87 @@ const Footer = () => {
     switch (data?.name) {
       case 'youtube':
         return (
-          <AiFillYoutube
-            className="mx-1"
-            size={32}
-            style={{ cursor: 'pointer' }}
-            onClick={() => window.open(data?.link, '_blank')}
-          />
+          <>
+            <AiFillYoutube
+              data-tooltip-id="SNS_YouTube"
+              data-tooltip-content="YouTube"
+              className="mx-1"
+              size={32}
+              style={{ cursor: 'pointer' }}
+              onClick={() => window.open(data?.link, '_blank')}
+            />
+            <Tooltip id="SNS_YouTube" />
+          </>
         );
       case 'facebook':
         return (
-          <AiFillFacebook
-            className="mx-1"
-            size={32}
-            style={{ cursor: 'pointer' }}
-            onClick={() => window.open(data?.link, '_blank')}
-          />
+          <>
+            <AiFillFacebook
+              data-tooltip-id="SNS_Facebook"
+              data-tooltip-content="Facebook"
+              className="mx-1"
+              size={32}
+              style={{ cursor: 'pointer' }}
+              onClick={() => window.open(data?.link, '_blank')}
+            />
+            <Tooltip id="SNS_Facebook" />
+          </>
         );
       case 'twitter':
         return (
-          <AiFillTwitterSquare
-            className="mx-1"
-            size={32}
-            style={{ cursor: 'pointer' }}
-            onClick={() => window.open(data?.link, '_blank')}
-          />
+          <>
+            <AiFillTwitterSquare
+              data-tooltip-id="SNS_Twitter"
+              data-tooltip-content="Twitter"
+              className="mx-1"
+              size={32}
+              style={{ cursor: 'pointer' }}
+              onClick={() => window.open(data?.link, '_blank')}
+            />
+            <Tooltip id="SNS_Twitter" />
+          </>
         );
       case 'instagram':
         return (
-          <AiFillInstagram
-            className="mx-1"
-            size={32}
-            style={{ cursor: 'pointer' }}
-            onClick={() => window.open(data?.link, '_blank')}
-          />
+          <>
+            <AiFillInstagram
+              data-tooltip-id="SNS_Instagram"
+              data-tooltip-content="Instagram"
+              className="mx-1"
+              size={32}
+              style={{ cursor: 'pointer' }}
+              onClick={() => window.open(data?.link, '_blank')}
+            />
+            <Tooltip id="SNS_Instagram" />
+          </>
         );
       case 'github':
         return (
-          <AiFillGithub
-            className="mx-1"
-            size={32}
-            style={{ cursor: 'pointer' }}
-            onClick={() => window.open(data?.link, '_blank')}
-          />
+          <>
+            <AiFillGithub
+              data-tooltip-id="SNS_GitHub"
+              data-tooltip-content="GitHub"
+              className="mx-1"
+              size={32}
+              style={{ cursor: 'pointer' }}
+              onClick={() => window.open(data?.link, '_blank')}
+            />
+            <Tooltip id="SNS_GitHub" />
+          </>
         );
       case 'linkedin':
         return (
-          <AiFillLinkedin
-            className="mx-1"
-            size={32}
-            style={{ cursor: 'pointer' }}
-            onClick={() => window.open(data?.link, '_blank')}
-          />
+          <>
+            <AiFillLinkedin
+              data-tooltip-id="SNS_LinkedIn"
+              data-tooltip-content="LinkedIn"
+              className="mx-1"
+              size={32}
+              style={{ cursor: 'pointer' }}
+              onClick={() => window.open(data?.link, '_blank')}
+            />
+            <Tooltip id="SNS_LinkedIn" />
+          </>
         );
       default:
         break;

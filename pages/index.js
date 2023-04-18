@@ -191,7 +191,6 @@ const Index = (props) => {
       </Container>
 
       <Container className="projects">
-        {isDesktop ? <div className="projects__layers"></div> : null}
         <div className="d-flex justify-content-between align-items-center">
           <h1>
             {menu?.projects}

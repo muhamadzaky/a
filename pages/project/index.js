@@ -3,13 +3,13 @@ import CardProjects from '@components/card/CardProjects';
 import PrivateLayout from '@components/layouts/PrivateLayouts';
 import ModalProject from '@components/modal/ModalProject';
 import { Amplitude } from '@utils/Amplitude';
+import Helper from '@utils/Helper';
 import { t } from '@utils/t';
 import useResponsive from '@utils/useResponsive';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { AiOutlineSearch } from 'react-icons/ai';
-import { Container, Input, InputGroup, InputGroupText } from 'reactstrap';
+import { Col, Container, Input, Row } from 'reactstrap';
 
 const ProjectPage = (props) => {
   const router = useRouter();
@@ -69,6 +69,20 @@ const ProjectPage = (props) => {
     });
   };
 
+  const handleSearch = Helper.debounce((e) => {
+    const { value } = e.target;
+
+    if (value) {
+      Amplitude('searching project', {
+        page: 'project page',
+        url: window.location.href ?? '',
+        query: value ?? ''
+      });
+    }
+
+    setQuery(value);
+  }, 300);
+
   useEffect(() => {
     Amplitude('project page viewed', {
       page: 'project page',
@@ -79,20 +93,14 @@ const ProjectPage = (props) => {
   return (
     <PrivateLayout title="Projects">
       <Container className="my-3">
-        <div className="project-header">
-          <h1>{menu?.projects}</h1>
-          <InputGroup className="my-3">
-            <Input
-              placeholder={search}
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              onFocus={handleSearchFocus}
-            />
-            <InputGroupText>
-              <AiOutlineSearch />
-            </InputGroupText>
-          </InputGroup>
-        </div>
+        <Row className="project-header">
+          <Col lg={9}>
+            <h1>{menu?.projects}</h1>
+          </Col>
+          <Col lg={3}>
+            <Input placeholder={search} onChange={handleSearch} onFocus={handleSearchFocus} />
+          </Col>
+        </Row>
 
         <div className="projects__cards-wrapper mt-5">
           {dataProject()?.map((item) => (
@@ -111,6 +119,7 @@ const ProjectPage = (props) => {
           loading={detailProjectLoading}
           isOpen={hasDetailProject}
           toggle={() => handleClickToggleDetailModal('close')}
+          // source="project-page"
         />
       ) : (
         <BottomSheetProjectDetail

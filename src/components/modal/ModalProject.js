@@ -5,7 +5,7 @@ import useResponsive from '@utils/useResponsive';
 import { useRouter } from 'next/router';
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
-const ModalProject = ({ isOpen, toggle, data }) => {
+const ModalProject = ({ isOpen, toggle, data, source }) => {
   const router = useRouter();
   const { isDesktop } = useResponsive();
   const { locale } = router;
@@ -21,6 +21,8 @@ const ModalProject = ({ isOpen, toggle, data }) => {
     <Button style={externalCloseButtonClass} close onClick={toggle}></Button>
   );
 
+  const hasExternalButton = !!source;
+
   return (
     <Modal
       className="modal-project-detail"
@@ -29,9 +31,9 @@ const ModalProject = ({ isOpen, toggle, data }) => {
       scrollable
       toggle={toggle}
       isOpen={isOpen}
-      external={externalCloseButton}
+      external={hasExternalButton ? externalCloseButton : null}
       size="lg">
-      <ModalHeader toggle={toggle}>
+      <ModalHeader toggle={!hasExternalButton ? toggle : null}>
         <div className="d-flex align-items-center">
           <div className="image-wrapper">
             {data?.file ? (

@@ -38,7 +38,7 @@ const Header = (props) => {
   };
 
   const changeBackground = () => {
-    const scrollPosition = 500;
+    const scrollPosition = 300;
     if (window.scrollY < scrollPosition) {
       setHasWhiteNav(false);
     } else {

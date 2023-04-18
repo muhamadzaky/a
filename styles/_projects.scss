@@ -3,14 +3,11 @@
   flex-direction: column;
 
   input.form-control {
-    border-top-left-radius: px2rem(20);
-    border-bottom-left-radius: px2rem(20);
+    border-radius: px2rem(20);
     padding-left: px2rem(14);
   }
   
   span.input-group-text {
-    border-top-right-radius: px2rem(20);
-    border-bottom-right-radius: px2rem(20);
     padding-right: px2rem(14);
   }
 }
