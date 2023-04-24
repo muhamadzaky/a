@@ -17,6 +17,7 @@ import {
   AiFillTwitterSquare,
   AiFillYoutube
 } from 'react-icons/ai';
+import { IoMusicalNotes } from 'react-icons/io5';
 import Select from 'react-select';
 import { Tooltip } from 'react-tooltip';
 import { Button } from 'reactstrap';
@@ -174,6 +175,20 @@ const Footer = () => {
             <Tooltip id="SNS_LinkedIn" />
           </>
         );
+      case 'music':
+        return (
+          <>
+            <IoMusicalNotes
+              data-tooltip-id="SNS_AppleMusic"
+              data-tooltip-content="Apple Music"
+              className="mx-1"
+              size={32}
+              style={{ cursor: 'pointer' }}
+              onClick={() => window.open(data?.link, '_blank')}
+            />
+            <Tooltip id="SNS_AppleMusic" />
+          </>
+        );
       default:
         break;
     }
@@ -204,14 +219,17 @@ const Footer = () => {
   return (
     <footer className="footer contacts shadow mt-5">
       <div className="footer__wrapper">
-        <div className="d-flex justify-content-between align-items-center">
+        <div
+          className={`d-flex justify-content-between align-items-center${
+            !isDesktop ? ' flex-column' : ''
+          }`}>
           <div className="sns-wrapper my-2">
             {isDesktop && <span className="me-3">{followMe}</span>}
             {sns?.map((item) => renderSNSIcon(item))}
           </div>
           {isAuthenticated ? null : (
             <Button
-              className="identity"
+              className={`identity${!isDesktop ? ' mt-2' : ''}`}
               color="link"
               size="sm"
               onClick={() => setHasSecretKeyModal(true)}>

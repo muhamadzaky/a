@@ -17,7 +17,9 @@ const ModalSecretKey = ({ isOpen, toggle, onSubmit }) => {
   const [credential, setCredential] = useState({ username: '', password: '' });
 
   const onChangeCredential = (e) => {
-    setCredential({ ...credential, [e.target.id]: e.target.value });
+    const { id, value } = e.target;
+
+    setCredential({ ...credential, [id]: value });
   };
 
   return (
