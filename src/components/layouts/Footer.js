@@ -196,8 +196,9 @@ const Footer = () => {
 
   const fetchSNS = async () => {
     const res = await api('sns');
+    const data = res?.data?.filter((x) => x.show === true);
 
-    setSNS(res.data);
+    setSNS(data);
   };
 
   const copyrightStyle = !isDesktop
