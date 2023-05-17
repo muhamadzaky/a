@@ -36,7 +36,7 @@ const Index = (props) => {
     });
 
     window.open(
-      "mailto:muhamadzaky1023@gmail.com?cc=zakysteinfeld@outlook.com&amp;subject=Hi! I'm interested with you.&amp;body="
+      "mailto:muhamadzaky1023@gmail.com?cc=zakysteinfeld@gmail.com&amp;subject=Hi! I'm interested with you.&amp;body="
     );
   };
 
@@ -194,6 +194,7 @@ const Index = (props) => {
         <div className="d-flex justify-content-between align-items-center">
           <h1>
             {menu?.projects}
+            <span className="fz-xs">({projects?.length ?? 0})</span>
             <h6 className="pt-2 pe-2">{sortedByLastProject}</h6>
           </h1>
           <span role="button" onClick={handleClickSeAll}>

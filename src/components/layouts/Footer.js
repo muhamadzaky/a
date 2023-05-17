@@ -1,3 +1,4 @@
+import LanguageSelect from '@components/field/LanguageSelect';
 import ModalSecretKey from '@components/modal/ModalSecretKey';
 import { Amplitude } from '@utils/Amplitude';
 import { api } from '@utils/API';
@@ -18,66 +19,20 @@ import {
   AiFillYoutube
 } from 'react-icons/ai';
 import { IoMusicalNotes } from 'react-icons/io5';
-import Select from 'react-select';
 import { Tooltip } from 'react-tooltip';
 import { Button } from 'reactstrap';
 import { useAuth } from 'src/context/auth';
 
 const Footer = () => {
   const router = useRouter();
-  const { pathname, locale } = router;
+  const { locale } = router;
   const { isDesktop } = useResponsive();
   const { authenticate, isAuthenticated } = useAuth();
 
   const [sns, setSNS] = useState([]);
-  const [currentLang, setCurrentLang] = useState(find(langList, { value: locale }));
   const [hasSecretKeyModal, setHasSecretKeyModal] = useState(false);
 
-  const { lang, followMe, enterSecretKey } = t[currentLang.value];
-
-  const selectStyles = {
-    valueContainer: () => ({
-      width: 130,
-      height: 40,
-      cursor: 'pointer',
-      display: 'flex',
-      alignItems: 'center',
-      padding: 8
-    })
-  };
-
-  const CustomOption = ({ innerProps, isDisabled }) => {
-    const id = innerProps.id;
-    const idx = id.substr(id.length - 1);
-
-    return (
-      <>
-        {!isDisabled ? (
-          <div {...innerProps} className="px-2" role="button">
-            {lang[langList[idx].value]}
-          </div>
-        ) : null}
-      </>
-    );
-  };
-
-  const handleChangeLocale = (options, action) => {
-    const updateOptions = {
-      value: options.value,
-      label: lang[options.value]
-    };
-
-    if (action !== 'init') {
-      Amplitude('change language initiated', {
-        page: window.location.pathname ?? '',
-        url: window.location.href ?? '',
-        item: updateOptions
-      });
-    }
-
-    setCurrentLang(updateOptions);
-    router.replace(pathname, pathname, { locale: options.value });
-  };
+  const { followMe, enterSecretKey } = t[locale];
 
   const toggleSecretKeyModal = () => setHasSecretKeyModal(!hasSecretKeyModal);
 
@@ -206,14 +161,6 @@ const Footer = () => {
     : 'd-flex justify-content-between align-items-center';
 
   useEffect(() => {
-    if (locale) {
-      handleChangeLocale({ value: locale }, 'init');
-    } else {
-      handleChangeLocale({ value: 'en-US' }, 'init');
-    }
-  }, [locale]);
-
-  useEffect(() => {
     fetchSNS();
   }, []);
 
@@ -247,15 +194,7 @@ const Footer = () => {
           </span>
 
           <div className="mt-2">
-            <Select
-              styles={selectStyles}
-              options={langList}
-              value={currentLang}
-              onChange={handleChangeLocale}
-              components={{ Option: CustomOption }}
-              menuPlacement="top"
-              isSearchable={false}
-            />
+            <LanguageSelect />
           </div>
         </div>
       </div>
