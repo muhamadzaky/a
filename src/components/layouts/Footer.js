@@ -1,12 +1,9 @@
 import LanguageSelect from '@components/field/LanguageSelect';
 import ModalSecretKey from '@components/modal/ModalSecretKey';
-import { Amplitude } from '@utils/Amplitude';
 import { api } from '@utils/API';
-import { langList } from '@utils/constant';
 import { t } from '@utils/t';
 import useResponsive from '@utils/useResponsive';
 import dayjs from 'dayjs';
-import { find } from 'lodash';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import {
