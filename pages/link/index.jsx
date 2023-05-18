@@ -61,7 +61,7 @@ const LinkPage = () => {
   }, []);
 
   return (
-    <PrivateLayout title="Link" hasNavbar={false} hasFooter={false}>
+    <PrivateLayout title="Link" hasNavbar={false} hasFooter={false} className="link-page">
       <Container className="d-flex justify-content-center align-items-center flex-column vh-100 position-relative">
         <div className="position-absolute" style={{ left: 10, top: 10 }}>
           <Image
@@ -83,7 +83,7 @@ const LinkPage = () => {
             map(data, (item) => (
               <div
                 key={item.id}
-                className="text-center my-3 px-3 py-2 rounded shadow cursor-pointer"
+                className="items text-center my-3 px-3 py-2 rounded shadow cursor-pointer"
                 onClick={() => handleClickItem(item)}>
                 {item?.name ?? 'n/a'}
               </div>
