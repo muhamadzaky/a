@@ -12,7 +12,8 @@ const PrivateLayout = ({
   title = 'Muhamad Zaky',
   isDesktop,
   className,
-  scrolledNav
+  scrolledNav,
+  withLogo
 }) => {
   const router = useRouter();
   const { meta } = t[router.locale];
@@ -48,7 +49,9 @@ const PrivateLayout = ({
       </Head>
 
       <main className={className ? className : ''}>
-        {hasNavbar && <Header isDesktop={isDesktop} scrolledNav={scrolledNav} />}
+        {hasNavbar && (
+          <Header isDesktop={isDesktop} scrolledNav={scrolledNav} withLogo={withLogo} />
+        )}
         {children}
       </main>
 

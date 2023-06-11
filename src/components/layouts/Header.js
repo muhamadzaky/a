@@ -16,7 +16,7 @@ const Header = (props) => {
   const { locale, pathname } = router;
   const { isDesktop } = useResponsive();
   const { menu, banner } = t[locale];
-  const { scrolledNav = false } = props;
+  const { scrolledNav = false, withLogo = true } = props;
   const { isAuthenticated, user, logout } = useAuth();
 
   const [toggle, setToggle] = useState(false);
@@ -137,14 +137,16 @@ const Header = (props) => {
 
   return (
     <div className={`header${scrolledNav ? ' header-fix' : ''}${hasWhiteNav ? ' scrolled' : ''}`}>
-      <Image
-        src="/assets/images/logo.png"
-        alt="logo"
-        width={50}
-        height={35.69}
-        onClick={() => router.push('/')}
-        role="button"
-      />
+      {withLogo ? (
+        <Image
+          src="/assets/images/logo.png"
+          alt="logo"
+          width={50}
+          height={35.69}
+          onClick={() => router.push('/')}
+          role="button"
+        />
+      ) : null}
 
       {renderMenu()}
     </div>

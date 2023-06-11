@@ -190,3 +190,11 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+.chevron__up {
+  transform: rotate(180deg);
+}
+
+.chevron__down {
+  transform: rotate(0deg);
+}
