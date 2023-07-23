@@ -17,7 +17,7 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import 'react-spring-bottom-sheet/dist/style.css';
 @import 'react-tooltip/dist/react-tooltip.css';
-@import "https://unpkg.com/transition-style";
+@import '../node_modules/transition-style/';
 
 // custom style goes down here
 html,
