@@ -17,11 +17,12 @@ import {
 const RebornPrototype = () => {
   const router = useRouter();
   const { locale } = router;
-  const { about, banner, menu, meta, seeAll, sortedByLastProject } = t[locale];
+  const { banner, meta } = t[locale];
+  // const { about, banner, menu, meta, seeAll, sortedByLastProject } = t[locale];
 
-  const [menuOpened, setMenuOpened] = useState(false);
+  // const [menuOpened, setMenuOpened] = useState(false);
 
-  const toggleMenu = () => setMenuOpened(!menuOpened);
+  // const toggleMenu = () => setMenuOpened(!menuOpened);
 
   return (
     <PrivateLayout className="landing" title={meta?.name} hasNavbar={false}>

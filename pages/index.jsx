@@ -22,7 +22,6 @@ const Index = (props) => {
   const { about, banner, menu, meta, seeAll, sortedByLastProject } = t[locale];
   const { isDesktop } = useResponsive();
   const { educations, skills, experiences, projects } = props;
-  const { isAuthenticated } = useAuth();
 
   const [hasDetailProject, setHasDetailProject] = useState(false);
   const [detailProjectData, setDetailProjectData] = useState();
