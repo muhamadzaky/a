@@ -41,17 +41,17 @@ const ProjectPage = (props) => {
 
   const handleClickToggleDetailModal = async (toggle, data) => {
     setDetailProjectLoading(true);
-    Amplitude('click project card', {
-      page: 'project page',
-      url: window.location.href ?? '',
-      item: {
-        company_name: data?.company,
-        project_name: data?.name
-      },
-      action: toggle === 'open' ? 'open detail' : 'close detail'
-    });
 
     if (toggle === 'open') {
+      Amplitude('click project card', {
+        page: 'project page',
+        url: window.location.href ?? '',
+        item: {
+          company_name: data?.company,
+          project_name: data?.name
+        },
+        action: toggle === 'open' ? 'open detail' : 'close detail'
+      });
       await setDetailProjectData(data);
       await setHasDetailProject(true);
 
@@ -102,15 +102,16 @@ const ProjectPage = (props) => {
           </Col>
         </Row>
 
-        <div className="projects__cards-wrapper mt-5">
+        <Row className="projects mt-5">
           {dataProject()?.map((item) => (
-            <CardProjects
-              key={item?.id}
-              data={item}
-              onClickDetail={() => handleClickToggleDetailModal('open', item)}
-            />
+            <Col lg={4} md={12} sm={12} className="my-3" key={item?.id}>
+              <CardProjects
+                data={item}
+                onClick={() => handleClickToggleDetailModal('open', item)}
+              />
+            </Col>
           ))}
-        </div>
+        </Row>
       </Container>
 
       {isDesktop ? (

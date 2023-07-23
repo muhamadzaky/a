@@ -7,7 +7,7 @@ export const t = {
       mailMe: 'Send Mail!',
       downloadCV: 'Download CV'
     },
-    about: '<span>ー Building ReactJS web application for over 3 years.</span>',
+    about: 'ー Building ReactJS web application for over 3 years.',
     meta: {
       name: 'Muhamad Zaky',
       content: "This is Muhammad Zaky's portfolio! - Please have a look and call!"
@@ -59,7 +59,7 @@ export const t = {
       mailMe: 'メールを送ってください！',
       downloadCV: 'CVをダウンロード'
     },
-    about: '<span>ー 3年以上にわたってReactJS Webアプリを構築しています。</ span>',
+    about: 'ー 3年以上にわたってReactJS Webアプリを構築しています。',
     meta: {
       name: 'ムハンマド・ザキー',
       content: 'これがムハンマド・ザキーのポートフォリオです！ -ご覧になってお電話ください！'
@@ -111,8 +111,7 @@ export const t = {
       mailMe: 'Kirim Email!',
       downloadCV: 'Unduh CV'
     },
-    about:
-      '<span>ー Membuat aplikasi berbasis web menggunakan ReactJS selama lebih dari 3 tahun.</span>',
+    about: 'ー Membuat aplikasi berbasis web menggunakan ReactJS selama lebih dari 3 tahun.',
     meta: {
       name: 'Muhamad Zaky',
       content: 'Ini adalah portofolio Muhamad Zaky! - Silahkan lihat dan hubungi!'

@@ -1,244 +1,458 @@
-.banner {
-  margin: auto 0 px2rem(50);
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  letter-spacing: 2.2px;
-
-  &__text {
-    color: #fff;
-    padding: 0 px2rem(20);
-    z-index: 2;
-
-    span:nth-of-type(3) {
-      font-size: px2rem(24);
-    }
-
-    &__btn-group {
-      display: flex;
-      flex-direction: column;
-      white-space: nowrap;
-
-      button {
-        display: flex;
-        justify-content: center;
-      }
-    }
-  }
-
-  &__arrow {
-    position: absolute;
-    bottom: px2rem(50);
-    font-size: px2rem(36);
-    left: 50% !important;
-    transform: translate(-50%,0);
-    z-index: 1;
-  }
-
-  &__layer {
-    background-color: rgb(26, 26, 143);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    opacity: 80%;
-  }
-
-  &__image {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    &:after {
-      background-color: rgb(22, 22, 137);
-      width: 100%;
-      height: 100%;
-      opacity: 50%;
-    }
-  }
-
-  &__gradient {
-    background-image: linear-gradient(150deg, $primary 35%, $secondary 100%);
-    background-size: 200% 200%;
-    animation: movingGradient 5s linear infinite alternate;
-    width: 100%;
-    height: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-}
-
-.educations {
-  .cards-wrapper {
+.landing {
+  .home {
     display: flex;
-    flex-direction: column;
-  }
-}
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary;
 
-.skills {
-  margin: px2rem(250) auto;
-  
-  .image-skills {
-    width: px2rem(64);
-    height: px2rem(64);
-    object-fit: contain;
-    margin: 0 px2rem(16);
-  }
-}
-
-.experiences {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin: px2rem(250) auto;
-  position: relative;
-
-  h1 {
-    color: #fff;
-  }
-
-  .bg-decor {
-    position: absolute;
-    background: $success;
-    width: 100vw;
-    height: px2rem(500);
-    z-index: -1;
-    top: px2rem(-35);
-  }
-
-  &__cards-wrapper {
-    max-width: 1200px;
-    margin: px2rem(24) auto 0;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(2, .5fr);
-  }
-}
-
-.projects {
-  margin: px2rem(250) auto px2rem(60);
-
-  span[role=button] {
-    white-space: nowrap;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: color 0.2s ease;
-  }
-
-  span[role=button]:hover, span[role=button]:active {
-    color: $primary;
-    transition: color 0.2s ease;
-  }
-
-  &__cards-wrapper {
-    max-width: 1200px;
-    margin: px2rem(24) auto 0;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(1, .5fr);
-  }
-
-  &__layers {
-    position: absolute;
-    width: 115vw;
-    height: 200px;
-    background-color: aliceblue;
-    z-index: -1;
-    left: -50px;
-    transform: rotate(-16deg);
-    margin: inherit;
-  }
-}
-
-@media (min-width: 992px) {
-  .banner {
-    background-size: 100%;
-
-    &__text {
-      padding: 0 px2rem(360);
-
-      &__btn-group {
+    &__container {
+      .text {
         display: flex;
-        flex-direction: row;
-
-        button {
-          margin-right: 8px;
+        flex-direction: column;
+        color: $primary-dark;
+        
+        span {
+          &:nth-of-type(1) {
+            font-size: px2rem(28);
+            font-weight: 700;
+          }
+          &:nth-of-type(2) {
+            font-size: px2rem(16);
+            margin-bottom: 16px;
+          }
+          &:nth-of-type(3) {
+            font-size: px2rem(18);
+            margin-bottom: 16px;
+          }
         }
       }
     }
   }
 
   .educations {
-    .cards-wrapper {
-      display: flex;
-      flex-direction: row;
+    display: flex;
+    align-items: center;
+  }
 
-      .card-education:not(:first-child) {
-        margin-left: px2rem(12);
+  .skills {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      text-align: center;
+    }
+    
+    .card-wrapper {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      background-color: #fff;
+      
+      & > div {
+        width: px2rem(160);
+        height: px2rem(160);
+        padding: px2rem(20);
+        display: flex;
+        
+        & > img {
+          object-fit: contain;
+          width: -webkit-fill-available;
+          width: px2rem(120);
+        }
       }
     }
   }
 
-  .skills {
-    .image-skills {
-      width: px2rem(100);
-      height: px2rem(100);
-      object-fit: contain;
-      margin: 0 px2rem(48);
-    }
-  }
-
   .experiences {
-    justify-content: center;
+    display: flex;
     align-items: center;
-    flex-direction: row;
+    justify-content: center;
+    padding: px2rem(64);
+    background-color: #00c691;
 
-    .bg-decor {
-      top: px2rem(-120);
-      height: px2rem(450);
+    h1 {
+      color: #ffffff ;
     }
 
-    &__cards-wrapper {
-      grid-template-columns: repeat(3, 1fr);
+    .card-wrapper {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      
+      & > div {
+        width: px2rem(160);
+        height: px2rem(160);
+        padding: px2rem(20);
+        display: flex;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+        border-radius: px2rem(14);
+        background-color: #fff;
+        
+        & > img {
+          object-fit: contain;
+          width: -webkit-fill-available;
+          width: px2rem(120);
+        }
+      }
     }
   }
 
   .projects {
-    &__cards-wrapper {
-      grid-template-columns: repeat(3, .5fr);
+    padding: px2rem(64) 0;
+
+    .card-projects {
+      margin: 0;
     }
 
-    &__layers {
-      position: absolute;
-      width: 108vw !important;
-      height: 200px;
-      background-color: aliceblue;
-      z-index: -1;
-      left: -50px;
-      transform: rotate(-16deg);
-      margin: inherit;
+    .card-item {
+      height: px2rem(400);
+      padding: px2rem(16);
+      box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+      border-radius: px2rem(14);
+      background-color: #fff;
+
+      div {
+        &:nth-of-type(1) {
+          width: 100%;
+          height: px2rem(268);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+  
+          & > img {
+            width: 100%;
+          }
+
+          & > svg {
+            font-size: 120px;
+            opacity: 0.1;
+          }
+        }
+
+        &:nth-of-type(2) {
+          span {
+            &:nth-child(1) {
+              font-weight: 600;
+            }
+          }
+        }
+      }
     }
   }
 }
 
-@keyframes movingGradient {
-  from { background-position: 0 0; }
-  to { background-position: 100% 100%; }
+@media (max-width: 992px) {
+  .landing {
+    .educations {
+      margin: px2rem(64) 0;
+    }
+
+    .skills {
+      margin: px2rem(128) 0;
+    }
+
+    .experiences {
+      margin: px2rem(128) 0;
+
+      h1 {
+        text-align: center;
+      }
+
+      .card-wrapper > div {
+        margin: px2rem(16) 0;
+      }
+    }
+  }
 }
+
+@media (min-width: 992px) {
+  .landing {
+    .educations {
+      height: px2rem(540);
+    }
+
+    .skills {
+      height: px2rem(540);
+
+      .card-wrapper {
+        flex-direction: row;
+
+        & > div {
+          margin: auto px2rem(24);
+        }
+      }
+    }
+
+    .experiences {
+      height: px2rem(540);
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+          margin-right: px2rem(64);
+        }
+      }
+
+      .card-wrapper {
+        flex-direction: row;
+
+        & > div {
+          margin: auto px2rem(24);
+        }
+      }
+    }
+  }
+}
+
+// .banner {
+//   margin: auto 0 px2rem(50);
+//   width: 100%;
+//   height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   position: relative;
+//   letter-spacing: 2.2px;
+
+//   &__text {
+//     color: #fff;
+//     padding: 0 px2rem(20);
+//     z-index: 2;
+
+//     span:nth-of-type(3) {
+//       font-size: px2rem(24);
+//     }
+
+//     &__btn-group {
+//       display: flex;
+//       flex-direction: column;
+//       white-space: nowrap;
+
+//       button {
+//         display: flex;
+//         justify-content: center;
+//       }
+//     }
+//   }
+
+//   &__arrow {
+//     position: absolute;
+//     bottom: px2rem(50);
+//     font-size: px2rem(36);
+//     left: 50% !important;
+//     transform: translate(-50%,0);
+//     z-index: 1;
+//   }
+
+//   &__layer {
+//     background-color: rgb(26, 26, 143);
+//     width: 100%;
+//     height: 100%;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     z-index: 1;
+//     opacity: 80%;
+//   }
+
+//   &__image {
+//     background-position: center center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     object-fit: cover;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+
+//     &:after {
+//       background-color: rgb(22, 22, 137);
+//       width: 100%;
+//       height: 100%;
+//       opacity: 50%;
+//     }
+//   }
+
+//   &__gradient {
+//     background-image: linear-gradient(150deg, $primary 35%, $secondary 100%);
+//     background-size: 200% 200%;
+//     animation: movingGradient 5s linear infinite alternate;
+//     width: 100%;
+//     height: 100%;
+//     background-position: center center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     object-fit: cover;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//   }
+// }
+
+// .educations {
+//   .cards-wrapper {
+//     display: flex;
+//     flex-direction: column;
+//   }
+// }
+
+// .skills {
+//   margin: px2rem(250) auto;
+  
+//   .image-skills {
+//     width: px2rem(64);
+//     height: px2rem(64);
+//     object-fit: contain;
+//     margin: 0 px2rem(16);
+//   }
+// }
+
+// .experiences {
+//   display: flex;
+//   align-items: center;
+//   flex-direction: column;
+//   margin: px2rem(250) auto;
+//   position: relative;
+
+//   h1 {
+//     color: #fff;
+//   }
+
+//   .bg-decor {
+//     position: absolute;
+//     background: $success;
+//     width: 100vw;
+//     height: px2rem(500);
+//     z-index: -1;
+//     top: px2rem(-35);
+//   }
+
+//   &__cards-wrapper {
+//     max-width: 1200px;
+//     margin: px2rem(24) auto 0;
+//     display: grid;
+//     gap: 1rem;
+//     grid-template-columns: repeat(2, .5fr);
+//   }
+// }
+
+// .projects {
+//   margin: px2rem(250) auto px2rem(60);
+
+//   span[role=button] {
+//     white-space: nowrap;
+//     font-weight: 600;
+//     letter-spacing: 1px;
+//     transition: color 0.2s ease;
+//   }
+
+//   span[role=button]:hover, span[role=button]:active {
+//     color: $primary;
+//     transition: color 0.2s ease;
+//   }
+
+//   &__cards-wrapper {
+//     max-width: 1200px;
+//     margin: px2rem(24) auto 0;
+//     display: grid;
+//     gap: 1rem;
+//     grid-template-columns: repeat(1, .5fr);
+//   }
+
+//   &__layers {
+//     position: absolute;
+//     width: 115vw;
+//     height: 200px;
+//     background-color: aliceblue;
+//     z-index: -1;
+//     left: -50px;
+//     transform: rotate(-16deg);
+//     margin: inherit;
+//   }
+// }
+
+// @media (min-width: 992px) {
+//   .banner {
+//     background-size: 100%;
+
+//     &__text {
+//       padding: 0 px2rem(360);
+
+//       &__btn-group {
+//         display: flex;
+//         flex-direction: row;
+
+//         button {
+//           margin-right: 8px;
+//         }
+//       }
+//     }
+//   }
+
+//   .educations {
+//     .cards-wrapper {
+//       display: flex;
+//       flex-direction: row;
+
+//       .card-education:not(:first-child) {
+//         margin-left: px2rem(12);
+//       }
+//     }
+//   }
+
+//   .skills {
+//     .image-skills {
+//       width: px2rem(100);
+//       height: px2rem(100);
+//       object-fit: contain;
+//       margin: 0 px2rem(48);
+//     }
+//   }
+
+//   .experiences {
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: row;
+
+//     .bg-decor {
+//       top: px2rem(-120);
+//       height: px2rem(450);
+//     }
+
+//     &__cards-wrapper {
+//       grid-template-columns: repeat(3, 1fr);
+//     }
+//   }
+
+//   .projects {
+//     &__cards-wrapper {
+//       grid-template-columns: repeat(3, .5fr);
+//     }
+
+//     &__layers {
+//       position: absolute;
+//       width: 108vw !important;
+//       height: 200px;
+//       background-color: aliceblue;
+//       z-index: -1;
+//       left: -50px;
+//       transform: rotate(-16deg);
+//       margin: inherit;
+//     }
+//   }
+// }
+
+// @keyframes movingGradient {
+//   from { background-position: 0 0; }
+//   to { background-position: 100% 100%; }
+// }

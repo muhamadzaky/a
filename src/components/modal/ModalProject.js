@@ -89,7 +89,7 @@ const ModalProject = ({ isOpen, toggle, data, source }) => {
       {data?.link && (
         <ModalFooter>
           <Button
-            color="primary rounded-pill"
+            color="primary"
             className={isDesktop && 'px-5'}
             block={!isDesktop}
             style={{ height: 'fit-content' }}

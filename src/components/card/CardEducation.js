@@ -5,13 +5,11 @@ const CardEducation = ({ data }) => {
   const { isDesktop } = useResponsive();
 
   return (
-    <Card
-      className={`card-education my-${!isDesktop ? '2' : '3'} shadow border-0`}
-      onClick={() => window.open(data?.link)}>
+    <Card className={`shadow border-0 ${isDesktop ? 'mx-2' : 'my-2'}`}>
       <CardBody className="d-flex flex-column">
         <span>{data?.name}</span>
         <span>{data?.year}</span>
-        <span>{data?.major ? data?.major : ''}</span>
+        {data?.major && <span>{data?.major}</span>}
       </CardBody>
     </Card>
   );

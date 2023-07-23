@@ -3,13 +3,13 @@ import { menuList } from '@utils/constant';
 import Helper from '@utils/Helper';
 import { t } from '@utils/t';
 import useResponsive from '@utils/useResponsive';
+import { Spin as Hamburger } from 'hamburger-react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { AiOutlineBars } from 'react-icons/ai';
 import { BottomSheet } from 'react-spring-bottom-sheet';
-import { Button, Container } from 'reactstrap';
+import { Container } from 'reactstrap';
 
 const Header = (props) => {
   const router = useRouter();
@@ -64,23 +64,15 @@ const Header = (props) => {
     if (!isDesktop) {
       return (
         <>
-          <Button
-            className="header__menu-button"
-            color="light"
-            id="menu-bar"
-            onClick={handleToggle}>
-            <AiOutlineBars />
-          </Button>
+          <Hamburger toggled={toggle} toggle={handleToggle} />
 
           <BottomSheet
             open={toggle}
             onDismiss={handleToggle}
-            snapPoints={({ maxHeight }) => maxHeight}
+            snapPoints={({ minHeight }) => minHeight}
             className="bottom-sheet"
             header={<h2 className="my-2">{menu?.title}</h2>}>
-            <Container
-              className="d-flex justify-content-center align-items-center"
-              style={{ height: '80vh' }}>
+            <Container className="d-flex justify-content-center align-items-center my-5">
               <div className="text-center">
                 {isAuthenticated ? (
                   <div
