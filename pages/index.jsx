@@ -4,7 +4,6 @@ import CardExperiences from '@components/card/CardExperiences';
 import CardProjects from '@components/card/CardProjects';
 import PrivateLayout from '@components/layouts/PrivateLayouts';
 import ModalProject from '@components/modal/ModalProject';
-import { useAuth } from '@context/auth';
 import { Amplitude } from '@utils/Amplitude';
 import { t } from '@utils/t';
 import useResponsive from '@utils/useResponsive';
