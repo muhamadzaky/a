@@ -11,12 +11,19 @@
     font-weight: 600;
     letter-spacing: 2.2px;
     transition: color 0.2s ease;
+    color: #f3f2f1;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: $primary-dark;
+    text-shadow: 1px 1px 0px $primary-dark;
   }
 
   .menu-item:hover {
-    color: $lighter-dark;
     transition: background-color 0.2s ease;
     transition: color 0.2s ease;
+    color: $lighter-dark;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #f3f2f1;
+    text-shadow: 1px 1px 0px #f3f2f1;
   }
 
   .menu-items {
