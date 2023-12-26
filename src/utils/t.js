@@ -49,7 +49,8 @@ export const t = {
     error: {
       authentication: 'Error 401'
     },
-    enterSecretKey: 'Enter Secret Key'
+    enterSecretKey: 'Enter Secret Key',
+    onGoing: 'On Going'
   },
   ja: {
     banner: {
@@ -101,7 +102,8 @@ export const t = {
     error: {
       authentication: '401エラー'
     },
-    enterSecretKey: '秘密鍵を入力してください'
+    enterSecretKey: '秘密鍵を入力してください',
+    onGoing: '進行中'
   },
   id: {
     banner: {
@@ -153,6 +155,7 @@ export const t = {
     error: {
       authentication: 'Error 401'
     },
-    enterSecretKey: 'Masukkan Kata Kunci'
+    enterSecretKey: 'Masukkan Kata Kunci',
+    onGoing: 'Berjalan'
   }
 };

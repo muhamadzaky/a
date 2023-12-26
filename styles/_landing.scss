@@ -145,6 +145,14 @@
             &:nth-child(1) {
               font-weight: 600;
             }
+
+            &:nth-child(3) {
+              width: fit-content;
+              padding: 2px 16px;
+              color: $success;
+              border-radius: 8px;
+              border: 1px solid $success;
+            }
           }
         }
       }
