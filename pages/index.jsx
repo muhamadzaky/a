@@ -5,6 +5,7 @@ import CardProjects from '@components/card/CardProjects';
 import PrivateLayout from '@components/layouts/PrivateLayouts';
 import ModalProject from '@components/modal/ModalProject';
 import { Amplitude } from '@utils/Amplitude';
+import { BASE64_CV } from '@utils/constant';
 import { t } from '@utils/t';
 import useResponsive from '@utils/useResponsive';
 import { filter, map } from 'lodash';
@@ -43,12 +44,18 @@ const Index = (props) => {
       url: window.location.href ?? ''
     });
 
-    window.open(
-      'https://drive.google.com/drive/folders/1IQ0Vc28mkXClsFYPOrKhhfCP6rPn7o2-?usp=sharing'
-    );
+    // window.open(
+    //   'https://drive.google.com/drive/folders/1IQ0Vc28mkXClsFYPOrKhhfCP6rPn7o2-?usp=sharing'
+    // );
+
+    const a = document.createElement('a');
+    const fileName = 'Muhamad Zaky CV.pdf';
+    a.href = BASE64_CV;
+    a.download = fileName;
+    a.click();
   };
 
-  const handleClickSeAll = () => {
+  const handleClickSeeAll = () => {
     Amplitude('click see all project', {
       page: 'landing page',
       url: window.location.href ?? ''
@@ -174,7 +181,7 @@ const Index = (props) => {
             <span className="fz-xs">({projects?.length ?? 0})</span>
             <h6 className="pt-2 pe-2">{sortedByLastProject}</h6>
           </h1>
-          <span role="button" onClick={handleClickSeAll}>
+          <span role="button" onClick={handleClickSeeAll}>
             {seeAll}
           </span>
         </div>
