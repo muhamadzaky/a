@@ -113,7 +113,8 @@ export const t = {
       mailMe: 'Kirim Email!',
       downloadCV: 'Unduh CV'
     },
-    about: 'ー Membuat aplikasi berbasis web menggunakan ReactJS selama lebih dari {workingYears} tahun.',
+    about:
+      'ー Membuat aplikasi berbasis web menggunakan ReactJS selama lebih dari {workingYears} tahun.',
     meta: {
       name: 'Muhamad Zaky',
       content: 'Ini adalah portofolio Muhamad Zaky! - Silahkan lihat dan hubungi!'

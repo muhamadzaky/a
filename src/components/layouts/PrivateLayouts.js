@@ -51,7 +51,12 @@ const PrivateLayout = ({
 
       <main className={className ? className : ''}>
         {hasNavbar && (
-          <Header isDesktop={isDesktop} scrolledNav={scrolledNav} withLogo={withLogo} className={headerClassName} />
+          <Header
+            isDesktop={isDesktop}
+            scrolledNav={scrolledNav}
+            withLogo={withLogo}
+            className={headerClassName}
+          />
         )}
         {children}
       </main>
