@@ -90,4 +90,12 @@ export default class Helper {
   static decreaseString(string = '', length = 11) {
     return string.length > length ? string.substring(0, length - 3) + '...' : string;
   }
+  
+  static workingYears(year = dayjs().get('year'), textToReplace = '') {
+    const count = dayjs().get('year') - year;
+
+    if (textToReplace !== '') return textToReplace.replace('{workingYears}', count);
+
+    return count;
+  }
 }

@@ -11,19 +11,56 @@
     font-weight: 600;
     letter-spacing: 2.2px;
     transition: color 0.2s ease;
-    color: #f3f2f1;
-    -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: $primary-dark;
-    text-shadow: 1px 1px 0px $primary-dark;
+    color: $dark;
+    text-shadow: .5px .5px 0px $primary-dark;
   }
 
   .menu-item:hover {
     transition: background-color 0.2s ease;
     transition: color 0.2s ease;
-    color: $lighter-dark;
-    -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: #f3f2f1;
-    text-shadow: 1px 1px 0px #f3f2f1;
+    color: $primary;
+    text-shadow: .5px .5px 0px #f3f2f1;
+  }
+
+  .menu-items {
+    font-weight: 600;
+    letter-spacing: 2.2px;
+    transition: color 0.2s ease;
+  }
+
+  .menu-items:hover {
+    color: $primary;
+    transition: background-color 0.2s ease;
+    transition: color 0.2s ease;
+  }
+
+  &__menu-button {
+    border-radius: px2rem(14) !important;
+  }
+}
+
+.header.lander {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  margin: auto;
+  background-color: transparent;
+  border-color: none;
+
+  .menu-item {
+    font-weight: 600;
+    letter-spacing: 2.2px;
+    transition: color 0.2s ease;
+    color: #f3f2f1;
+    text-shadow: .5px .5px 0px $primary-dark;
+  }
+
+  .menu-item:hover {
+    transition: background-color 0.2s ease;
+    transition: color 0.2s ease;
+    color: $primary;
+    text-shadow: .5px .5px 0px #f3f2f1;
   }
 
   .menu-items {
@@ -52,15 +89,14 @@
 }
 
 .header.scrolled {
-  color: #000;
-  background: #ffffff3b;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: #0000009a;
+  box-shadow: 0 4px 30px #0000001a;
   backdrop-filter: blur(32px);
   -webkit-backdrop-filter: blur(13.2px);
   transition: background-color 0.2s ease;
 
   .menu-item {
-    color: $dark;
+    color: $light;
     transition: background-color 0.2s ease;
     transition: color 0.2s ease;
   }
@@ -95,7 +131,7 @@
 }
 
 @media (min-width: 992px) {
-  .header {
-    padding: px2rem(16) px2rem(360);
+  .header, .header.lander {
+    padding: px2rem(16) px2rem(56);
   }
 }

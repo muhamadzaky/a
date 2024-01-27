@@ -5,6 +5,7 @@ import CardProjects from '@components/card/CardProjects';
 import PrivateLayout from '@components/layouts/PrivateLayouts';
 import ModalProject from '@components/modal/ModalProject';
 import { Amplitude } from '@utils/Amplitude';
+import Helper from '@utils/Helper';
 import { BASE64_CV } from '@utils/constant';
 import { t } from '@utils/t';
 import useResponsive from '@utils/useResponsive';
@@ -95,7 +96,7 @@ const Index = (props) => {
   }, []);
 
   return (
-    <PrivateLayout className="landing" title={meta?.name} scrolledNav>
+    <PrivateLayout className="landing" headerClassName="lander" title={meta?.name} scrolledNav>
       <div transition-style="in:circle:hesitate" className="home">
         <Container className="home__container">
           <div className="text">
@@ -103,7 +104,7 @@ const Index = (props) => {
               {banner?.hello} {banner?.imZaky}🙇🏻‍♂️
             </span>
             <span>{banner?.jobDesk}</span>
-            <span dangerouslySetInnerHTML={{ __html: about }}></span>
+            <span dangerouslySetInnerHTML={{ __html: Helper.workingYears('2019', about) }}></span>
 
             <div>
               <Button color="light" block={!isDesktop} onClick={handleClickMailMe}>

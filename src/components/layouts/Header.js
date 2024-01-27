@@ -16,7 +16,7 @@ const Header = (props) => {
   const { locale, pathname } = router;
   const { isDesktop } = useResponsive();
   const { menu, banner } = t[locale];
-  const { scrolledNav = false, withLogo = true } = props;
+  const { scrolledNav = false, withLogo = true, className = "" } = props;
   const { isAuthenticated, user, logout } = useAuth();
 
   const [toggle, setToggle] = useState(false);
@@ -83,6 +83,7 @@ const Header = (props) => {
                     {banner?.hello} {user?.name}
                   </div>
                 ) : null}
+
                 {menuList
                   .filter((x) => x.show === true)
                   .map((item, index) => (
@@ -112,6 +113,7 @@ const Header = (props) => {
             {banner?.hello} {user?.name}
           </div>
         ) : null}
+
         {menuList
           .filter((x) => x.show === true)
           .map((item, index) => (
@@ -128,7 +130,7 @@ const Header = (props) => {
   };
 
   return (
-    <div className={`header${scrolledNav ? ' header-fix' : ''}${hasWhiteNav ? ' scrolled' : ''}`}>
+    <div className={`header${scrolledNav ? ' header-fix' : ''}${hasWhiteNav ? ' scrolled' : ''}${className ? ` ${className}` : ''}`}>
       {withLogo ? (
         <Image
           src="/assets/images/logo.png"
@@ -137,6 +139,7 @@ const Header = (props) => {
           height={35.69}
           onClick={() => router.push('/')}
           role="button"
+          loading="lazy"
         />
       ) : null}
 
