@@ -11,6 +11,8 @@ import { useState } from 'react';
 import { BottomSheet } from 'react-spring-bottom-sheet';
 import { Container } from 'reactstrap';
 
+import { Divider } from '..';
+
 const Header = (props) => {
   const router = useRouter();
   const { locale, pathname } = router;
@@ -58,7 +60,8 @@ const Header = (props) => {
     };
   });
 
-  const menuItemClass = `menu-item${isAuthenticated ? 's' : ''}`;
+  const menuItemClass = `menu-item`;
+  // const menuItemClass = `menu-item${isAuthenticated ? 's' : ''}`;
 
   const renderMenu = () => {
     if (!isDesktop) {
@@ -75,13 +78,12 @@ const Header = (props) => {
             <Container className="d-flex justify-content-center align-items-center my-5">
               <div className="text-center">
                 {isAuthenticated ? (
-                  <div
-                    className={menuItemClass}
-                    style={{ marginRight: 48 }}
-                    onClick={handleClickUsername}
-                    role="button">
-                    {banner?.hello} {user?.name}
-                  </div>
+                  <>
+                    <div className={menuItemClass} onClick={handleClickUsername} role="button">
+                      {banner?.hello.replace('!', '')} {user?.name}!
+                    </div>
+                    <Divider />
+                  </>
                 ) : null}
 
                 {menuList

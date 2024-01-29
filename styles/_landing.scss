@@ -97,7 +97,12 @@
         box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
         border-radius: px2rem(14);
         background-color: #fff;
+        transition: transform 0.3s ease-in-out;
         
+        &:hover {
+          transform: scale(1.2);
+        }
+
         & > img {
           object-fit: contain;
           width: -webkit-fill-available;
@@ -230,4 +235,21 @@
       }
     }
   }
+}
+
+.mask-banner-wrapper {
+  position: relative;
+}
+
+.banner-img {
+  width: 600px;
+  mix-blend-mode: screen;
+  position: absolute;
+  background-image: url('/assets/images/splash.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.banner-mask {
+  width: 600px;
 }

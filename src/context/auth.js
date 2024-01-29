@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
 
     if (!token) return;
 
-    const payload = { username: JSON.parse(userdt)?.username, password: CR_U };
+    const payload = { username: userdt ? JSON.parse(userdt)?.username : '', password: CR_U };
     authenticate(payload);
   }, []);
 

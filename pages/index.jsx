@@ -126,12 +126,19 @@ const Index = (props) => {
         </Container>
       </div>
 
+      {/* <Container>
+        <div className="mask-banner-wrapper">
+          <img src="/assets/images/banner.jpg" alt="" className="banner-img" />
+          <img src="/assets/images/splash.png" alt="" className="banner-mask" />
+        </div>
+      </Container> */}
+
       <Container className="educations">
         <div className="w-100">
           <h1>{menu?.educations}</h1>
           <div className={`card-wrapper mt-3 d-flex flex-${isDesktop ? 'row' : 'column'}`}>
             {map(educations, (item, index) => (
-              <CardEducation data={item} key={index} />
+              <CardEducation data={{ ...item, index }} key={index} />
             ))}
           </div>
         </div>
@@ -149,7 +156,7 @@ const Index = (props) => {
                     src={item?.logo}
                     alt={item?.name}
                     id={`tooltip-${item?.id}`}
-                    className="image-skills"
+                    className="rounded-3"
                   />
                   <Tooltip flip autohide target={`tooltip-${item?.id}`} placement="bottom">
                     {item?.name}

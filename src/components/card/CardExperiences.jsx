@@ -5,7 +5,7 @@ import { Card, CardBody } from 'reactstrap';
 
 import { Divider } from '..';
 
-const CardEcperiences = ({ data }) => {
+const CardEperiences = ({ data }) => {
   const [hasDetail, setHasDetail] = useState(false);
 
   const handleClickCard = () => {
@@ -45,7 +45,7 @@ const CardEcperiences = ({ data }) => {
           src={`/assets/images/company/${data?.file}`}
           alt={data?.name}
           id={`tooltip-${data?.id}`}
-          className="image-skills"
+          className="image-experiences"
         />
       </div>
 
@@ -64,4 +64,4 @@ const CardEcperiences = ({ data }) => {
   );
 };
 
-export default CardEcperiences;
+export default CardEperiences;
