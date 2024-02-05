@@ -19,6 +19,32 @@
   }
 }
 
+.experiences-card {
+  img {
+    position: relative;
+  }
+  
+  figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1.25rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    padding: 0.75rem;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    font-size: .5rem;
+    width: 100%;
+  }
+}
+
+.experiences-card:hover {
+  figcaption {
+    opacity: 1;
+  }
+}
+
 @media (min-width: 992px) {
   .educations {
     .card {

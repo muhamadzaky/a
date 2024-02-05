@@ -26,18 +26,36 @@ const CardEperiences = ({ data }) => {
     setHasDetail(false);
   };
 
-  const renderPosition = () => {
-    const length = data?.position?.length;
-    const name = data?.position.toString();
-    const finalName = length > 1 ? name?.replace(',', ', ') : name?.replace(',', '');
+  const renderFigcaptionBg = (id) => {
+    switch (id) {
+      case 0:
+        return {
+          tx: "#fff",
+          bg: "#111e70"
+        };
+      case 2:
+        return {
+          tx: "#000",
+          bg: "#d60a00"
+        };
+      case 3:
+        return {
+          tx: "#002eb4",
+          bg: "#ff6400"
+        };
+      default:
+        return {
+          tx: "#fff",
+          bg: "#000"
+        };
+    }
+  }
 
-    return finalName;
-  };
+  const rf = renderFigcaptionBg(data?.id);
 
   return (
-    <>
       <div
-        className="border-0 cursor-pointer"
+        className="border-0 cursor-pointer experiences-card"
         onClick={handleClickCard}
         onFocus={onHoverIn}
         onBlur={onHoverOut}>
@@ -47,20 +65,11 @@ const CardEperiences = ({ data }) => {
           id={`tooltip-${data?.id}`}
           className="image-experiences"
         />
+        <figcaption style={{
+          background: `linear-gradient(to bottom, #00000000 0%, ${rf.bg} 100%)`,
+          color: rf.tx
+        }}>{data?.name}</figcaption>
       </div>
-
-      {hasDetail ? (
-        <Card className="card-experience-detail border-0 mt-2 position-absolute shadow">
-          <CardBody className="d-flex flex-column">
-            <span>{Helper.dayJSDateDiff(data?.start, data?.end, true)}</span>
-            <Divider />
-            <span>{data?.name}</span>
-            <Divider />
-            <span>{renderPosition()}</span>
-          </CardBody>
-        </Card>
-      ) : null}
-    </>
   );
 };
 
