@@ -1,7 +1,6 @@
 import { Amplitude } from '@utils/Amplitude';
 
 const CardEperiences = ({ data }) => {
-
   const handleClickCard = () => {
     Amplitude('click experiences card', {
       page: 'landing page',
@@ -34,26 +33,27 @@ const CardEperiences = ({ data }) => {
           tx: '#fff',
           bg: '#000'
         };
-    };
+    }
   };
 
   const rf = renderFigcaptionBg(data?.id);
 
   return (
-      <div
-        className="border-0 cursor-pointer experiences-card"
-        onClick={handleClickCard}>
-        <img
-          src={`/assets/images/company/${data?.file}`}
-          alt={data?.name}
-          id={`tooltip-${data?.id}`}
-          className="image-experiences"
-        />
-        <figcaption style={{
+    <div className="border-0 cursor-pointer experiences-card" onClick={handleClickCard}>
+      <img
+        src={`/assets/images/company/${data?.file}`}
+        alt={data?.name}
+        id={`tooltip-${data?.id}`}
+        className="image-experiences"
+      />
+      <figcaption
+        style={{
           background: `linear-gradient(to bottom, #00000000 0%, ${rf.bg} 100%)`,
           color: rf.tx
-        }}>{data?.name}</figcaption>
-      </div>
+        }}>
+        {data?.name}
+      </figcaption>
+    </div>
   );
 };
 
