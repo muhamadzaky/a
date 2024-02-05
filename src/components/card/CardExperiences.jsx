@@ -1,12 +1,6 @@
 import { Amplitude } from '@utils/Amplitude';
-import Helper from '@utils/Helper';
-import { useState } from 'react';
-import { Card, CardBody } from 'reactstrap';
-
-import { Divider } from '..';
 
 const CardEperiences = ({ data }) => {
-  const [hasDetail, setHasDetail] = useState(false);
 
   const handleClickCard = () => {
     Amplitude('click experiences card', {
@@ -18,47 +12,37 @@ const CardEperiences = ({ data }) => {
     window.open(data?.link);
   };
 
-  const onHoverIn = () => {
-    setHasDetail(true);
-  };
-
-  const onHoverOut = () => {
-    setHasDetail(false);
-  };
-
   const renderFigcaptionBg = (id) => {
     switch (id) {
       case 0:
         return {
-          tx: "#fff",
-          bg: "#111e70"
+          tx: '#fff',
+          bg: '#111e70'
         };
       case 2:
         return {
-          tx: "#000",
-          bg: "#d60a00"
+          tx: '#000',
+          bg: '#d60a00'
         };
       case 3:
         return {
-          tx: "#002eb4",
-          bg: "#ff6400"
+          tx: '#002eb4',
+          bg: '#ff6400'
         };
       default:
         return {
-          tx: "#fff",
-          bg: "#000"
+          tx: '#fff',
+          bg: '#000'
         };
-    }
-  }
+    };
+  };
 
   const rf = renderFigcaptionBg(data?.id);
 
   return (
       <div
         className="border-0 cursor-pointer experiences-card"
-        onClick={handleClickCard}
-        onFocus={onHoverIn}
-        onBlur={onHoverOut}>
+        onClick={handleClickCard}>
         <img
           src={`/assets/images/company/${data?.file}`}
           alt={data?.name}
