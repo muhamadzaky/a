@@ -8,7 +8,7 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
       <nav className="my-16 animate-fade-in">
         <ul className="flex items-center justify-center gap-4">
-          {Navigations.filter((item) => item.show).map((item) => (
+          {Navigations.filter((item) => item.show && item.href !== '/').map((item) => (
             <Link
               key={item.href}
               href={item.href}
