@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "muhamadzaky.my.id",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
+      "Muhamad Zaky - Portfolio",
     url: "https://muhamadzaky.my.id/",
     siteName: "muhamadzaky.my.id",
     images: [
