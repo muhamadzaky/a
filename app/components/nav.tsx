@@ -76,7 +76,7 @@ export const Navigation: React.FC = () => {
 					{Navigations.filter((item) => item.show).map((item) => (
 						<Link
 							href={item.href}
-							className="duration-200 text-zinc-100 text-xl font-bold hover:text-zinc-100"
+							className="duration-200 text-zinc-100 text-xl font-bold"
 							key={item.href}
 						>
 							{item.name}
