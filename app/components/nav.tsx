@@ -5,12 +5,15 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
+import Hamburger from "hamburger-react";
 
 export const Navigation: React.FC = () => {
   const router = useRouter();
   const pathname = usePathname();
 	const ref = useRef<HTMLElement>(null);
+
 	const [isIntersecting, setIntersecting] = useState(true);
+	const [isOpen, setOpen] = useState(false);
 
   const handleClickBack = () => {
     if (pathname === '/') return;
@@ -38,7 +41,7 @@ export const Navigation: React.FC = () => {
 				}`}
 			>
 				<div className="container flex flex-row-reverse items-center justify-between p-6 mx-auto">
-					<div className="flex justify-between items-center gap-8">
+					<div className="hidden md:flex justify-between items-center gap-8">
             {Navigations.filter((item) => item.show).map((item) => (
               <Link
                 href={item.href}
@@ -48,14 +51,17 @@ export const Navigation: React.FC = () => {
                 {item.name}
               </Link>
             ))}
+					</div>
 
-						{/* <Link
-							href={'/'}
-							className="duration-200 text-zinc-400 hover:text-zinc-100"
-							key="logo"
-						>
-							<img src="/assets/images/logo.svg" className="rounded-lg" alt="Muhamad Zaky" width={40} loading="lazy" />
-						</Link> */}
+					<div className="md:hidden">
+						<Hamburger
+							toggled={isOpen}
+							toggle={setOpen}
+							onToggle={() => setOpen(!isOpen)}
+							color="#d4d4d8"
+							size={24}
+							rounded
+						/>
 					</div>
 
 					<div
@@ -64,6 +70,18 @@ export const Navigation: React.FC = () => {
 					>
 						<ArrowLeft className="w-6 h-6 cursor-pointer" />
 					</div>
+				</div>
+
+				<div className={`flex flex-col justify-center items-center gap-3 px-6 pb-3 ${isOpen ? 'block' : 'hidden'} transition-all duration-300 ease-in-out transform ${isOpen ? 'max-h-screen' : 'max-h-0'}`}>
+					{Navigations.filter((item) => item.show).map((item) => (
+						<Link
+							href={item.href}
+							className="duration-200 text-zinc-100 text-xl font-bold hover:text-zinc-100"
+							key={item.href}
+						>
+							{item.name}
+						</Link>
+					))}
 				</div>
 			</div>
 		</header>

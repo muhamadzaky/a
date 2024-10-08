@@ -16,6 +16,10 @@
   }
 }
 
+#dropdown-menu {
+  transition: max-height 0.3s ease-in-out;
+}
+
 // body {
 //   color: rgb(var(--foreground-rgb));
 //   background: linear-gradient(
