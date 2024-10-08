@@ -40,7 +40,7 @@ const ExperiencesPage = async () => {
     <div className="relative pb-16">
       <Navigation />
 
-      <div className="container flex flex-col items-center justify-center min-h-screen px-4 mx-auto">
+      <div className="container flex flex-col items-center justify-center min-h-screen px-4 mx-auto pt-24">
         <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
           Experiences
         </h2>
