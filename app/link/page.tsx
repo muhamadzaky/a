@@ -39,7 +39,7 @@ const LinkPage: React.FC = () => {
         quantity={100}
       />
 
-      <div className="flex flex-col justify-center items-center my-10">
+      <div className="flex flex-col justify-center items-center my-10 h-5/6">
         <div>
           {links.map((link) => (
             <Link href={link.url === 'https://www.muhamadzaky.my.id/' ? '/' : link.url} target="_blank">
