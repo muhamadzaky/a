@@ -15,13 +15,15 @@ const LinkPage: React.FC = () => {
       <div className="flex flex-col justify-center items-center my-10">
         <div>
           {links.map((link) => (
-            <div className="my-2">
-              <Card key={link.slug}>
-                <article className="py-2 px-4 text-center">
-                  <h2 className="text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">{link.name}</h2>
-                </article>
-              </Card>
-            </div>
+            <Link href={link.url} target="_blank">
+              <div className="my-2">
+                <Card key={link.slug}>
+                  <article className="py-2 px-4 text-center">
+                    <h2 className="text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display">{link.name}</h2>
+                  </article>
+                </Card>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
