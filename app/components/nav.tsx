@@ -72,7 +72,7 @@ export const Navigation: React.FC = () => {
 					</div>
 				</div>
 				{isOpen && (
-					<div className={`flex flex-col justify-center items-center gap-3 px-6 pb-3 w-screen max-w-max -translate-x-1/2 px-4 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in`}>
+					<div className="flex flex-col justify-center items-start gap-3 px-6 pb-3 w-max">
 						{Navigations.filter((item) => item.show).map((item) => (
 							<Link
 								href={item.href}
