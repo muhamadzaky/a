@@ -2,6 +2,13 @@
 
 import ProjectCard from "./ProjectCard";
 
+export interface RegionProps {
+  numeric: string | null;
+  name: string | null;
+  alpha2: string | null;
+  alpha3: string | null;
+}
+
 export interface ProjectProps {
   id?: number | null;
   company?: string | null;
@@ -16,6 +23,7 @@ export interface ProjectProps {
   link?: string | null;
   confidential?: boolean | null;
   featured?: boolean | null;
+  region?: RegionProps;
 };
 
 const ProjectList = (props: { data: ProjectProps[] | [] }) => {

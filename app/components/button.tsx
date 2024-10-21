@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ButtonProps {
-  variant?: 'default' | 'success' | 'info' | 'danger' | 'warning' | 'link';
+  variant?: 'default' | 'success' | 'info' | 'danger' | 'warning' | 'link' | 'outline';
   onClick?: () => void;
   children: React.ReactNode;
   className?: string;
@@ -15,7 +15,8 @@ const Button: React.FC<ButtonProps> = ({ variant = 'default', onClick, children,
     info: "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-300",
     danger: "bg-red-600 text-white hover:bg-red-700 focus:ring-red-300",
     warning: "bg-yellow-400 text-white hover:bg-yellow-500 focus:ring-yellow-300",
-    link: "text-blue-600 hover:underline"
+    link: "text-blue-600 hover:underline",
+    outline: "bg-transparent border-2 border-zinc-500 text-zinc-300 hover:bg-zinc-500 hover:text-white focus:ring-zinc-500"
   };
 
   const selectedVariant = variants[variant];
