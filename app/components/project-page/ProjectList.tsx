@@ -8,7 +8,7 @@ export interface ProjectProps {
   name?: string | null;
   start?: string | null;
   end?: string | null;
-  tech?: string | null;
+  tech?: [] | null;
   description?: string | null;
   task?: string | null;
   jobdesk?: string | null;
