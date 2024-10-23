@@ -25,8 +25,6 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ data }) => {
     return !end ? "On Going" : `${dayjs(start).format("DD MMM YYYY")} - ${dayjs(end).format("DD MMM YYYY")}`;
   };
 
-  console.log('data -> ', data);
-
   const dateRange: DateRange = {
     start: data?.start || null,
     end: data?.end || null,
