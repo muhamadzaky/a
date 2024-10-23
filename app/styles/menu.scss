@@ -1,0 +1,43 @@
+.slide-down-enter {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 300ms ease-out, opacity 300ms ease-out;
+}
+
+.slide-down-enter-active {
+  max-height: 100px; /* Sesuaikan dengan ketinggian konten */
+  opacity: 1;
+}
+
+.slide-down-exit {
+  max-height: 100px; /* Sesuaikan dengan ketinggian konten */
+  opacity: 1;
+  transition: max-height 300ms ease-in, opacity 300ms ease-in;
+}
+
+.slide-down-exit-active {
+  max-height: 0;
+  opacity: 0;
+}
+
+.nav__name {
+  position: relative;
+  width: max-content;
+  margin: 0 auto 3rem;
+  font-size: var(--h2-font-size);
+}
+
+.nav__name::before {
+  left: initial;
+  right: -4rem;
+}
+
+.nav__name::after, .nav__name::before {
+  content: "";
+  width: 40px;
+  height: 1px;
+  background-color: #f4f4f5;
+  position: absolute;
+  top: 50%;
+  left: -4rem;
+}

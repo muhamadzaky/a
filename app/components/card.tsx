@@ -1,13 +1,21 @@
 "use client";
+
 import {
 	motion,
 	useMotionTemplate,
 	useSpring,
 } from "framer-motion";
+import React from "react";
 
-import { PropsWithChildren } from "react";
+interface CardProps {
+	children: React.ReactNode;
+	onClick?: () => void;
+	className?: string;
+};
 
-export const Card: React.FC<PropsWithChildren> = ({ children }) => {
+export const Card: React.FC<CardProps> = ({ children, onClick, className = "" }) => {
+	const baseStyles = "overflow-hidden relative duration-700 border rounded-xl hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600";
+
 	const mouseX = useSpring(0, { stiffness: 500, damping: 100 });
 	const mouseY = useSpring(0, { stiffness: 500, damping: 100 });
 
@@ -22,7 +30,8 @@ export const Card: React.FC<PropsWithChildren> = ({ children }) => {
 	return (
 		<div
 			onMouseMove={onMouseMove}
-			className="overflow-hidden relative duration-700 border rounded-xl hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600 "
+			className={`${baseStyles} ${className}`}
+			onClick={onClick}
 		>
 			<div className="pointer-events-none">
 				<div className="absolute inset-0 z-0  transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />

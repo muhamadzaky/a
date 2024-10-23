@@ -9,6 +9,7 @@ interface ModalProps {
   hasHeader?: boolean;
   onOK?: () => void;
   onDecline?: () => void;
+  className?: string;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -19,8 +20,11 @@ const Modal: React.FC<ModalProps> = ({
   hasFooter = true,
   hasHeader = true,
   onOK,
-  onDecline
+  onDecline,
+  className = ""
 }) => {
+  const baseStyles = "fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden bg-black bg-opacity-50 transition-opacity duration-300";
+
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -35,7 +39,7 @@ const Modal: React.FC<ModalProps> = ({
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden bg-black bg-opacity-50 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}
+      className={`${baseStyles} ${isOpen ? 'opacity-100' : 'opacity-0'} ${className}`}
     >
       <div className="relative w-full max-w-2xl p-4 md:p-5">
         <div

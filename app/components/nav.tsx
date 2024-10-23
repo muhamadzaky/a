@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import Hamburger from "hamburger-react";
+import { motion } from 'framer-motion';
 
 export const Navigation: React.FC = () => {
   const router = useRouter();
@@ -30,6 +31,11 @@ export const Navigation: React.FC = () => {
 		observer.observe(ref.current);
 		return () => observer.disconnect();
 	}, []);
+
+	const menuVariants = {
+		open: { maxHeight: 200, opacity: 1, transition: { duration: 0.5 } },
+		closed: { maxHeight: 0, opacity: 0, transition: { duration: 0.5 } }
+	};
 
 	return (
 		<header ref={ref}>
@@ -68,21 +74,25 @@ export const Navigation: React.FC = () => {
 						onClick={handleClickBack}
 						className="duration-200 text-zinc-300 hover:text-zinc-100"
 					>
-						<ArrowLeft className="w-6 h-6 cursor-pointer" />
+						{!isOpen && <ArrowLeft className="w-6 h-6 cursor-pointer animate duration-300 ease-in-out" />}
 					</div>
 				</div>
+
 				{isOpen && (
-					<div className="flex flex-col justify-center items-start gap-3 px-6 pb-3 w-max">
+					<motion.div
+						initial="closed"
+						animate={isOpen ? "open" : "closed"}
+						variants={menuVariants}
+						style={{ overflow: 'hidden' }}
+						layout
+						className="flex flex-col justify-center items-start gap-3 px-6 pb-3 w-max"
+					>
 						{Navigations.filter((item) => item.show).map((item) => (
-							<Link
-								href={item.href}
-								className="duration-200 text-zinc-100 text-xl font-bold"
-								key={item.href}
-							>
+							<Link href={item.href} className="duration-200 text-zinc-100 text-xl font-bold" key={item.href}>
 								{item.name}
 							</Link>
 						))}
-					</div>
+					</motion.div>
 				)}
 			</div>
 		</header>

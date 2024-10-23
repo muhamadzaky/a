@@ -1,6 +1,6 @@
 "use client"
 
-import { Facebook, Github, Instagram, Linkedin, Music2, Twitter, X, Youtube } from "lucide-react";
+import { Facebook, Github, Instagram, Linkedin, Mail, Music2, Twitter, X, Youtube } from "lucide-react";
 import React from "react";
 import { Card } from "../card";
 import Link from "next/link";
@@ -33,6 +33,8 @@ const ContactContainer:React.FC<Props> = ({ data }) => {
           return <Linkedin />
         case "music":
           return <Music2 />
+        case "email":
+          return <Mail />
         default:
           return null;
       };
@@ -54,6 +56,8 @@ const ContactContainer:React.FC<Props> = ({ data }) => {
           return "Linkedin";
         case "music":
           return "Apple Music";
+        case "email":
+          return "Email";
         default:
           return null;
       };
@@ -64,7 +68,7 @@ const ContactContainer:React.FC<Props> = ({ data }) => {
   
   return (
     <div className="container flex items-center justify-center min-h-screen px-4 mx-auto">
-      <div className="grid w-full grid-cols-1 gap-8 mx-auto mt-32 sm:mt-0 sm:grid-cols-3 lg:gap-16">
+      <div className="grid w-full grid-cols-1 gap-8 mx-auto mt-32 sm:mt-0 sm:grid-cols-4 lg:gap-16">
         {data.map((s) => (
           <Card key={s.name}>
             <Link

@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import './menu.scss';
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -16,9 +17,21 @@
   }
 }
 
-#dropdown-menu {
-  transition: max-height 0.3s ease-in-out;
+ul.employment__type {
+  list-style-type: none;
 }
+
+// .employment__type li {
+//   position: relative;
+//   padding-left: 15px;
+// }
+
+// .employment__type li::before {
+//   content: "・";
+//   position: absolute;
+//   left: 0;
+//   margin-right: 8px;
+// }
 
 // body {
 //   color: rgb(var(--foreground-rgb));

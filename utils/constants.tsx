@@ -37,6 +37,12 @@ export const Links = [
     url: "https://www.github.com/@zakydayo"
   },
   {
+    name: "Email",
+    slug: "email",
+    initial: "email",
+    url: "mailto:muhamadzaky1023@gmail.com"
+  },
+  {
     name: "LinkedIn",
     slug: "linkedin",
     initial: "linkedin",
