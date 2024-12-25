@@ -2,8 +2,7 @@ import Link from "next/link";
 import Particles from "./components/particles";
 import { Navigations } from "@/utils/constants";
 import Footer from "./components/footer";
-import Button from "./components/button";
-import GenerateCV, { generateCV } from "@/utils/generateCV";
+import GenerateCV from "@/utils/generateCV";
 
 export default function Home() {
   return (
