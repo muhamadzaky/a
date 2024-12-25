@@ -420,7 +420,7 @@ const GenerateCV = () => {
                 ],
             },
             "\n",
-            { text: "EDUCATION", style: "sectionHeader" },
+            { text: "EDUCATIONS", style: "sectionHeader" },
             {
                 columns: [
                     {
@@ -448,7 +448,7 @@ const GenerateCV = () => {
                 ],
             },
             "\n",
-            { text: "SERTIFICATE", style: "sectionHeader" },
+            { text: "SERTIFICATES", style: "sectionHeader" },
             {
                 columns: [
                     {
