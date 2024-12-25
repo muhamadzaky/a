@@ -122,7 +122,7 @@ const ProjectDetail: React.FC = () => {
             </Link>
           )}
           <div className="flex justify-center mt-5">
-            <Button onClick={openModal} variant="outline" className="flex flex-wrap items-center gap-2">
+            <Button onClick={openModal} variant="ghost" outline>
               Details
             </Button>
           </div>

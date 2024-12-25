@@ -2,6 +2,8 @@ import Link from "next/link";
 import Particles from "./components/particles";
 import { Navigations } from "@/utils/constants";
 import Footer from "./components/footer";
+import Button from "./components/button";
+import GenerateCV, { generateCV } from "@/utils/generateCV";
 
 export default function Home() {
   return (
@@ -39,6 +41,9 @@ export default function Home() {
             <img key={item} src={`/assets/images/${item}-grey.svg`} className="rounded-sm" alt={item} width={30} loading="lazy" />
           ))}
         </div>
+
+        <GenerateCV />
+
         <div className="flex justify-center items-center text-zinc-500 gap-5 mt-5">
           <Footer />
         </div>
