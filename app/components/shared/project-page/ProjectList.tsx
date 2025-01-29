@@ -2,31 +2,7 @@
 
 import ProjectCard from "./ProjectCard";
 
-export interface RegionProps {
-  numeric: string | null;
-  name: string | null;
-  alpha2: string | null;
-  alpha3: string | null;
-}
-
-export interface ProjectProps {
-  id?: number | null;
-  company?: string | null;
-  name?: string | null;
-  start?: string | null;
-  end?: string | null;
-  tech?: [] | null;
-  description?: string | null;
-  task?: string | null;
-  jobdesk?: string | null;
-  file?: string | null;
-  link?: string | null;
-  confidential?: boolean | null;
-  featured?: boolean | null;
-  region?: RegionProps;
-};
-
-const ProjectList = (props: { data: ProjectProps[] | [] }) => {
+const ProjectList = (props: { data: Model.Project[] | [] }) => {
   const { data } = props;
 
   const unfeaturedProject = data.length > 0 ? data.filter((dt) => dt.featured === false) : [];

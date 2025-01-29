@@ -1,96 +1,167 @@
-import React, { useEffect, useState } from 'react';
+'use client';
 
-interface ModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  title: string;
-  children: React.ReactNode;
-  hasFooter?: boolean;
-  hasHeader?: boolean;
-  onOK?: () => void;
-  onDecline?: () => void;
-  className?: string;
-}
+import { cn } from '@/utils/classnames';
+import React, { FC, useEffect, useState } from 'react';
+import { AiOutlineClose } from 'react-icons/ai';
+import Button from './button';
 
-const Modal: React.FC<ModalProps> = ({
-  isOpen,
-  onClose,
+const Modal: FC<Component.Modal> = ({
   title,
   children,
-  hasFooter = true,
-  hasHeader = true,
+  footer,
+  toggle,
+  open,
+  size = 'md',
+  fullScreen = false,
+  scrollable = false,
   onOK,
-  onDecline,
-  className = ""
+  okText = 'OK',
+  onCancel,
+  cancelText = 'Cancel',
+  loading = false,
+  closeOnEsc = true,
+  closeOnClickBackdrop = true,
+  className = '',
+  headerClassName = '',
+  bodyClassName = '',
+  footerClassName = '',
+  onOpen,
+  onClosed
 }) => {
-  const baseStyles = "fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden bg-black bg-opacity-50 transition-opacity duration-300";
-
-  const [showModal, setShowModal] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
-    if (isOpen) {
-      setShowModal(true);
+    if (open) {
+      setIsAnimating(true);
+      setIsVisible(true);
     } else {
-      setTimeout(() => setShowModal(false), 300); // Delay for animation
+      setIsAnimating(true);
+      setTimeout(() => {
+        setIsAnimating(false);
+        setIsVisible(false);
+      }, 300);
     }
-  }, [isOpen]);
+  }, [open]);
 
-  if (!showModal) return null;
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && closeOnEsc && open) {
+        toggle();
+      }
+    };
+
+    if (open) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [open, closeOnEsc, toggle]);
+
+  const handleOK = () => {
+    if (onOK) onOK();
+  };
+
+  const handleCancel = () => {
+    if (onCancel) onCancel();
+  };
+
+  const handleBackdropClick = () => {
+    if (closeOnClickBackdrop) toggle();
+  };
+
+  const animateTransition = () => {
+    if (isVisible && isAnimating) return 'animate-slideIn';
+    if (isAnimating) return 'animate-slideOut';
+    return '';
+  };
+
+  useEffect(() => {
+    if (isVisible) onOpen?.();
+    if (!isVisible) onClosed?.();
+  }, [isVisible, onOpen, onClosed]);
+
+  const sizeClasses: Record<string, string> = {
+    sm: 'w-full md:w-4/12',
+    md: 'w-full md:w-5/12',
+    lg: 'w-full md:w-7/12',
+    xl: 'w-full md:w-8/12',
+    '2xl': 'w-full md:w-9/12',
+    '3xl': 'w-full md:w-11/12',
+    full: 'w-full'
+  };
+
+  const modalSizeClass = fullScreen ? 'w-screen h-screen' : sizeClasses[size] || sizeClasses.md;
 
   return (
-    <div
-      className={`${baseStyles} ${isOpen ? 'opacity-100' : 'opacity-0'} ${className}`}
-    >
-      <div className="relative w-full max-w-2xl p-4 md:p-5">
+    <div className={cn('fixed inset-0 z-50', isVisible ? 'block' : 'hidden')} role="dialog">
+      <div
+        className="absolute inset-0 transition-opacity bg-black bg-opacity-70"
+        onClick={handleBackdropClick}></div>
+      <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+        <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">
+          &#8203;
+        </span>
         <div
-          className={`relative bg-black rounded-lg shadow dark:bg-black transition-transform duration-300 ${isOpen ? 'scale-100' : 'scale-95'}`}
-        >
-          {hasHeader && (
-            <div className="flex items-center justify-between p-4 border-b border-gray-600 rounded-t">
-              <h3 className="text-xl font-semibold text-white">{title}</h3>
-              <button
-                type="button"
-                className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                onClick={onClose}
-              >
-                <svg
-                  className="w-3 h-3"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 14"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M1 1l6 6m0 0l6 6M7 7L1 13m6-6L1 1m6 6l6-6M7 7l6 6"
-                  />
-                </svg>
-                <span className="sr-only">Close modal</span>
-              </button>
+          className={cn(
+            'inline-block w-full justify-between align-bottom bg-black rounded-md text-left overflow-hidden shadow-xl transform transition-all sm:align-middle',
+            modalSizeClass,
+            animateTransition(),
+            className
+          )}>
+          <div className="flex flex-col justify-between h-inherit">
+            <div>
+              <div className="px-4 pt-5 mb-4">
+                <div className="absolute top-0 right-0 pt-4 pr-4">
+                  <button
+                    type="button"
+                    onClick={toggle}
+                    className="text-white hover:text-white/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                    <span className="sr-only">Close</span>
+                    <AiOutlineClose />
+                  </button>
+                </div>
+                <h3
+                  className={cn('text-xl font-medium leading-6 text-white', headerClassName)}
+                  id="modal-title">
+                  {title}
+                </h3>
+              </div>
+              <div
+                className={cn('px-4', scrollable ? 'overflow-y-auto' : '', bodyClassName)}
+                style={{ maxHeight: scrollable ? 'calc(100vh - 10rem)' : 'auto' }}>
+                {children}
+              </div>
             </div>
-          )}
-          <div className="p-4 md:p-5 space-y-4 text-white">{children}</div>
-          {hasFooter && (
-            <div className="flex items-center p-4 md:p-5 border-t border-gray-600 rounded-b">
-              <button
-                type="button"
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                onClick={onOK}
-              >
-                I accept
-              </button>
-              <button
-                type="button"
-                className="py-2.5 px-5 ml-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-                onClick={onDecline}
-              >
-                Decline
-              </button>
+            <div className={cn('flex flex-row-reverse gap-2 p-4', footerClassName)}>
+              {(footer === undefined || footer === null) && (
+                <>
+                  {onCancel && (
+                    <Button
+                      variant="danger"
+                      className="justify-center w-26"
+                      outline
+                      disabled={loading}
+                      onClick={handleCancel}>
+                      {cancelText}
+                    </Button>
+                  )}
+                  {onOK && (
+                    <Button
+                      className="justify-center w-26"
+                      disabled={loading}
+                      onClick={handleOK}
+                      loading={loading}>
+                      {okText}
+                    </Button>
+                  )}
+                </>
+              )}
+              {footer}
             </div>
-          )}
+          </div>
         </div>
       </div>
     </div>
