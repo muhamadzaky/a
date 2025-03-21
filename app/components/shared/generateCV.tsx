@@ -333,7 +333,7 @@ const GenerateCV: FC = () => {
           }
         ]
       },
-      '\n\n',
+      '\n\n\n',
       // astra
       {
         columns: [
