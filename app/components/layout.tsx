@@ -5,13 +5,14 @@ import { FC, ReactNode, useCallback } from 'react';
 import { Navigation } from './nav';
 import GenerateCV from './shared/generateCV';
 import { ToastContainer } from 'react-toastify';
+import { PATH_WITHOUT_NAV } from './constants';
 
 const Layout: FC<{ children: ReactNode }> = ({ children }) => {
   const pathname = usePathname();
 
   const navWrapper = useCallback(
     (children: ReactNode) => {
-      if (pathname === '/') return children;
+      if (PATH_WITHOUT_NAV.includes(pathname)) return children;
 
       return (
         <div className="relative pb-16 min-h-[calc(100dvh-72px)] h-[calc(100dvh-72px)]">
