@@ -7,7 +7,8 @@ import Link from 'next/link';
 import dayjs from 'dayjs';
 import Flag from 'react-world-flags';
 import { DateRange, calculateDuration } from '@/utils/Helper/calculateDuration';
-import { Badge, Button, Modal, Spinner } from '../..';
+import { Badge, Modal, Spinner } from '../..';
+import { Button } from '@/components/ui/button';
 
 const ProjectDetail: FC = () => {
   const params = useParams();
@@ -47,11 +48,11 @@ const ProjectDetail: FC = () => {
       const response = await axios.get(`${process.env.NEXT_API_URL}projects`);
       const responseData = response.data;
       const filteredData = responseData.filter((dt: Model.Project) => dt.id === +id);
-      console.log('📘 -> ', responseData, filteredData, id);
+      // console.log('📘 -> ', responseData, filteredData, id);
       setData(filteredData[0]);
       setLoading(false);
     } catch (e) {
-      console.log('📕 -> ', e);
+      // console.log('📕 -> ', e);
       setLoading(false);
     }
   };
@@ -115,7 +116,7 @@ const ProjectDetail: FC = () => {
             </Link>
           )}
           <div className="flex justify-center mt-5">
-            <Button onClick={openModal} variant="ghost" outline>
+            <Button onClick={openModal} color="ghost" variant="solid">
               Details
             </Button>
           </div>

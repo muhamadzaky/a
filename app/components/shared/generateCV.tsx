@@ -3,9 +3,9 @@
 import { FC, useEffect } from 'react';
 import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
-import { Button } from '..';
+import { Button } from '@/components/ui/button';
 import axios from 'axios';
-import toast from '../toast';
+import dayjs from 'dayjs';
 
 const GenerateCV: FC = () => {
   const fetchData = async () => {
@@ -26,6 +26,11 @@ const GenerateCV: FC = () => {
       throw error;
     }
   };
+
+  const startDate = dayjs('2017-07-01');
+  const now = dayjs();
+
+  const yearsExperience = now.diff(startDate, 'year');
 
   const dd: any = {
     info: {
@@ -75,9 +80,9 @@ const GenerateCV: FC = () => {
 
       {
         text: [
-          { text: 'Hi! I’m Zaky! ', bold: true },
-          '\n',
-          'I have 7 years of experience in software development, with a strong focus on Frontend technologies, particularly React JS.'
+          // { text: 'Hi! I’m Zaky! ', bold: true },
+          // '\n',
+          `I have ${yearsExperience} years of experience in software development, with a strong focus on Frontend technologies, particularly React JS.`
           // "I have 7 years of experience in software development, with a strong focus on Frontend technologies, particularly React JS. My passion lies in crafting intuitive and responsive web applications that enhance user experiences.",
         ],
         margin: [0, 0, 0, 10]
@@ -88,7 +93,7 @@ const GenerateCV: FC = () => {
       {
         columns: [
           { text: 'Frontend Developer', style: 'jobTitle' },
-          { text: '11/2024 - Present', alignment: 'right' }
+          { text: 'Nov 2024 - Present', alignment: 'right' }
         ]
       },
       {
@@ -141,7 +146,7 @@ const GenerateCV: FC = () => {
             text: 'Sr. Associate Frontend Developer',
             style: 'jobTitle'
           },
-          { text: '03/2021 - 01/2024', alignment: 'right' }
+          { text: 'Mar 2021 - Jan 2024', alignment: 'right' }
         ]
       },
       {
@@ -208,7 +213,7 @@ const GenerateCV: FC = () => {
       {
         columns: [
           { text: 'Frontend Developer', style: 'jobTitle' },
-          { text: '07/2021 - 12/2021', alignment: 'right' }
+          { text: 'Jul 2021 - Dec 2021', alignment: 'right' }
         ]
       },
       {
@@ -242,7 +247,7 @@ const GenerateCV: FC = () => {
           {
             text: [
               { text: 'Implement RESTful APIs', bold: true },
-              'to support seamless data exchange and integration.'
+              ' to support seamless data exchange and integration.'
             ]
           },
           {
@@ -261,7 +266,7 @@ const GenerateCV: FC = () => {
       {
         columns: [
           { text: 'Full Stack Developer', style: 'jobTitle' },
-          { text: '07/2017 - 07/2021', alignment: 'right' }
+          { text: 'Jul 2017 - Jul 2021', alignment: 'right' }
         ]
       },
       {
@@ -333,12 +338,12 @@ const GenerateCV: FC = () => {
           }
         ]
       },
-      '\n\n\n',
+      '\n\n\n\n',
       // astra
       {
         columns: [
           { text: '.NET Developer', style: 'jobTitle' },
-          { text: '01/2018 - 10/2018', alignment: 'right' }
+          { text: 'Jan 2018 - Oct 2018', alignment: 'right' }
         ]
       },
       {
@@ -402,7 +407,7 @@ const GenerateCV: FC = () => {
       {
         columns: [
           { text: 'Intern Web Developer', style: 'jobTitle' },
-          { text: '10/2016 - 12/2016', alignment: 'right' }
+          { text: 'Oct 2016 - Dec 2016', alignment: 'right' }
         ]
       },
       {
@@ -445,7 +450,7 @@ const GenerateCV: FC = () => {
             stack: [
               {
                 text: 'Computer Software Engineering',
-                fontSize: 14,
+                fontSize: 12,
                 bold: true
               },
               {
@@ -457,7 +462,34 @@ const GenerateCV: FC = () => {
             width: '70%'
           },
           {
-            text: '07/2014 - 05/2017',
+            text: 'Jul 2014 - May 2017',
+            fontSize: 12,
+            color: '#555',
+            alignment: 'right',
+            width: '30%'
+          }
+        ]
+      },
+      '\n',
+      {
+        columns: [
+          {
+            stack: [
+              {
+                text: 'Information Systems',
+                fontSize: 12,
+                bold: true
+              },
+              {
+                text: 'Open University, Indonesia',
+                fontSize: 12,
+                link: 'https://ut.ac.id/'
+              }
+            ],
+            width: '70%'
+          },
+          {
+            text: 'Aug 2025 - Present',
             fontSize: 12,
             color: '#555',
             alignment: 'right',
@@ -473,7 +505,7 @@ const GenerateCV: FC = () => {
             stack: [
               {
                 text: 'Skill Competency Test',
-                fontSize: 14,
+                fontSize: 12,
                 bold: true
               },
               {
@@ -484,7 +516,7 @@ const GenerateCV: FC = () => {
             width: '70%'
           },
           {
-            text: '01/2017',
+            text: 'Jan 2017',
             fontSize: 12,
             color: '#555',
             alignment: 'right',
@@ -499,7 +531,7 @@ const GenerateCV: FC = () => {
             stack: [
               {
                 text: 'Java Programming Fundamental Course Completion',
-                fontSize: 14,
+                fontSize: 12,
                 bold: true
               },
               { text: 'Oracle Academy', fontSize: 12 },
@@ -511,7 +543,7 @@ const GenerateCV: FC = () => {
             width: '70%'
           },
           {
-            text: '12/2016',
+            text: 'Dec 2016',
             fontSize: 12,
             color: '#555',
             alignment: 'right',
@@ -524,13 +556,13 @@ const GenerateCV: FC = () => {
         columns: [
           {
             stack: [
-              { text: 'ASP.NET', fontSize: 14, bold: true },
+              { text: 'ASP.NET', fontSize: 12, bold: true },
               { text: 'Geeksfarm', fontSize: 12 }
             ],
             width: '70%'
           },
           {
-            text: '06/2017',
+            text: 'Jun 2017',
             fontSize: 12,
             color: '#555',
             alignment: 'right',
@@ -588,16 +620,16 @@ const GenerateCV: FC = () => {
   };
 
   useEffect(() => {
-    if (pdfMake && pdfFonts && pdfFonts.pdfMake && pdfFonts.pdfMake.vfs) {
-      pdfMake.vfs = pdfFonts.pdfMake.vfs;
+    if (pdfMake && pdfFonts && (pdfFonts as any).pdfMake?.vfs) {
+      (pdfMake as any).vfs = (pdfFonts as any).pdfMake.vfs;
     } else {
-      console.error('Error: pdfMake or pdfFonts.vfs is undefined.');
+      console.error('pdfMake or pdfFonts.vfs is undefined.');
     }
   }, []);
 
   return (
     <div className="flex justify-center mt-5">
-      <Button variant="ghost" outline onClick={handleClickDownload}>
+      <Button color="ghost" variant="solid" onClick={handleClickDownload}>
         Download CV
       </Button>
     </div>

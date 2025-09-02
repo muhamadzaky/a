@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Article } from "./article";
 import ProjectList from '../components/shared/project-page/ProjectList';
 import axios from 'axios';
 

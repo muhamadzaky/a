@@ -3,8 +3,14 @@ import Particles from './components/particles';
 import { Navigations } from '@/utils/constants';
 import Footer from './components/footer';
 import GenerateCV from '@/app/components/shared/generateCV';
+import dayjs from 'dayjs';
 
 export default function Home() {
+  const startDate = dayjs('2019-03-01');
+  const now = dayjs();
+
+  const yearsExperience = now.diff(startDate, 'year');
+
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
       <nav className="my-16 animate-fade-in">
@@ -28,7 +34,8 @@ export default function Home() {
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="my-16 text-center animate-fade-in">
         <h2 className="text-sm text-zinc-500 px-2">
-          A Front-end Developer - Building React.js web application for over 5 years.
+          A Front-end Developer - Building React.js web application for over {yearsExperience}{' '}
+          years.
         </h2>
 
         <div className="flex justify-center items-center text-zinc-500 gap-5 mt-3">
